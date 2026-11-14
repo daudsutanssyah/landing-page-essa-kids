@@ -43,7 +43,7 @@ export const renderPublicFooter = () => {
                 100% Terapis STR Resmi
               </span>
               <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium bg-sky-950/80 text-sky-300 border border-sky-800/60">
-                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                <i data-lucide="award" class="w-3.5 h-3.5"></i>
                 Play-Based Terukur
               </span>
             </div>
@@ -61,7 +61,7 @@ export const renderPublicFooter = () => {
               </li>
               <li>
                 <a href="#layanan" class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-2">
-                  <i data-lucide="sparkles" class="w-4 h-4 text-purple-400"></i>
+                  <i data-lucide="compass" class="w-4 h-4 text-purple-400"></i>
                   <span>Sensori Integrasi (Sensory Integration)</span>
                 </a>
               </li>

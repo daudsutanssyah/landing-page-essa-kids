@@ -77,7 +77,7 @@ export const LANDING_CONTENT = deepFreeze({
       value: 'Play-Based',
       label: 'Metode Bermain Terarah',
       description: 'Stimulasi berbasis bermain yang disukai anak dengan target capaian IEP yang terukur.',
-      icon: 'sparkles',
+      icon: 'award',
       badgeColor: 'bg-amber-50 text-amber-700 border-amber-200'
     },
     {
@@ -114,7 +114,7 @@ export const LANDING_CONTENT = deepFreeze({
       id: 'sensory',
       categoryName: 'Fokus & Sensori',
       ageRange: 'Usia 1 – 7 Tahun',
-      icon: 'sparkles',
+      icon: 'compass',
       recommendedService: 'SENSORY',
       badgeClass: 'badge-secondary',
       colorTheme: 'purple',
@@ -192,7 +192,7 @@ export const LANDING_CONTENT = deepFreeze({
       shortName: 'Sensori Integrasi',
       badge: 'badge-secondary',
       badgeLabel: 'Regulasi Sensori',
-      icon: 'sparkles',
+      icon: 'compass',
       duration: '60 Menit / Sesi',
       ratio: '1 Terapis : 1 Anak (One-on-One)',
       room: 'Ruang Sensori Integrasi',

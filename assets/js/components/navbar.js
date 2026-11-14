@@ -193,7 +193,7 @@ export const renderPublicNavbar = () => {
             :class="activeNav === '#cek-gejala' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
             class="flex items-center gap-3 px-4 py-2.5 text-sm rounded-xl transition-all"
           >
-            <i data-lucide="sparkles" class="w-4 h-4 text-primary"></i>
+            <i data-lucide="clipboard-check" class="w-4 h-4 text-primary"></i>
             <span>Cek Gejala Awal</span>
           </a>
           <a 

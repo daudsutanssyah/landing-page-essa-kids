@@ -115,7 +115,7 @@
           
           <!-- Small Badge -->
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-100/90 text-emerald-800 border border-emerald-200/80 shadow-xs animate-fade-in">
-            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-emerald-600"></i>
+            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
             <span>Klinik Terapi Tumbuh Kembang Anak Terpadu</span>
           </div>
 
@@ -143,22 +143,55 @@
               href="#cek-gejala" 
               class="btn bg-base-100 hover:bg-base-200 text-base-content border border-base-300 rounded-xl px-6 py-3.5 shadow-sm font-semibold gap-2.5 text-base transition-all w-full sm:w-auto"
             >
-              <i data-lucide="sparkles" class="w-5 h-5 text-primary"></i>
+              <i data-lucide="clipboard-check" class="w-5 h-5 text-primary"></i>
               <span>Cek Tanda Awal Anak</span>
             </a>
           </div>
 
-          <!-- Indikator Kepercayaan Terintegrasi (Stacked Avatars + Rating/Trust Text) -->
+          <!-- Indikator Kepercayaan Terintegrasi (Stacked Squircles + Rating/Trust Text) -->
           <div class="mt-10 flex flex-col sm:flex-row sm:items-center justify-center lg:justify-start gap-4">
-            <!-- 5 Lingkaran Avatar/Ikon Bertumpuk -->
-            <div class="flex -space-x-3 overflow-hidden justify-center lg:justify-start">
-              <div class="inline-flex h-11 w-11 rounded-full ring-2 ring-white bg-emerald-100 text-emerald-800 font-extrabold text-xs items-center justify-center shadow-xs" title="Kak Nadia, S.Tr.Kes (Sensori Integrasi)">NP</div>
-              <div class="inline-flex h-11 w-11 rounded-full ring-2 ring-white bg-amber-100 text-amber-800 font-extrabold text-xs items-center justify-center shadow-xs" title="Kak Bima, A.Md.TW (Terapi Wicara)">BP</div>
-              <div class="inline-flex h-11 w-11 rounded-full ring-2 ring-white bg-sky-100 text-sky-800 font-extrabold text-xs items-center justify-center shadow-xs" title="Kak Rini, S.Fis (Fisioterapi)">RK</div>
-              <div class="inline-flex h-11 w-11 rounded-full ring-2 ring-white bg-purple-100 text-purple-800 font-extrabold text-xs items-center justify-center shadow-xs" title="Kak Dinda, A.Md.OT (Terapi Okupasi)">DL</div>
-              <div class="inline-flex h-11 w-11 rounded-full ring-2 ring-white bg-primary text-white font-extrabold text-xs items-center justify-center shadow-xs" title="ESSA Kids Therapy">
-                <i data-lucide="baby" class="w-5 h-5"></i>
-              </div>
+            <!-- 5 Avatar Berbentuk Squircle Geometris Modern dari CDN Publik -->
+            <div class="flex -space-x-3 overflow-hidden justify-center lg:justify-start items-center py-1">
+              <img 
+                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=160&h=160&fit=crop&crop=face&auto=format" 
+                alt="Kak Nadia - Terapis Sensori Integrasi" 
+                class="w-12 h-12 rounded-[16px] object-cover ring-2 ring-white shadow-xs transition-transform hover:scale-110 hover:z-20 hover:-rotate-3"
+                loading="lazy"
+                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Nadia+Putri&background=d1fae5&color=065f46'"
+                title="Kak Nadia, S.Tr.Kes (Terapis Sensori Integrasi)"
+              />
+              <img 
+                src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=160&h=160&fit=crop&crop=face&auto=format" 
+                alt="Kak Bima - Terapis Wicara" 
+                class="w-12 h-12 rounded-[16px] object-cover ring-2 ring-white shadow-xs transition-transform hover:scale-110 hover:z-20 hover:rotate-3"
+                loading="lazy"
+                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Bima+Pratama&background=fef3c7&color=92400e'"
+                title="Kak Bima, A.Md.TW (Terapis Wicara)"
+              />
+              <img 
+                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=160&h=160&fit=crop&crop=face&auto=format" 
+                alt="Kak Rini - Fisioterapis Anak" 
+                class="w-12 h-12 rounded-[16px] object-cover ring-2 ring-white shadow-xs transition-transform hover:scale-110 hover:z-20 hover:-rotate-3"
+                loading="lazy"
+                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Rini+Kartika&background=e0f2fe&color=0369a1'"
+                title="Kak Rini, S.Fis (Fisioterapis Anak)"
+              />
+              <img 
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=160&h=160&fit=crop&crop=face&auto=format" 
+                alt="Kak Dinda - Terapis Okupasi" 
+                class="w-12 h-12 rounded-[16px] object-cover ring-2 ring-white shadow-xs transition-transform hover:scale-110 hover:z-20 hover:rotate-3"
+                loading="lazy"
+                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Dinda+Lestari&background=f3e8ff&color=6b21a8'"
+                title="Kak Dinda, A.Md.OT (Terapis Okupasi)"
+              />
+              <img 
+                src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=160&h=160&fit=crop&crop=face&auto=format" 
+                alt="Pasien Anak Bahagia" 
+                class="w-12 h-12 rounded-[16px] object-cover ring-2 ring-white shadow-xs transition-transform hover:scale-110 hover:z-20 hover:-rotate-3"
+                loading="lazy"
+                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Rayyan&background=ecfdf5&color=059669'"
+                title="Pasien Anak Bahagia di ESSA Kids"
+              />
             </div>
 
             <!-- Bintang & Teks Metrik Kepercayaan -->
@@ -194,7 +227,7 @@
 
         </div>
 
-        <!-- Kolom Kanan: Connected Circular Nodes / Constellation Layout -->
+        <!-- Kolom Kanan: Connected Geometric Squircle Pods / Constellation Layout -->
         <div class="lg:col-span-6 relative flex items-center justify-center">
           
           <div class="relative h-[420px] sm:h-[480px] w-full flex items-center justify-center">
@@ -207,14 +240,14 @@
 
             <!-- Floating Badge Chip Kiri Bawah -->
             <div class="absolute -bottom-2 left-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-700 border border-slate-200/80 shadow-md flex items-center gap-1.5 pointer-events-none z-20">
-              <i data-lucide="sparkles" class="w-4 h-4 text-amber-500"></i>
+              <i data-lucide="award" class="w-4 h-4 text-amber-500"></i>
               <span>Metode Play-Based Terukur</span>
             </div>
 
             <!-- Subtle Glow Aura di Belakang Node Pusat -->
             <div class="absolute w-44 h-44 rounded-full bg-emerald-400/15 blur-2xl pointer-events-none" style="left: 20%; top: 50%; transform: translate(-50%, -50%);"></div>
 
-            <!-- SVG Dashed Connector Lines (Presisi Menghubungkan Titik Pusat Ke-5 Lingkaran) -->
+            <!-- SVG Dashed Connector Lines (Presisi Menghubungkan Titik Pusat Ke-5 Squircle Pods) -->
             <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 100 100" preserveAspectRatio="none">
               <!-- 1. Tengah-Kiri (20, 50) ke Atas-Tengah (50, 22) -->
               <line x1="20" y1="50" x2="50" y2="22" stroke="currentColor" class="text-emerald-500/40" stroke-width="2" stroke-dasharray="5 5" vector-effect="non-scaling-stroke" />
@@ -233,16 +266,20 @@
             </svg>
 
             <!-- ==============================================================
-                 5 CIRCULAR NODES
+                 5 GEOMETRIC SQUIRCLE NODES (ORISINAL & RAMAH ANAK)
                  ============================================================== -->
-            <!-- Node 1: Tengah-Kiri (Center-Left) — Pusat ESSA Kids -->
+            <!-- Node 1: Tengah-Kiri (Center-Left) — Pusat Anak & ESSA Kids -->
             <div 
               style="left: 20%; top: 50%; transform: translate(-50%, -50%);" 
-              class="absolute w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-base-100 shadow-xl overflow-hidden bg-base-100 flex flex-col items-center justify-center z-10 transition-all duration-300 hover:scale-110 hover:shadow-2xl cursor-pointer group"
+              class="absolute w-28 h-28 sm:w-32 sm:h-32 rounded-[28px] sm:rounded-[32px] border-4 border-base-100 shadow-xl overflow-hidden bg-base-100/98 flex flex-col items-center justify-center z-10 transition-all duration-300 hover:scale-110 hover:shadow-2xl cursor-pointer group"
             >
-              <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-emerald-100/90 text-primary flex items-center justify-center mb-1 group-hover:scale-110 transition-transform">
-                <i data-lucide="baby" class="w-5 h-5 sm:w-6 sm:h-6"></i>
-              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=160&h=160&fit=crop&crop=face&auto=format" 
+                alt="ESSA Kids Therapy"
+                class="w-12 h-12 rounded-[14px] object-cover ring-2 ring-emerald-200 mb-1 group-hover:scale-105 transition-transform shadow-xs"
+                loading="lazy"
+                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=ESSA+Kids&background=d1fae5&color=065f46'"
+              />
               <span class="text-[11px] sm:text-xs font-bold text-slate-800 leading-tight">ESSA Kids</span>
               <span class="text-[9px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full mt-0.5">Pusat Terpadu</span>
             </div>
@@ -250,11 +287,15 @@
             <!-- Node 2: Atas-Tengah (Top-Center) — Terapi Wicara (Kak Bima) -->
             <div 
               style="left: 50%; top: 22%; transform: translate(-50%, -50%);" 
-              class="absolute w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-base-100 shadow-xl overflow-hidden bg-base-100 flex flex-col items-center justify-center z-10 transition-all duration-300 hover:scale-110 hover:shadow-2xl cursor-pointer group"
+              class="absolute w-28 h-28 sm:w-32 sm:h-32 rounded-[28px] sm:rounded-[32px] border-4 border-base-100 shadow-xl overflow-hidden bg-base-100/98 flex flex-col items-center justify-center z-10 transition-all duration-300 hover:scale-110 hover:shadow-2xl cursor-pointer group"
             >
-              <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center mb-1 group-hover:scale-110 transition-transform">
-                <i data-lucide="message-circle" class="w-5 h-5 sm:w-6 sm:h-6"></i>
-              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=160&h=160&fit=crop&crop=face&auto=format" 
+                alt="Kak Bima Pratama - Terapi Wicara"
+                class="w-12 h-12 rounded-[14px] object-cover ring-2 ring-amber-200 mb-1 group-hover:scale-105 transition-transform shadow-xs"
+                loading="lazy"
+                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Bima+Pratama&background=fef3c7&color=92400e'"
+              />
               <span class="text-[11px] sm:text-xs font-bold text-slate-800 leading-tight">Kak Bima</span>
               <span class="text-[9px] font-semibold text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full mt-0.5">Terapi Wicara</span>
             </div>
@@ -262,11 +303,15 @@
             <!-- Node 3: Bawah-Tengah (Bottom-Center) — Sensori Integrasi (Kak Nadia) -->
             <div 
               style="left: 48%; top: 78%; transform: translate(-50%, -50%);" 
-              class="absolute w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-base-100 shadow-xl overflow-hidden bg-base-100 flex flex-col items-center justify-center z-10 transition-all duration-300 hover:scale-110 hover:shadow-2xl cursor-pointer group"
+              class="absolute w-28 h-28 sm:w-32 sm:h-32 rounded-[28px] sm:rounded-[32px] border-4 border-base-100 shadow-xl overflow-hidden bg-base-100/98 flex flex-col items-center justify-center z-10 transition-all duration-300 hover:scale-110 hover:shadow-2xl cursor-pointer group"
             >
-              <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center mb-1 group-hover:scale-110 transition-transform">
-                <i data-lucide="sparkles" class="w-5 h-5 sm:w-6 sm:h-6"></i>
-              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=160&h=160&fit=crop&crop=face&auto=format" 
+                alt="Kak Nadia Putri - Sensori Integrasi"
+                class="w-12 h-12 rounded-[14px] object-cover ring-2 ring-purple-200 mb-1 group-hover:scale-105 transition-transform shadow-xs"
+                loading="lazy"
+                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Nadia+Putri&background=f3e8ff&color=6b21a8'"
+              />
               <span class="text-[11px] sm:text-xs font-bold text-slate-800 leading-tight">Kak Nadia</span>
               <span class="text-[9px] font-semibold text-purple-800 bg-purple-50 px-2 py-0.5 rounded-full mt-0.5">Sensori Integrasi</span>
             </div>
@@ -274,11 +319,15 @@
             <!-- Node 4: Kanan-Atas (Top-Right) — Fisioterapi (Kak Rini) -->
             <div 
               style="left: 82%; top: 26%; transform: translate(-50%, -50%);" 
-              class="absolute w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-base-100 shadow-xl overflow-hidden bg-base-100 flex flex-col items-center justify-center z-10 transition-all duration-300 hover:scale-110 hover:shadow-2xl cursor-pointer group"
+              class="absolute w-28 h-28 sm:w-32 sm:h-32 rounded-[28px] sm:rounded-[32px] border-4 border-base-100 shadow-xl overflow-hidden bg-base-100/98 flex flex-col items-center justify-center z-10 transition-all duration-300 hover:scale-110 hover:shadow-2xl cursor-pointer group"
             >
-              <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center mb-1 group-hover:scale-110 transition-transform">
-                <i data-lucide="activity" class="w-5 h-5 sm:w-6 sm:h-6"></i>
-              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=160&h=160&fit=crop&crop=face&auto=format" 
+                alt="Kak Rini Kartika - Fisioterapi"
+                class="w-12 h-12 rounded-[14px] object-cover ring-2 ring-sky-200 mb-1 group-hover:scale-105 transition-transform shadow-xs"
+                loading="lazy"
+                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Rini+Kartika&background=e0f2fe&color=0369a1'"
+              />
               <span class="text-[11px] sm:text-xs font-bold text-slate-800 leading-tight">Kak Rini</span>
               <span class="text-[9px] font-semibold text-sky-800 bg-sky-50 px-2 py-0.5 rounded-full mt-0.5">Fisioterapi</span>
             </div>
@@ -286,13 +335,26 @@
             <!-- Node 5: Kanan-Bawah (Bottom-Right) — Terapi Okupasi (Kak Dinda) -->
             <div 
               style="left: 80%; top: 74%; transform: translate(-50%, -50%);" 
-              class="absolute w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-base-100 shadow-xl overflow-hidden bg-base-100 flex flex-col items-center justify-center z-10 transition-all duration-300 hover:scale-110 hover:shadow-2xl cursor-pointer group"
+              class="absolute w-28 h-28 sm:w-32 sm:h-32 rounded-[28px] sm:rounded-[32px] border-4 border-base-100 shadow-xl overflow-hidden bg-base-100/98 flex flex-col items-center justify-center z-10 transition-all duration-300 hover:scale-110 hover:shadow-2xl cursor-pointer group"
             >
-              <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mb-1 group-hover:scale-110 transition-transform">
-                <i data-lucide="puzzle" class="w-5 h-5 sm:w-6 sm:h-6"></i>
-              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=160&h=160&fit=crop&crop=face&auto=format" 
+                alt="Kak Dinda Lestari - Terapi Okupasi"
+                class="w-12 h-12 rounded-[14px] object-cover ring-2 ring-emerald-200 mb-1 group-hover:scale-105 transition-transform shadow-xs"
+                loading="lazy"
+                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Dinda+Lestari&background=d1fae5&color=065f46'"
+              />
               <span class="text-[11px] sm:text-xs font-bold text-slate-800 leading-tight">Kak Dinda</span>
               <span class="text-[9px] font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full mt-0.5">Terapi Okupasi</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
             </div>
 
           </div>
