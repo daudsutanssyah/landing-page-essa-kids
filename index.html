@@ -210,16 +210,16 @@
             </div>
           </div>
 
-          <!-- Minimalist Trust Highlights Strip (Dari $store.landing.content.heroMetrics) -->
-          <div class="mt-6 pt-6 border-t border-slate-200/60 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <!-- Baris Fitur & Statistik Kepercayaan (Hero Metrics) -->
+          <div class="mt-8 pt-6 border-t border-slate-200/80 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
             <template x-for="metric in ($store.landing?.content?.heroMetrics || [])" :key="metric.id">
-              <div class="flex items-center gap-2.5 text-left">
-                <div class="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0" :class="metric.badgeColor">
-                  <i :data-lucide="metric.icon" class="w-3.5 h-3.5"></i>
+              <div class="flex items-start gap-3 p-3 rounded-2xl bg-white/80 border border-slate-200/70 shadow-xs transition-all hover:bg-white hover:border-emerald-200 hover:shadow-sm">
+                <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5" :class="metric.badgeColor">
+                  <i :data-lucide="metric.icon" class="w-4 h-4"></i>
                 </div>
-                <div class="leading-tight">
-                  <span class="text-xs font-bold text-slate-800 block" x-text="metric.value"></span>
-                  <span class="text-[11px] text-slate-500 block truncate" x-text="metric.label"></span>
+                <div class="flex-1 min-w-0 text-left">
+                  <span class="text-sm sm:text-base font-extrabold text-slate-900 block leading-tight" x-text="metric.value"></span>
+                  <span class="text-xs font-medium text-slate-600 block mt-1 leading-snug whitespace-normal break-words" x-text="metric.label"></span>
                 </div>
               </div>
             </template>
