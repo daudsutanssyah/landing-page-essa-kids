@@ -12,52 +12,48 @@ Dirancang dengan prinsip **Human-Centered Design** yang hangat, menenangkan, dan
 
 ---
 
-## 🎯 Fitur Utama untuk Orang Tua Pasien
+## 🧭 Struktur 9 Section yang Dioptimasi untuk Konversi
 
-1. **Interactive Red Flags Self-Screening (Cek Tanda Awal Tumbuh Kembang):**
-   - Panduan interaktif bagi orang tua untuk mengamati 4 kategori keterlambatan tumbuh kembang anak usia 1–7 tahun (*Bicara & Komunikasi*, *Fokus & Sensori*, *Motorik Kasar & Postur*, dan *Kemandirian & Motorik Halus*).
-   - Dilengkapi *checklist* interaktif yang dapat dicentang langsung oleh orang tua.
-   - **Fitur Otomasi Cerdas:** Mengklik tombol rekomendasi akan otomatis memindahkan gejala yang dicentang ke formulir pendaftaran serta memilih layanan terapi yang relevan secara instan!
+Landing page ini disusun dalam 9 section berurutan secara strategis demi kenyamanan dan keyakinan orang tua:
 
-2. **Edukasi 4 Layanan Terapi Pediatrik Inti:**
-   - **Physiotherapy (Fisioterapi Anak):** Stimulasi tonggak gerak, keseimbangan, perbaikan postur, dan penanganan tonus otot abnormal di *Gym Fisioterapi A*.
-   - **Sensory Integration (Sensori Integrasi):** Penyeimbangan modulasi sensori, regulasi emosi, dan rentang fokus di *Ruang Sensori Integrasi*.
-   - **Speech Therapy (Terapi Wicara):** Stimulasi keterlambatan bicara (*speech delay*), artikulasi, dan latihan organ bicara di *Ruang Wicara B*.
-   - **Occupational Therapy (Terapi Okupasi):** Keterampilan motorik halus, kemandirian aktivitas harian (*ADL*), dan persiapan sekolah di *Ruang Okupasi C*.
-
-3. **Transparansi Pilar Keunggulan & Profil Terapis:**
-   - Pendekatan kurikulum individual (*Individualized Education Program - IEP*).
-   - Laporan evaluasi berkala dan panduan modul stimulasi di rumah (*Home Program*).
-   - Profil lengkap 4 tenaga ahli medis berizin praktik resmi (*STR & SIP*).
-
-4. **Kalkulasi & Pilihan Paket Terapi Transparan:**
-   - Paket Reguler (4 Sesi, masa aktif 30 hari).
-   - Paket Intensif (8 Sesi, masa aktif 60 hari — Rekomendasi Utama).
-   - Paket Optimal (12 Sesi, masa aktif 90 hari).
-   - Mengklik tombol paket langsung menghubungkan pilihan ke formulir pendaftaran.
-
-5. **Formulir Pendaftaran Observasi Terpadu & Direct WhatsApp Integration:**
-   - Validasi input ramah pengguna dengan pesan notifikasi *toast*.
-   - Penyimpanan data pendaftaran ke *LocalStorage* sebagai simulasi prototipe.
-   - Ringkasan pendaftaran instan dengan tombol **Kirim Konfirmasi via WhatsApp Sekarang** yang membuka obrolan ke admin klinik dengan pesan yang sudah terisi rapi (*pre-filled message*).
+1. **Section 1: Navigation Bar (`#app-navbar` via `assets/js/components/navbar.js`)**
+   - Floating Pill Navbar dengan 6 anchor link (`#keunggulan`, `#program-usia`, `#preview-interaktif`, `#tim-ahli`, `#paket-harga`, `#faq`) dan tombol CTA kapsul *"Daftar Observasi"* (`#final-cta`) serta tombol WhatsApp cepat.
+2. **Section 2: Hero Section (`#hero`)**
+   - Asymmetric Layout dengan tipografi bersih, 2 CTA (*"Jadwalkan Observasi Awal"* & *"Cek Gejala & Simulasi"*), Stacked Trust Indicators (5 avatar squircle dari CDN publik + 5 bintang + teks kepercayaan), Hero Metrics strip, dan *Connected Geometric Squircle Pods* (5 node yang dihubungkan garis putus-putus SVG presisi).
+3. **Section 3: Value Proposition — Keunggulan & Keamanan (`#keunggulan`)**
+   - Bento Grid / 4 Pilar Keunggulan: Kurikulum Individual (IEP), Ruang Terapi Tematik & Steril, Metode Play-Based Terukur, dan Transparansi Evaluasi & Kuota.
+4. **Section 4: Kategori Program & Kelompok Usia (`#program-usia`)**
+   - 3 Tab Kelompok Usia interaktif (Usia 1–2 Thn *Golden Early*, Usia 3–4 Thn *Preschool Readiness*, Usia 5–7 Thn *School Readiness*), lengkap dengan kartu peran 4 Layanan Inti (*Physiotherapy*, *Sensory Integration*, *Speech Therapy*, *Occupational Therapy*) berdurasi 60 menit/sesi.
+5. **Section 5: Preview Interaktif — Cek Gejala & Simulasi Laporan Evaluasi (`#preview-interaktif`)**
+   - Layout 2-panel berdampingan:
+     - **Panel Kiri:** Screening tanda awal (*Red Flags*) dengan checklist interaktif dan counter gejala teramati.
+     - **Panel Kanan (Live Dynamic Preview):** 3 kartu simulasi autentik (1. Contoh Aktivitas di Ruang Terapi, 2. Contoh Kartu Laporan Evaluasi Sesi Terapis, 3. Contoh Home Program 10 Menit/Hari di Rumah) serta tombol auto-apply ke form observasi.
+6. **Section 6: Trust, Credibility & Mini-About (`#tim-ahli`)**
+   - Profil 4 tenaga ahli medis berizin resmi STR & SIP (`Kak Nadia Putri`, `Kak Bima Pratama`, `Kak Rini Kartika`, `Kak Dinda Lestari`) serta 3 cerita/testimoni hangat dari orang tua pasien (*Bunda Arka*, *Mama Cally*, *Ayah Kenzo*).
+7. **Section 7: Pilihan Paket & Biaya / Pricing (`#paket-harga`)**
+   - Highlight banner **Sesi Observasi & Asesmen Tumbuh Kembang Awal (1x Kunjungan Pertama — 60 Menit)** berbiaya terjangkau (Rp 275.000) dan 3 Kartu Paket Komitmen Terapi (Paket Reguler 4 sesi, Paket Intensif 8 sesi *Paling Populer*, Paket Optimal 12 sesi).
+8. **Section 8: FAQ — Pertanyaan Umum Orang Tua (`#faq`)**
+   - DaisyUI Collapsible Accordion berisi pertanyaan penting seputar izin pendampingan, usia minimal, reschedule karena sakit, serta bantuan cepat via chat resepsionis.
+9. **Section 9: Final CTA & Footer (`#final-cta` & `#app-footer`)**
+   - Kartu konversi ganda: Kolom kiri konsultasi langsung via WhatsApp & info operasional klinik; Kolom kanan form booking observasi terpadu dengan auto-fill dari Section 5 & 7, konfirmasi sukses, dan tombol direct trigger pesan WhatsApp. Ditutup dengan footer publik yang hangat.
 
 ---
 
-## 🧪 Panduan Uji Coba untuk Klien & Pengguna
+## 🧪 Panduan Uji Coba untuk Pengguna & Klien
 
 Untuk menguji alur interaktif aplikasi secara menyeluruh, ikuti langkah berikut:
 
 ### Skenario 1: Cek Gejala Awal $\rightarrow$ Auto-Fill ke Formulir
-1. Buka halaman utama dan gulir ke seksi **Cek Tanda Awal (Red Flags)** (`#cek-gejala`).
+1. Buka halaman utama dan gulir ke seksi **Simulasi & Screening** (`#preview-interaktif`).
 2. Klik tab kategori, misalnya **Bicara & Komunikasi**.
-3. Centang 1 atau 2 gejala (contoh: *"Kosa kata bermakna masih kurang dari 10 kata..."*).
-4. Klik tombol **"Konsultasikan Keluhan Ini Sekarang"**.
-5. Perhatikan halaman otomatis melakukan *smooth scroll* ke **Formulir Pendaftaran** (`#form-booking`), di mana pilihan layanan langsung tersetting ke **Terapi Wicara** dan catatan keluhan terisi otomatis dengan gejala yang dicentang.
+3. Centang 1 atau 2 gejala (contoh: *"Kosa kata bermakna masih kurang dari 10 kata..."*). Perhatikan 3 kartu preview di panel kanan berubah secara dinamis!
+4. Klik tombol **"Gunakan Hasil Screening Ini untuk Daftar Observasi"**.
+5. Perhatikan halaman otomatis melakukan *smooth scroll* ke **Formulir Pendaftaran** (`#final-cta`), di mana pilihan layanan langsung tersetting ke **Terapi Wicara** dan catatan keluhan terisi otomatis dengan gejala yang dicentang.
 
 ### Skenario 2: Pemilihan Paket Sesi
-1. Gulir ke seksi **Pilihan Paket Sesi Terapi** (`#paket`).
-2. Klik tombol **"Pilih Paket Intensif"** pada kartu paket terpopuler.
-3. Halaman akan otomatis menggulir ke formulir booking dengan opsi paket telah terpilih sebagai **Paket Intensif (8 Sesi)**.
+1. Gulir ke seksi **Paket & Biaya** (`#paket-harga`).
+2. Klik tombol **"Pilih Paket Ini"** pada kartu Paket Intensif atau klik **"Booking Sesi Observasi"** pada banner observasi perdana.
+3. Halaman akan otomatis menggulir ke formulir booking di `#final-cta` dengan opsi paket telah terpilih.
 
 ### Skenario 3: Pengiriman Formulir & Notifikasi WhatsApp
 1. Lengkapi field formulir:
@@ -67,7 +63,7 @@ Untuk menguji alur interaktif aplikasi secara menyeluruh, ikuti langkah berikut:
    - Nomor WhatsApp: `081234567890`
 2. Klik **"Kirim Pendaftaran Observasi"**.
 3. Notifikasi *toast* sukses akan muncul, dan layar beralih ke kartu ringkasan pendaftaran berisi Kode Booking unik.
-4. Klik tombol hijau **"Kirim Konfirmasi via WhatsApp Sekarang"** untuk melihat format pesan yang siap dikirim ke nomor resmi klinik.
+4. Klik tombol hijau **"Kirim Konfirmasi via WhatsApp Sekarang"** untuk membuka format pesan yang siap dikirim ke nomor resmi klinik.
 
 ---
 
@@ -77,22 +73,22 @@ Aplikasi ini dibangun dengan paradigma **Clean Modern Frontend Architecture**:
 - **Markup:** Semantik HTML5, aksesibilitas ramah pembaca layar (ARIA), dan *responsive layout*.
 - **Styling:** **Tailwind CSS Play CDN** yang diselaraskan dengan tema DaisyUI v4 (`emerald`), dipadukan dengan tipografi Google Fonts *Plus Jakarta Sans* dan efek visual pada `custom.css`.
 - **State Management:** **Alpine.js v3** via arsitektur Store terpusat (`$store.landing` dan `$store.ui`).
-- **Icons:** **Lucide Icons** dengan *helper debounced refresh* (`window.refreshIcons()`).
+- **Icons:** **Lucide Icons** dengan *helper debounced refresh* (`window.refreshIcons()`). Bebas dari ikon `sparkles`.
 - **Modularity:** Menggunakan standar **ES6 Modules** (`import` / `export`) asli dari peramban tanpa memerlukan kompilasi Node/Webpack.
 
 ```text
 essa-kids-landing/
 │
-├── index.html                    # Halaman landing page utama & perakitan seluruh seksi
+├── index.html                    # Halaman landing page utama & perakitan seluruh 9 seksi
 ├── vercel.json                   # Konfigurasi perutean & header hosting statis Vercel
 ├── README.md                     # Dokumentasi arsitektur dan panduan pengguna
 │
 └── assets/
     ├── css/
-    │   └── custom.css            # Aturan CSS pelengkap (anti-FOUC cloak, hero-pattern, scrollbar)
+    │   └── custom.css            # Aturan CSS pelengkap (overflow-x clip, hero-pattern, animations)
     │
     ├── images/
-    │   └── therapists/           # Aset visual foto profil terapis (opsional / fallback SVG initials)
+    │   └── therapists/           # Aset visual foto profil terapis (fallback squircle CDN & initials)
     │
     └── js/
         ├── app.js                # Main bootstrapper, registrasi layout navbar/footer, Alpine store, & icon helper
@@ -101,14 +97,14 @@ essa-kids-landing/
         │   └── tailwind.config.js # Palet brand lembut (Soft Emerald, Warm Amber, Sky Blue), font, & keyframes
         │
         ├── data/
-        │   └── landing-content.js # Single Source of Truth (SSOT) data klinik, red flags, layanan, & paket
+        │   └── landing-content.js # Single Source of Truth (SSOT) data klinik, ageGroups, red flags, & paket
         │
         ├── components/
-        │   ├── navbar.js         # Sticky header publik, mobile responsive drawer (bebas link internal)
+        │   ├── navbar.js         # Floating pill navbar publik (6 navigasi + CTA ke #final-cta)
         │   └── footer.js         # Footer informatif 4 kolom dengan data dinamis jam & kontak resmi
         │
         └── stores/
-            └── booking.store.js  # Alpine store untuk self-screening, reactive booking form, & WhatsApp integration
+            └── booking.store.js  # Alpine store untuk age group tabs, self-screening, reactive booking form, & WA
 ```
 
 ---

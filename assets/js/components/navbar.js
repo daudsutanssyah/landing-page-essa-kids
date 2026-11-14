@@ -4,14 +4,14 @@
  * Komponen navigasi publik bergaya Floating Pill Track yang modern,
  * bersih, dan ramah orang tua dengan 3 bagian sejajar:
  * 1. Bagian Kiri: Brand Identity & Logo
- * 2. Bagian Tengah: Floating Pill Navigation Track (Active state capsule)
- * 3. Bagian Kanan: Pill CTA Button ("Daftar Observasi" + Lingkaran Panah) & Circular WhatsApp
+ * 2. Bagian Tengah: Floating Pill Navigation Track (6 Navigasi Utama)
+ * 3. Bagian Kanan: Pill CTA Button ("Daftar Observasi" -> #final-cta) & Circular WhatsApp
  */
 
 export const renderPublicNavbar = () => {
   return `
     <header 
-      x-data="{ mobileMenuOpen: false, activeNav: '#cek-gejala' }"
+      x-data="{ mobileMenuOpen: false, activeNav: '#keunggulan' }"
       class="sticky top-0 z-50 w-full bg-base-100/90 backdrop-blur-md border-b border-base-200 transition-all shadow-xs"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,67 +38,67 @@ export const renderPublicNavbar = () => {
                2. BAGIAN TENGAH: Floating Pill Navigation Track (Desktop)
                ============================================================== -->
           <nav 
-            class="hidden lg:flex items-center p-1.5 border border-base-300 bg-base-200/60 backdrop-blur-md rounded-full gap-1 shadow-xs" 
+            class="hidden lg:flex items-center p-1.5 border border-base-300 bg-base-200/70 backdrop-blur-md rounded-full gap-1 shadow-xs" 
             aria-label="Navigasi Utama"
           >
-            <!-- 1. Cek Gejala Awal -->
-            <a 
-              href="#cek-gejala" 
-              @click="activeNav = '#cek-gejala'"
-              :class="activeNav === '#cek-gejala' 
-                ? 'bg-base-100 text-primary font-semibold shadow-sm border border-base-300/80' 
-                : 'text-base-content/70 hover:text-primary border border-transparent'"
-              class="text-xs xl:text-sm px-4 xl:px-5 py-2 rounded-full transition-all duration-200 whitespace-nowrap"
-            >
-              Cek Gejala Awal
-            </a>
-
-            <!-- 2. Layanan Terapi -->
-            <a 
-              href="#layanan" 
-              @click="activeNav = '#layanan'"
-              :class="activeNav === '#layanan' 
-                ? 'bg-base-100 text-primary font-semibold shadow-sm border border-base-300/80' 
-                : 'text-base-content/70 hover:text-primary border border-transparent'"
-              class="text-xs xl:text-sm px-4 xl:px-5 py-2 rounded-full transition-all duration-200 whitespace-nowrap"
-            >
-              Layanan Terapi
-            </a>
-
-            <!-- 3. Keunggulan -->
+            <!-- 1. Keunggulan -->
             <a 
               href="#keunggulan" 
               @click="activeNav = '#keunggulan'"
               :class="activeNav === '#keunggulan' 
                 ? 'bg-base-100 text-primary font-semibold shadow-sm border border-base-300/80' 
                 : 'text-base-content/70 hover:text-primary border border-transparent'"
-              class="text-xs xl:text-sm px-4 xl:px-5 py-2 rounded-full transition-all duration-200 whitespace-nowrap"
+              class="text-xs xl:text-sm px-4 xl:px-4.5 py-2 rounded-full transition-all duration-200 whitespace-nowrap"
             >
               Keunggulan
             </a>
 
-            <!-- 4. Alur & Paket -->
+            <!-- 2. Program & Usia -->
             <a 
-              href="#paket" 
-              @click="activeNav = '#paket'"
-              :class="activeNav === '#paket' 
+              href="#program-usia" 
+              @click="activeNav = '#program-usia'"
+              :class="activeNav === '#program-usia' 
                 ? 'bg-base-100 text-primary font-semibold shadow-sm border border-base-300/80' 
                 : 'text-base-content/70 hover:text-primary border border-transparent'"
-              class="text-xs xl:text-sm px-4 xl:px-5 py-2 rounded-full transition-all duration-200 whitespace-nowrap"
+              class="text-xs xl:text-sm px-4 xl:px-4.5 py-2 rounded-full transition-all duration-200 whitespace-nowrap"
             >
-              Alur & Paket
+              Program & Usia
             </a>
 
-            <!-- 5. Tim Terapis -->
+            <!-- 3. Simulasi & Screening -->
             <a 
-              href="#terapis" 
-              @click="activeNav = '#terapis'"
-              :class="activeNav === '#terapis' 
+              href="#preview-interaktif" 
+              @click="activeNav = '#preview-interaktif'"
+              :class="activeNav === '#preview-interaktif' 
                 ? 'bg-base-100 text-primary font-semibold shadow-sm border border-base-300/80' 
                 : 'text-base-content/70 hover:text-primary border border-transparent'"
-              class="text-xs xl:text-sm px-4 xl:px-5 py-2 rounded-full transition-all duration-200 whitespace-nowrap"
+              class="text-xs xl:text-sm px-4 xl:px-4.5 py-2 rounded-full transition-all duration-200 whitespace-nowrap"
             >
-              Tim Terapis
+              Simulasi & Screening
+            </a>
+
+            <!-- 4. Tim Ahli -->
+            <a 
+              href="#tim-ahli" 
+              @click="activeNav = '#tim-ahli'"
+              :class="activeNav === '#tim-ahli' 
+                ? 'bg-base-100 text-primary font-semibold shadow-sm border border-base-300/80' 
+                : 'text-base-content/70 hover:text-primary border border-transparent'"
+              class="text-xs xl:text-sm px-4 xl:px-4.5 py-2 rounded-full transition-all duration-200 whitespace-nowrap"
+            >
+              Tim Ahli
+            </a>
+
+            <!-- 5. Paket & Biaya -->
+            <a 
+              href="#paket-harga" 
+              @click="activeNav = '#paket-harga'"
+              :class="activeNav === '#paket-harga' 
+                ? 'bg-base-100 text-primary font-semibold shadow-sm border border-base-300/80' 
+                : 'text-base-content/70 hover:text-primary border border-transparent'"
+              class="text-xs xl:text-sm px-4 xl:px-4.5 py-2 rounded-full transition-all duration-200 whitespace-nowrap"
+            >
+              Paket & Biaya
             </a>
 
             <!-- 6. FAQ -->
@@ -108,7 +108,7 @@ export const renderPublicNavbar = () => {
               :class="activeNav === '#faq' 
                 ? 'bg-base-100 text-primary font-semibold shadow-sm border border-base-300/80' 
                 : 'text-base-content/70 hover:text-primary border border-transparent'"
-              class="text-xs xl:text-sm px-4 xl:px-5 py-2 rounded-full transition-all duration-200 whitespace-nowrap"
+              class="text-xs xl:text-sm px-4 xl:px-4.5 py-2 rounded-full transition-all duration-200 whitespace-nowrap"
             >
               FAQ
             </a>
@@ -131,7 +131,7 @@ export const renderPublicNavbar = () => {
 
             <!-- Primary Button: Pill CTA with Arrow Circle -->
             <a 
-              href="#form-booking" 
+              href="#final-cta" 
               class="group pl-5 pr-1.5 py-1.5 rounded-full bg-gradient-to-r from-primary to-emerald-600 text-primary-content font-semibold text-xs xl:text-sm flex items-center gap-3 shadow-soft hover:shadow-soft-hover transition-all hover:brightness-105"
             >
               <span>Daftar Observasi</span>
@@ -187,24 +187,7 @@ export const renderPublicNavbar = () => {
       >
         <!-- Track Kapsul Mobile Menu -->
         <div class="p-1.5 border border-base-300 bg-base-200/50 rounded-2xl space-y-1">
-          <a 
-            href="#cek-gejala" 
-            @click="activeNav = '#cek-gejala'; mobileMenuOpen = false"
-            :class="activeNav === '#cek-gejala' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
-            class="flex items-center gap-3 px-4 py-2.5 text-sm rounded-xl transition-all"
-          >
-            <i data-lucide="clipboard-check" class="w-4 h-4 text-primary"></i>
-            <span>Cek Gejala Awal</span>
-          </a>
-          <a 
-            href="#layanan" 
-            @click="activeNav = '#layanan'; mobileMenuOpen = false"
-            :class="activeNav === '#layanan' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
-            class="flex items-center gap-3 px-4 py-2.5 text-sm rounded-xl transition-all"
-          >
-            <i data-lucide="activity" class="w-4 h-4 text-info"></i>
-            <span>Layanan Terapi</span>
-          </a>
+          <!-- 1. Keunggulan -->
           <a 
             href="#keunggulan" 
             @click="activeNav = '#keunggulan'; mobileMenuOpen = false"
@@ -214,24 +197,52 @@ export const renderPublicNavbar = () => {
             <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
             <span>Keunggulan & Fasilitas</span>
           </a>
+
+          <!-- 2. Program & Usia -->
           <a 
-            href="#paket" 
-            @click="activeNav = '#paket'; mobileMenuOpen = false"
-            :class="activeNav === '#paket' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
+            href="#program-usia" 
+            @click="activeNav = '#program-usia'; mobileMenuOpen = false"
+            :class="activeNav === '#program-usia' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
             class="flex items-center gap-3 px-4 py-2.5 text-sm rounded-xl transition-all"
           >
-            <i data-lucide="tag" class="w-4 h-4 text-warning"></i>
-            <span>Alur & Paket Terapi</span>
+            <i data-lucide="compass" class="w-4 h-4 text-sky-600"></i>
+            <span>Program & Kelompok Usia</span>
           </a>
+
+          <!-- 3. Simulasi & Screening -->
           <a 
-            href="#terapis" 
-            @click="activeNav = '#terapis'; mobileMenuOpen = false"
-            :class="activeNav === '#terapis' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
+            href="#preview-interaktif" 
+            @click="activeNav = '#preview-interaktif'; mobileMenuOpen = false"
+            :class="activeNav === '#preview-interaktif' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
             class="flex items-center gap-3 px-4 py-2.5 text-sm rounded-xl transition-all"
           >
-            <i data-lucide="users" class="w-4 h-4 text-secondary"></i>
-            <span>Tim Terapis Tersertifikasi</span>
+            <i data-lucide="clipboard-check" class="w-4 h-4 text-primary"></i>
+            <span>Simulasi & Screening</span>
           </a>
+
+          <!-- 4. Tim Ahli -->
+          <a 
+            href="#tim-ahli" 
+            @click="activeNav = '#tim-ahli'; mobileMenuOpen = false"
+            :class="activeNav === '#tim-ahli' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
+            class="flex items-center gap-3 px-4 py-2.5 text-sm rounded-xl transition-all"
+          >
+            <i data-lucide="users" class="w-4 h-4 text-purple-600"></i>
+            <span>Tim Ahli & Testimoni</span>
+          </a>
+
+          <!-- 5. Paket & Biaya -->
+          <a 
+            href="#paket-harga" 
+            @click="activeNav = '#paket-harga'; mobileMenuOpen = false"
+            :class="activeNav === '#paket-harga' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
+            class="flex items-center gap-3 px-4 py-2.5 text-sm rounded-xl transition-all"
+          >
+            <i data-lucide="tag" class="w-4 h-4 text-amber-600"></i>
+            <span>Paket & Biaya Terapi</span>
+          </a>
+
+          <!-- 6. FAQ -->
           <a 
             href="#faq" 
             @click="activeNav = '#faq'; mobileMenuOpen = false"
@@ -246,7 +257,7 @@ export const renderPublicNavbar = () => {
         <!-- Tombol Aksi Mobile -->
         <div class="pt-2 flex flex-col gap-2">
           <a 
-            href="#form-booking" 
+            href="#final-cta" 
             @click="mobileMenuOpen = false"
             class="group pl-5 pr-1.5 py-1.5 rounded-full bg-gradient-to-r from-primary to-emerald-600 text-primary-content font-semibold text-sm flex items-center justify-between shadow-soft hover:shadow-soft-hover"
           >

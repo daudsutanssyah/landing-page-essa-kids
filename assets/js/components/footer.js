@@ -49,30 +49,30 @@ export const renderPublicFooter = () => {
             </div>
           </div>
 
-          <!-- Kolom 2: Layanan Terapi Inti (lg:col-span-3) -->
+          <!-- Kolom 2: Layanan & Kelompok Usia (lg:col-span-3) -->
           <div class="lg:col-span-3 space-y-4">
-            <h4 class="text-sm font-semibold uppercase tracking-wider text-white">Layanan Terapi Kami</h4>
+            <h4 class="text-sm font-semibold uppercase tracking-wider text-white">Layanan & Program Usia</h4>
             <ul class="space-y-2.5 text-sm">
               <li>
-                <a href="#layanan" class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-2">
+                <a href="#program-usia" class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-2">
                   <i data-lucide="activity" class="w-4 h-4 text-sky-400"></i>
                   <span>Fisioterapi Anak (Physiotherapy)</span>
                 </a>
               </li>
               <li>
-                <a href="#layanan" class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-2">
+                <a href="#program-usia" class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-2">
                   <i data-lucide="compass" class="w-4 h-4 text-purple-400"></i>
                   <span>Sensori Integrasi (Sensory Integration)</span>
                 </a>
               </li>
               <li>
-                <a href="#layanan" class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-2">
+                <a href="#program-usia" class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-2">
                   <i data-lucide="message-circle" class="w-4 h-4 text-amber-400"></i>
                   <span>Terapi Wicara (Speech Therapy)</span>
                 </a>
               </li>
               <li>
-                <a href="#layanan" class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-2">
+                <a href="#program-usia" class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-2">
                   <i data-lucide="puzzle" class="w-4 h-4 text-emerald-400"></i>
                   <span>Terapi Okupasi (Occupational Therapy)</span>
                 </a>
@@ -80,32 +80,38 @@ export const renderPublicFooter = () => {
             </ul>
           </div>
 
-          <!-- Kolom 3: Informasi & Panduan Orang Tua (lg:col-span-2) -->
+          <!-- Kolom 3: Panduan & Navigasi Cepat (lg:col-span-2) -->
           <div class="lg:col-span-2 space-y-4">
             <h4 class="text-sm font-semibold uppercase tracking-wider text-white">Panduan Orang Tua</h4>
             <ul class="space-y-2.5 text-sm">
               <li>
-                <a href="#cek-gejala" class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
-                  <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-emerald-500"></i>
-                  <span>Cek Tanda Awal</span>
-                </a>
-              </li>
-              <li>
                 <a href="#keunggulan" class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
                   <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-emerald-500"></i>
-                  <span>Fasilitas Ruangan</span>
+                  <span>Keunggulan Klinik</span>
                 </a>
               </li>
               <li>
-                <a href="#paket" class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                <a href="#program-usia" class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
                   <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-emerald-500"></i>
-                  <span>Alur & Paket Sesi</span>
+                  <span>Program & Usia</span>
                 </a>
               </li>
               <li>
-                <a href="#terapis" class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                <a href="#preview-interaktif" class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
                   <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-emerald-500"></i>
-                  <span>Profil Tim Terapis</span>
+                  <span>Simulasi & Screening</span>
+                </a>
+              </li>
+              <li>
+                <a href="#tim-ahli" class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-emerald-500"></i>
+                  <span>Profil Tim Ahli</span>
+                </a>
+              </li>
+              <li>
+                <a href="#paket-harga" class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-emerald-500"></i>
+                  <span>Paket & Biaya</span>
                 </a>
               </li>
               <li>

@@ -3,8 +3,9 @@
  * -------------------------------------------------------------
  * Menyediakan Single Source of Truth interaktif untuk:
  * - Data konten landing page (impor dari LANDING_CONTENT)
- * - Interaksi Cek Gejala Awal (Self-Screening Checklist)
- * - Formulir Pendaftaran Observasi & Konsultasi Anak
+ * - Tab Kelompok Usia (Interactive Age Groups)
+ * - Interaksi Cek Gejala Awal & Simulasi Laporan Evaluasi
+ * - Formulir Pendaftaran Observasi & Konsultasi Anak (Section 9: Final CTA)
  * - Integrasi WhatsApp & penyimpanan simulasi LocalStorage
  */
 
@@ -16,13 +17,16 @@ export const createBookingStore = () => ({
   // =========================================================================
   content: LANDING_CONTENT,
 
-  // ID Kategori Gejala Awal aktif pada tab Self-Screening
+  // ID Kelompok Usia aktif pada tab Section 4 (Kategori Program & Usia)
+  activeAgeGroupId: LANDING_CONTENT.ageGroups[0]?.id || 'age-1-2',
+
+  // ID Kategori Gejala Awal aktif pada Section 5 (Preview Interaktif)
   activeRedFlagId: LANDING_CONTENT.redFlags[0]?.id || 'speech',
 
   // Daftar gejala yang dicentang oleh orang tua saat self-screening
   selectedChecklist: [],
 
-  // Data input formulir Pendaftaran Observasi & Konsultasi Awal
+  // Data input formulir Pendaftaran Observasi & Konsultasi Awal (#final-cta)
   bookingForm: {
     childName: '',
     childNickname: '',
@@ -31,7 +35,7 @@ export const createBookingStore = () => ({
     parentName: '',
     parentPhone: '',
     selectedServiceId: 'SPEECH',
-    selectedPackageId: 'PKG-REGULER', // Cocok dengan LANDING_CONTENT.packages (PKG-REGULER, PKG-INTENSIF, PKG-OPTIMAL)
+    selectedPackageId: 'PKG-REGULER', // Cocok dengan LANDING_CONTENT.packages (PKG-REGULER, PKG-INTENSIF, PKG-OPTIMAL, OBS-01)
     preferredSchedule: 'Pagi (08:00 - 11:30 WIB)',
     concernNotes: ''
   },
@@ -45,7 +49,17 @@ export const createBookingStore = () => ({
   // =========================================================================
   
   /**
-   * Mengembalikan objek kategori Red Flag yang sedang aktif
+   * Mengembalikan objek kelompok usia yang sedang aktif
+   */
+  get activeAgeGroup() {
+    return (
+      this.content.ageGroups.find(ag => ag.id === this.activeAgeGroupId) ||
+      this.content.ageGroups[0]
+    );
+  },
+
+  /**
+   * Mengembalikan objek kategori Red Flag yang sedang aktif (beserta interactivePreview)
    */
   get activeRedFlag() {
     return (
@@ -68,6 +82,15 @@ export const createBookingStore = () => ({
    * Mengembalikan detail objek paket yang sedang dipilih pada formulir
    */
   get selectedPackage() {
+    if (this.bookingForm.selectedPackageId === 'OBS-01' || this.bookingForm.selectedPackageId === 'ASSESSMENT-01') {
+      return {
+        id: this.content.initialAssessment.id,
+        name: this.content.initialAssessment.name,
+        sessions: 1,
+        priceFormatted: this.content.initialAssessment.priceFormatted
+      };
+    }
+
     return (
       this.content.packages.find(
         p => p.id === this.bookingForm.selectedPackageId || 
@@ -78,11 +101,25 @@ export const createBookingStore = () => ({
   },
 
   // =========================================================================
-  // 3. Methods Interaktif: Self-Screening (Red Flags)
+  // 3. Methods Interaktif: Kelompok Usia (Section 4)
   // =========================================================================
 
   /**
-   * Mengganti kategori gejala yang aktif pada tab self-screening
+   * Mengganti tab kelompok usia yang aktif pada Section 4
+   */
+  selectAgeGroup(id) {
+    this.activeAgeGroupId = id;
+    if (window.refreshIcons) {
+      window.refreshIcons();
+    }
+  },
+
+  // =========================================================================
+  // 4. Methods Interaktif: Self-Screening & Preview Interaktif (Section 5)
+  // =========================================================================
+
+  /**
+   * Mengganti kategori gejala yang aktif pada Section 5 (Preview Interaktif)
    */
   selectRedFlagCategory(id) {
     this.activeRedFlagId = id;
@@ -118,7 +155,7 @@ export const createBookingStore = () => ({
   },
 
   /**
-   * Menerapkan rekomendasi layanan dari hasil cek gejala ke formulir booking
+   * Menerapkan rekomendasi layanan dari hasil cek gejala ke formulir booking di #final-cta
    */
   applyRecommendationToForm(serviceId) {
     if (serviceId) {
@@ -134,11 +171,11 @@ export const createBookingStore = () => ({
     // Tampilkan notifikasi toast ramah
     const uiStore = window.Alpine && window.Alpine.store('ui');
     if (uiStore && uiStore.showToast) {
-      uiStore.showToast('Rekomendasi layanan diterapkan ke formulir. Silakan lengkapi data si kecil.', 'info');
+      uiStore.showToast('Rekomendasi layanan diterapkan ke formulir pendaftaran.', 'info');
     }
 
-    // Smooth scroll ke formulir pendaftaran
-    this.scrollToSection('#form-booking');
+    // Smooth scroll ke formulir pendaftaran di #final-cta
+    this.scrollToSection('#final-cta');
 
     // Fokus ke input nama anak setelah scroll
     setTimeout(() => {
@@ -148,11 +185,11 @@ export const createBookingStore = () => ({
   },
 
   // =========================================================================
-  // 4. Methods Interaktif: Paket Terapi & Formulir Pendaftaran
+  // 5. Methods Interaktif: Paket Terapi & Asesmen Awal (Section 7)
   // =========================================================================
 
   /**
-   * Memilih paket terapi dari kartu paket dan membawa pengguna ke form
+   * Memilih paket terapi dari kartu paket dan membawa pengguna ke form di #final-cta
    */
   selectPackageForBooking(packageId) {
     // Normalisasi ID paket
@@ -160,6 +197,7 @@ export const createBookingStore = () => ({
     if (packageId === 'PKG_REG_4' || packageId === 'PKG-04') targetId = 'PKG-REGULER';
     if (packageId === 'PKG_INT_8' || packageId === 'PKG-08') targetId = 'PKG-INTENSIF';
     if (packageId === 'PKG_OPT_12' || packageId === 'PKG-12') targetId = 'PKG-OPTIMAL';
+    if (packageId === 'OBS-01' || packageId === 'ASSESSMENT-01') targetId = 'OBS-01';
 
     this.bookingForm.selectedPackageId = targetId;
 
@@ -168,8 +206,31 @@ export const createBookingStore = () => ({
       uiStore.showToast('Paket terapi berhasil dipilih. Silakan lengkapi data si kecil.', 'info');
     }
 
-    this.scrollToSection('#form-booking');
+    this.scrollToSection('#final-cta');
   },
+
+  /**
+   * Memilih Sesi Observasi & Asesmen Perdana (Highlight Banner di Section 7)
+   */
+  selectInitialAssessment() {
+    this.bookingForm.selectedPackageId = 'OBS-01';
+    
+    const uiStore = window.Alpine && window.Alpine.store('ui');
+    if (uiStore && uiStore.showToast) {
+      uiStore.showToast('Sesi Observasi & Asesmen Awal dipilih. Silakan lengkapi formulir.', 'info');
+    }
+
+    this.scrollToSection('#final-cta');
+
+    setTimeout(() => {
+      const childInput = document.getElementById('input-child-name');
+      if (childInput) childInput.focus();
+    }, 450);
+  },
+
+  // =========================================================================
+  // 6. Validasi & Submit Formulir Pendaftaran (Section 9: Final CTA)
+  // =========================================================================
 
   /**
    * Validasi & submit formulir pendaftaran observasi
@@ -218,7 +279,7 @@ export const createBookingStore = () => ({
       serviceRoom: serviceInfo?.room || 'Ruang Terapi',
       selectedPackageId: this.bookingForm.selectedPackageId,
       packageName: packageInfo?.name || 'Paket Terapi',
-      packageSessions: packageInfo?.sessions || 4,
+      packageSessions: packageInfo?.sessions || 1,
       packagePrice: packageInfo?.priceFormatted || '-',
       preferredSchedule: this.bookingForm.preferredSchedule,
       concernNotes: this.bookingForm.concernNotes.trim() || 'Tidak ada catatan tambahan',
@@ -247,8 +308,8 @@ export const createBookingStore = () => ({
       window.refreshIcons();
     }
 
-    // Scroll ke bagian pesan sukses
-    this.scrollToSection('#form-booking');
+    // Scroll ke bagian pesan sukses di #final-cta
+    this.scrollToSection('#final-cta');
     return true;
   },
 
@@ -278,7 +339,7 @@ export const createBookingStore = () => ({
   },
 
   // =========================================================================
-  // 5. Integrasi WhatsApp & Tautan Bantuan
+  // 7. Integrasi WhatsApp & Tautan Bantuan
   // =========================================================================
 
   /**
