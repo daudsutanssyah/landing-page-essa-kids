@@ -20,15 +20,18 @@ export const renderPublicNavbar = () => {
           <!-- ==============================================================
                1. BAGIAN KIRI: Brand Identity & Logo
                ============================================================== -->
-          <a href="#" class="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-primary/40 rounded-xl transition-transform">
-            <div class="text-primary flex items-center justify-center transition-transform group-hover:scale-105">
-              <i data-lucide="baby" class="w-8 h-8"></i>
-            </div>
+          <a href="#" class="flex items-center gap-2.5 sm:gap-3 group focus:outline-none focus:ring-2 focus:ring-primary/40 rounded-2xl transition-transform">
+            <img 
+              src="./assets/images/logo-essa.webp" 
+              alt="Logo ESSA Kids Therapy" 
+              class="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-contain ring-1 ring-slate-200/80 shadow-xs transition-transform group-hover:scale-105"
+              loading="eager"
+            />
             <div class="flex flex-col">
-              <span class="text-lg sm:text-xl font-bold tracking-tight text-slate-800 leading-tight">
+              <span class="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-slate-800 leading-tight">
                 ESSA <span class="text-primary">Kids</span> Therapy
               </span>
-              <span class="text-[11px] font-medium text-slate-500 -mt-0.5">
+              <span class="text-[10px] sm:text-[11px] font-medium text-slate-500 -mt-0.5">
                 Klinik Tumbuh Kembang Anak
               </span>
             </div>
