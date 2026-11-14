@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip; /* Menggunakan clip alih-alih hidden agar tidak memutus konteks position: sticky */
   color: #1e293b;
   background-color: #ffffff;
 }

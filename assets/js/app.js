@@ -139,6 +139,7 @@ export const initLayoutAndIcons = () => {
   // Injeksi Navbar Publik
   const navbarTarget = document.getElementById('app-navbar');
   if (navbarTarget) {
+    navbarTarget.classList.add('sticky', 'top-0', 'z-50', 'w-full');
     navbarTarget.innerHTML = renderPublicNavbar();
   }
 
