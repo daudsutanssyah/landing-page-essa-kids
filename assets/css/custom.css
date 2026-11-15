@@ -76,6 +76,14 @@ body {
   background-attachment: scroll;
 }
 
+/* Pola garis-garis vertikal tipis (Vertical Column Stripes) & Ambient Glow untuk Hero Section */
+.hero-stripes-pattern {
+  background-color: #fafcfb;
+  background-image: 
+    linear-gradient(to right, rgba(16, 185, 129, 0.06) 1px, transparent 1px);
+  background-size: 72px 100%;
+}
+
 /* Pola titik halus (Subtle Dotted Background) untuk seksi transisi */
 .dot-pattern {
   background-image: radial-gradient(#cbd5e1 1.2px, transparent 1.2px);
