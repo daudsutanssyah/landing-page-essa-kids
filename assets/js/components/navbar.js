@@ -11,7 +11,7 @@
 export const renderPublicNavbar = () => {
   return `
     <header 
-      x-data="{ mobileMenuOpen: false, activeNav: '#keunggulan' }"
+      x-data="{ mobileMenuOpen: false }"
       class="sticky top-0 z-50 w-full bg-base-100/90 backdrop-blur-md border-b border-base-200 transition-all shadow-xs"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,8 +47,8 @@ export const renderPublicNavbar = () => {
             <!-- 1. Keunggulan -->
             <a 
               href="#keunggulan" 
-              @click="activeNav = '#keunggulan'"
-              :class="activeNav === '#keunggulan' 
+              @click.prevent="$store.landing.navigateToSection('#keunggulan')"
+              :class="$store.landing.activeSection === '#keunggulan' 
                 ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' 
                 : 'text-slate-600 hover:text-primary border border-transparent'"
               class="text-[11px] xl:text-xs px-3 xl:px-3.5 py-1.5 rounded-full transition-all duration-150 whitespace-nowrap"
@@ -59,8 +59,8 @@ export const renderPublicNavbar = () => {
             <!-- 2. Program & Usia -->
             <a 
               href="#program-usia" 
-              @click="activeNav = '#program-usia'"
-              :class="activeNav === '#program-usia' 
+              @click.prevent="$store.landing.navigateToSection('#program-usia')"
+              :class="$store.landing.activeSection === '#program-usia' 
                 ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' 
                 : 'text-slate-600 hover:text-primary border border-transparent'"
               class="text-[11px] xl:text-xs px-3 xl:px-3.5 py-1.5 rounded-full transition-all duration-150 whitespace-nowrap"
@@ -71,8 +71,8 @@ export const renderPublicNavbar = () => {
             <!-- 3. Simulasi & Screening -->
             <a 
               href="#preview-interaktif" 
-              @click="activeNav = '#preview-interaktif'"
-              :class="activeNav === '#preview-interaktif' 
+              @click.prevent="$store.landing.navigateToSection('#preview-interaktif')"
+              :class="$store.landing.activeSection === '#preview-interaktif' 
                 ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' 
                 : 'text-slate-600 hover:text-primary border border-transparent'"
               class="text-[11px] xl:text-xs px-3 xl:px-3.5 py-1.5 rounded-full transition-all duration-150 whitespace-nowrap"
@@ -83,8 +83,8 @@ export const renderPublicNavbar = () => {
             <!-- 4. Tim Ahli -->
             <a 
               href="#tim-ahli" 
-              @click="activeNav = '#tim-ahli'"
-              :class="activeNav === '#tim-ahli' 
+              @click.prevent="$store.landing.navigateToSection('#tim-ahli')"
+              :class="$store.landing.activeSection === '#tim-ahli' 
                 ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' 
                 : 'text-slate-600 hover:text-primary border border-transparent'"
               class="text-[11px] xl:text-xs px-3 xl:px-3.5 py-1.5 rounded-full transition-all duration-150 whitespace-nowrap"
@@ -95,8 +95,8 @@ export const renderPublicNavbar = () => {
             <!-- 5. Paket & Biaya -->
             <a 
               href="#paket-harga" 
-              @click="activeNav = '#paket-harga'"
-              :class="activeNav === '#paket-harga' 
+              @click.prevent="$store.landing.navigateToSection('#paket-harga')"
+              :class="$store.landing.activeSection === '#paket-harga' 
                 ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' 
                 : 'text-slate-600 hover:text-primary border border-transparent'"
               class="text-[11px] xl:text-xs px-3 xl:px-3.5 py-1.5 rounded-full transition-all duration-150 whitespace-nowrap"
@@ -107,8 +107,8 @@ export const renderPublicNavbar = () => {
             <!-- 6. FAQ -->
             <a 
               href="#faq" 
-              @click="activeNav = '#faq'"
-              :class="activeNav === '#faq' 
+              @click.prevent="$store.landing.navigateToSection('#faq')"
+              :class="$store.landing.activeSection === '#faq' 
                 ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' 
                 : 'text-slate-600 hover:text-primary border border-transparent'"
               class="text-[11px] xl:text-xs px-3 xl:px-3.5 py-1.5 rounded-full transition-all duration-150 whitespace-nowrap"
@@ -183,8 +183,8 @@ export const renderPublicNavbar = () => {
           <!-- 1. Keunggulan -->
           <a 
             href="#keunggulan" 
-            @click="activeNav = '#keunggulan'; mobileMenuOpen = false"
-            :class="activeNav === '#keunggulan' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
+            @click.prevent="$store.landing.navigateToSection('#keunggulan'); mobileMenuOpen = false"
+            :class="$store.landing.activeSection === '#keunggulan' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
             class="flex items-center gap-2.5 px-3.5 py-2 text-xs sm:text-sm rounded-xl transition-all"
           >
             <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
@@ -194,8 +194,8 @@ export const renderPublicNavbar = () => {
           <!-- 2. Program & Usia -->
           <a 
             href="#program-usia" 
-            @click="activeNav = '#program-usia'; mobileMenuOpen = false"
-            :class="activeNav === '#program-usia' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
+            @click.prevent="$store.landing.navigateToSection('#program-usia'); mobileMenuOpen = false"
+            :class="$store.landing.activeSection === '#program-usia' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
             class="flex items-center gap-2.5 px-3.5 py-2 text-xs sm:text-sm rounded-xl transition-all"
           >
             <i data-lucide="compass" class="w-4 h-4 text-sky-600"></i>
@@ -205,8 +205,8 @@ export const renderPublicNavbar = () => {
           <!-- 3. Simulasi & Screening -->
           <a 
             href="#preview-interaktif" 
-            @click="activeNav = '#preview-interaktif'; mobileMenuOpen = false"
-            :class="activeNav === '#preview-interaktif' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
+            @click.prevent="$store.landing.navigateToSection('#preview-interaktif'); mobileMenuOpen = false"
+            :class="$store.landing.activeSection === '#preview-interaktif' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
             class="flex items-center gap-2.5 px-3.5 py-2 text-xs sm:text-sm rounded-xl transition-all"
           >
             <i data-lucide="clipboard-check" class="w-4 h-4 text-primary"></i>
@@ -216,8 +216,8 @@ export const renderPublicNavbar = () => {
           <!-- 4. Tim Ahli -->
           <a 
             href="#tim-ahli" 
-            @click="activeNav = '#tim-ahli'; mobileMenuOpen = false"
-            :class="activeNav === '#tim-ahli' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
+            @click.prevent="$store.landing.navigateToSection('#tim-ahli'); mobileMenuOpen = false"
+            :class="$store.landing.activeSection === '#tim-ahli' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
             class="flex items-center gap-2.5 px-3.5 py-2 text-xs sm:text-sm rounded-xl transition-all"
           >
             <i data-lucide="users" class="w-4 h-4 text-purple-600"></i>
@@ -227,8 +227,8 @@ export const renderPublicNavbar = () => {
           <!-- 5. Paket & Biaya -->
           <a 
             href="#paket-harga" 
-            @click="activeNav = '#paket-harga'; mobileMenuOpen = false"
-            :class="activeNav === '#paket-harga' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
+            @click.prevent="$store.landing.navigateToSection('#paket-harga'); mobileMenuOpen = false"
+            :class="$store.landing.activeSection === '#paket-harga' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
             class="flex items-center gap-2.5 px-3.5 py-2 text-xs sm:text-sm rounded-xl transition-all"
           >
             <i data-lucide="tag" class="w-4 h-4 text-amber-600"></i>
@@ -238,8 +238,8 @@ export const renderPublicNavbar = () => {
           <!-- 6. FAQ -->
           <a 
             href="#faq" 
-            @click="activeNav = '#faq'; mobileMenuOpen = false"
-            :class="activeNav === '#faq' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
+            @click.prevent="$store.landing.navigateToSection('#faq'); mobileMenuOpen = false"
+            :class="$store.landing.activeSection === '#faq' ? 'bg-base-100 text-primary font-semibold shadow-xs border border-base-300/80' : 'text-slate-700 hover:text-primary'"
             class="flex items-center gap-2.5 px-3.5 py-2 text-xs sm:text-sm rounded-xl transition-all"
           >
             <i data-lucide="help-circle" class="w-4 h-4 text-slate-400"></i>

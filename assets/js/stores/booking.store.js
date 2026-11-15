@@ -17,6 +17,12 @@ export const createBookingStore = () => ({
   // =========================================================================
   content: LANDING_CONTENT,
 
+  // Menu / Section yang sedang aktif disorot di Navbar (Pemusatan State Navigasi)
+  activeSection: (typeof window !== 'undefined' && window.location?.hash) ? window.location.hash : '#keunggulan',
+  _isManualNavigating: false,
+  _navigatingTimeout: null,
+  _scrollSpyObserver: null,
+
   // ID Kelompok Usia aktif pada tab Section 4 (Kategori Program & Usia)
   activeAgeGroupId: LANDING_CONTENT.ageGroups[0]?.id || 'age-1-2',
 
@@ -382,12 +388,108 @@ export const createBookingStore = () => ({
   },
 
   /**
-   * Helper smooth scroll ke elemen ID tertentu
+   * Inisialisasi store & scroll spy
+   */
+  init() {
+    if (typeof window !== 'undefined' && window.location?.hash) {
+      this.activeSection = window.location.hash;
+    }
+
+    const setupSpy = () => {
+      setTimeout(() => {
+        this.initScrollSpy();
+      }, 150);
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupSpy);
+    } else {
+      setupSpy();
+    }
+  },
+
+  /**
+   * Navigasi halus ke section target dan perbarui indikator aktif secara instan
+   */
+  navigateToSection(sectionId) {
+    if (!sectionId) return;
+
+    this.activeSection = sectionId;
+    this._isManualNavigating = true;
+
+    if (this._navigatingTimeout) {
+      clearTimeout(this._navigatingTimeout);
+    }
+
+    // Beri jeda agar IntersectionObserver tidak menimpa state saat animasi smooth scroll berjalan
+    this._navigatingTimeout = setTimeout(() => {
+      this._isManualNavigating = false;
+    }, 850);
+
+    const element = document.querySelector(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (typeof window !== 'undefined' && window.history && window.history.replaceState) {
+        window.history.replaceState(null, null, sectionId);
+      }
+    }
+  },
+
+  /**
+   * Scroll Spy otomatis dengan IntersectionObserver
+   */
+  initScrollSpy() {
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
+
+    if (this._scrollSpyObserver) {
+      this._scrollSpyObserver.disconnect();
+    }
+
+    const sectionIds = [
+      '#hero',
+      '#keunggulan',
+      '#program-usia',
+      '#preview-interaktif',
+      '#tim-ahli',
+      '#paket-harga',
+      '#faq',
+      '#final-cta'
+    ];
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -55% 0px',
+      threshold: 0
+    };
+
+    this._scrollSpyObserver = new IntersectionObserver((entries) => {
+      if (this._isManualNavigating) return;
+
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = '#' + entry.target.id;
+          // Bila di Hero, default sorot ke #keunggulan agar navbar tetap terhubung
+          if (id === '#hero') {
+            this.activeSection = '#keunggulan';
+          } else {
+            this.activeSection = id;
+          }
+        }
+      });
+    }, observerOptions);
+
+    sectionIds.forEach((id) => {
+      const el = document.querySelector(id);
+      if (el) {
+        this._scrollSpyObserver.observe(el);
+      }
+    });
+  },
+
+  /**
+   * Helper smooth scroll ke elemen ID tertentu (backward compatibility)
    */
   scrollToSection(selector) {
-    const el = document.querySelector(selector);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    this.navigateToSection(selector);
   }
 });

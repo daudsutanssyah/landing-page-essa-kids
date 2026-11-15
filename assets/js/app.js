@@ -152,6 +152,14 @@ export const initLayoutAndIcons = () => {
   // Siapkan kontainer toast
   ensureToastContainer();
 
+  // Inisialisasi ScrollSpy pada global store
+  if (window.Alpine && window.Alpine.store && window.Alpine.store('landing')) {
+    const landingStore = window.Alpine.store('landing');
+    if (typeof landingStore.initScrollSpy === 'function') {
+      landingStore.initScrollSpy();
+    }
+  }
+
   // Render awal ikon Lucide
   window.refreshIcons();
 };

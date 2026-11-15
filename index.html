@@ -1,1284 +1,1942 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id" data-theme="emerald">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta 
-    name="description" 
-    content="ESSA Kids Therapy — Klinik Terapi Tumbuh Kembang Anak Terpadu dengan pendekatan bermain terarah (Play-Based). Layanan Fisioterapi, Sensori Integrasi, Terapi Wicara, dan Terapi Okupasi oleh tenaga medis tersertifikasi STR resmi." 
-  />
-  <meta name="theme-color" content="#10b981" />
-  <title>ESSA Kids Therapy — Klinik Terapi Tumbuh Kembang Anak Terpadu</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ESSA Kids Therapy — Klinik Terapi Tumbuh Kembang Anak Terpadu dengan pendekatan bermain terarah (Play-Based). Layanan Fisioterapi, Sensori Integrasi, Terapi Wicara, dan Terapi Okupasi oleh tenaga medis tersertifikasi STR resmi."
+    />
+    <meta name="theme-color" content="#10b981" />
+    <title>ESSA Kids Therapy — Klinik Terapi Tumbuh Kembang Anak Terpadu</title>
 
-  <!-- Google Fonts: Plus Jakarta Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" 
-    rel="stylesheet" 
-  />
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- DaisyUI v4 CDN & Tailwind CSS CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- DaisyUI v4 CDN & Tailwind CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Custom Tailwind Config & Stylesheet -->
-  <script src="./assets/js/config/tailwind.config.js"></script>
-  <link rel="stylesheet" href="./assets/css/custom.css" />
+    <!-- Custom Tailwind Config & Stylesheet -->
+    <script src="./assets/js/config/tailwind.config.js"></script>
+    <link rel="stylesheet" href="./assets/css/custom.css" />
 
-  <!-- Lucide Icons CDN -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- App Bootstrapper (ES6 Module) -->
-  <script type="module" src="./assets/js/app.js"></script>
+    <!-- App Bootstrapper (ES6 Module) -->
+    <script type="module" src="./assets/js/app.js"></script>
 
-  <!-- Alpine.js v3 CDN (Deferred) -->
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
-</head>
+    <!-- Alpine.js v3 CDN (Deferred) -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"
+    ></script>
+  </head>
 
-<body 
-  x-data 
-  x-effect="if (window.refreshIcons) window.refreshIcons()"
-  class="bg-base-100 text-slate-800 antialiased selection:bg-emerald-100 selection:text-emerald-900"
->
-
-  <!-- =======================================================================
+  <body
+    x-data
+    x-effect="if (window.refreshIcons) window.refreshIcons()"
+    class="bg-base-100 text-slate-800 antialiased selection:bg-emerald-100 selection:text-emerald-900"
+  >
+    <!-- =======================================================================
        TOAST NOTIFICATION (Fixed Top-Right)
        ======================================================================= -->
-  <div 
-    id="app-toast-container" 
-    class="fixed top-20 right-4 z-50 p-4 max-w-md w-full pointer-events-none" 
-    x-show="$store.ui && $store.ui.toastVisible" 
-    x-transition:enter="transition ease-out duration-300"
-    x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-    x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
-    x-transition:leave="transition ease-in duration-200"
-    x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-    x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-    x-cloak
-  >
-    <div 
-      class="alert shadow-xl rounded-2xl flex items-center justify-between text-sm py-3 px-4 border pointer-events-auto"
-      :class="{
+    <div
+      id="app-toast-container"
+      class="fixed top-20 right-4 z-50 p-4 max-w-md w-full pointer-events-none"
+      x-show="$store.ui && $store.ui.toastVisible"
+      x-transition:enter="transition ease-out duration-300"
+      x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+      x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+      x-transition:leave="transition ease-in duration-200"
+      x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+      x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+      x-cloak
+    >
+      <div
+        class="alert shadow-xl rounded-2xl flex items-center justify-between text-sm py-3 px-4 border pointer-events-auto"
+        :class="{
         'bg-emerald-50 border-emerald-200 text-emerald-900': $store.ui && $store.ui.toastType === 'success',
         'bg-amber-50 border-amber-200 text-amber-900': $store.ui && $store.ui.toastType === 'warning',
         'bg-sky-50 border-sky-200 text-sky-900': $store.ui && $store.ui.toastType === 'info',
         'bg-rose-50 border-rose-200 text-rose-900': $store.ui && $store.ui.toastType === 'error'
       }"
-    >
-      <div class="flex items-center gap-3">
-        <template x-if="$store.ui && $store.ui.toastType === 'success'">
-          <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 flex-shrink-0"></i>
-        </template>
-        <template x-if="$store.ui && $store.ui.toastType === 'warning'">
-          <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-600 flex-shrink-0"></i>
-        </template>
-        <template x-if="$store.ui && $store.ui.toastType === 'info'">
-          <i data-lucide="info" class="w-5 h-5 text-sky-600 flex-shrink-0"></i>
-        </template>
-        <template x-if="$store.ui && $store.ui.toastType === 'error'">
-          <i data-lucide="alert-circle" class="w-5 h-5 text-rose-600 flex-shrink-0"></i>
-        </template>
-        <span class="font-medium" x-text="$store.ui ? $store.ui.toastMessage : ''"></span>
-      </div>
-      <button 
-        type="button" 
-        @click="$store.ui && $store.ui.hideToast()" 
-        class="btn btn-ghost btn-xs btn-circle ml-2 text-slate-500 hover:text-slate-800"
-        aria-label="Tutup notifikasi"
       >
-        ✕
-      </button>
+        <div class="flex items-center gap-3">
+          <template x-if="$store.ui && $store.ui.toastType === 'success'">
+            <i
+              data-lucide="check-circle-2"
+              class="w-5 h-5 text-emerald-600 flex-shrink-0"
+            ></i>
+          </template>
+          <template x-if="$store.ui && $store.ui.toastType === 'warning'">
+            <i
+              data-lucide="alert-triangle"
+              class="w-5 h-5 text-amber-600 flex-shrink-0"
+            ></i>
+          </template>
+          <template x-if="$store.ui && $store.ui.toastType === 'info'">
+            <i
+              data-lucide="info"
+              class="w-5 h-5 text-sky-600 flex-shrink-0"
+            ></i>
+          </template>
+          <template x-if="$store.ui && $store.ui.toastType === 'error'">
+            <i
+              data-lucide="alert-circle"
+              class="w-5 h-5 text-rose-600 flex-shrink-0"
+            ></i>
+          </template>
+          <span
+            class="font-medium"
+            x-text="$store.ui ? $store.ui.toastMessage : ''"
+          ></span>
+        </div>
+        <button
+          type="button"
+          @click="$store.ui && $store.ui.hideToast()"
+          class="btn btn-ghost btn-xs btn-circle ml-2 text-slate-500 hover:text-slate-800"
+          aria-label="Tutup notifikasi"
+        >
+          ✕
+        </button>
+      </div>
     </div>
-  </div>
 
-  <!-- =======================================================================
+    <!-- =======================================================================
        SECTION 1: STICKY PUBLIC NAVBAR MOUNT POINT
        ======================================================================= -->
-  <div id="app-navbar" class="sticky top-0 z-50 w-full"></div>
+    <div id="app-navbar" class="sticky top-0 z-50 w-full"></div>
 
-  <!-- =======================================================================
+    <!-- =======================================================================
        SECTION 2: HERO SECTION (#hero)
        ======================================================================= -->
-  <section id="hero" class="hero-stripes-pattern py-12 lg:py-16 relative overflow-hidden border-b border-slate-200/70 min-h-[82vh] flex items-center">
-    <!-- Ambient Radial Glow Lembut di Area Tengah -->
-    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] rounded-full bg-gradient-to-tr from-emerald-100/50 via-teal-50/40 to-sky-100/40 blur-3xl pointer-events-none opacity-80"></div>
+    <section
+      id="hero"
+      class="hero-stripes-pattern py-12 lg:py-16 relative overflow-hidden border-b border-slate-200/70 min-h-[82vh] flex items-center"
+    >
+      <!-- Ambient Radial Glow Lembut di Area Tengah -->
+      <div
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] rounded-full bg-gradient-to-tr from-emerald-100/50 via-teal-50/40 to-sky-100/40 blur-3xl pointer-events-none opacity-80"
+      ></div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-      <div class="grid grid-cols-1 lg:grid-cols-12 items-center gap-12 min-h-[82vh] relative">
-        
-        <!-- Kolom Kiri: Announcement Pill, Tipografi Tegas, Pill Action Bar, & Program Trust Bar -->
-        <div class="lg:col-span-6 space-y-6 text-center lg:text-left z-10">
-          
-          <!-- 1. Badge Identitas Statis Keahlian Klinik (Tanpa Panah Klik) -->
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50/90 border border-emerald-200/90 text-xs font-medium mb-6 shadow-xs select-none">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span class="text-emerald-800 font-bold uppercase tracking-wider text-[10px] bg-emerald-100/90 px-2 py-0.5 rounded-md">
-              KLINIK RESMI STR
-            </span>
-            <span class="text-slate-700 font-semibold text-xs sm:text-[13px]">
-              Pusat Terapi Pediatrik & Tumbuh Kembang Terpadu
-            </span>
-          </div>
-
-          <!-- 2. Tipografi Headline & Deskripsi -->
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.12]">
-            Mendampingi Langkah Kecil Menuju Tumbuh Kembang 
-            <span class="relative inline-block text-primary">
-              Mandiri & Percaya Diri
-              <svg class="absolute -bottom-1.5 sm:-bottom-2 left-0 w-full h-2.5 sm:h-3 text-emerald-400/80 pointer-events-none" viewBox="0 0 250 12" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                <path d="M3 4C65 10 185 10 247 4.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-              </svg>
-            </span>
-          </h1>
-
-          <p class="text-base sm:text-lg text-base-content/70 max-w-xl mt-5 leading-relaxed mx-auto lg:mx-0">
-            Pusat stimulasi pediatrik terpadu untuk Terapi Wicara, Sensori Integrasi, Fisioterapi, dan Okupasi dengan pendekatan bermain terarah (<em>Play-Based Therapy</em>) yang aman, hangat, dan terukur bersama terapis berlisensi STR resmi.
-          </p>
-
-          <!-- 3. Area Aksi Utama (Dual CTA: Primary Solid & Secondary Outline) -->
-          <div class="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3.5">
-            <!-- Primary CTA (Hijau Solid): Jadwalkan Observasi -->
-            <a 
-              href="#final-cta" 
-              class="btn btn-primary rounded-full px-6 sm:px-7 py-3 h-auto min-h-0 text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:brightness-105 transition-all flex items-center gap-2 group w-full sm:w-auto justify-center"
-            >
-              <i data-lucide="calendar-check" class="w-4 h-4"></i>
-              <span>Jadwalkan Observasi</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-0.5"></i>
-            </a>
-
-            <!-- Secondary CTA (Outline / Ghost Button): Cek Gejala Anak -->
-            <a 
-              href="#preview-interaktif" 
-              class="btn btn-outline border-slate-300 hover:border-emerald-500 hover:bg-emerald-50/70 text-slate-700 hover:text-emerald-800 rounded-full px-5 sm:px-6 py-3 h-auto min-h-0 text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 w-full sm:w-auto justify-center"
-            >
-              <i data-lucide="clipboard-check" class="w-4 h-4 text-emerald-600"></i>
-              <span>Cek Gejala Anak</span>
-            </a>
-          </div>
-
-          <!-- 4. Program Trust Bar (Pengganti Elemen Avatar dengan 4 Ikon Layanan Inti) -->
-          <div class="mt-8 flex flex-col sm:flex-row sm:items-center justify-center lg:justify-start gap-4">
-            <div class="flex -space-x-2 items-center justify-center lg:justify-start">
-              <div class="w-10 h-10 rounded-full bg-sky-50 text-sky-600 ring-2 ring-white flex items-center justify-center shadow-xs transition-transform hover:scale-110 hover:z-20 cursor-pointer" title="Fisioterapi Anak (Physiotherapy)">
-                <i data-lucide="activity" class="w-4.5 h-4.5"></i>
-              </div>
-              <div class="w-10 h-10 rounded-full bg-purple-50 text-purple-600 ring-2 ring-white flex items-center justify-center shadow-xs transition-transform hover:scale-110 hover:z-20 cursor-pointer" title="Sensori Integrasi (Sensory Integration)">
-                <i data-lucide="brain" class="w-4.5 h-4.5"></i>
-              </div>
-              <div class="w-10 h-10 rounded-full bg-amber-50 text-amber-600 ring-2 ring-white flex items-center justify-center shadow-xs transition-transform hover:scale-110 hover:z-20 cursor-pointer" title="Terapi Wicara (Speech Therapy)">
-                <i data-lucide="message-circle" class="w-4.5 h-4.5"></i>
-              </div>
-              <div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 ring-2 ring-white flex items-center justify-center shadow-xs transition-transform hover:scale-110 hover:z-20 cursor-pointer" title="Terapi Okupasi (Occupational Therapy)">
-                <i data-lucide="puzzle" class="w-4.5 h-4.5"></i>
-              </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-12 items-center gap-12 min-h-[82vh] relative"
+        >
+          <!-- Kolom Kiri: Announcement Pill, Tipografi Tegas, Pill Action Bar, & Program Trust Bar -->
+          <div class="lg:col-span-6 space-y-6 text-center lg:text-left z-10">
+            <!-- Opsi 3: Minimalist Architectural Eyebrow -->
+            <div class="inline-flex items-center gap-3 mb-6 select-none">
+              <span
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-600/10 border border-emerald-600/20 text-emerald-700 font-extrabold uppercase tracking-widest text-[10px]"
+              >
+                <i
+                  data-lucide="badge-check"
+                  class="w-3.5 h-3.5 text-emerald-600"
+                ></i>
+                BERLISENSI STR
+              </span>
+              <span class="h-3.5 w-[1.5px] bg-slate-300 rounded-full"></span>
+              <span
+                class="text-slate-600 font-semibold text-xs sm:text-[13px] tracking-tight"
+              >
+                Pusat Terapi Pediatrik & Tumbuh Kembang Terpadu
+              </span>
             </div>
 
-            <div class="space-y-0.5 text-center sm:text-left">
-              <div class="flex items-center justify-center sm:justify-start gap-0.5 text-warning text-xs">
-                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
-                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
-                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
-                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
-                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
-                <span class="text-xs font-bold text-slate-700 ml-1">5.0 / 5.0</span>
-              </div>
-              <p class="text-xs font-medium text-base-content/70">
-                4 Layanan Terapi Terpadu • 100% Terapis Tersertifikasi
+            <!-- 2. Tipografi Headline & Deskripsi (Gaya Editorial Swiss Grid) -->
+            <h1
+              class="text-3xl sm:text-4xl lg:text-[46px] font-bold text-slate-900 tracking-[-0.03em] leading-[1.15]"
+            >
+              Langkah Kecil Hari Ini,<br class="hidden sm:inline" />
+              Tumbuh <span class="text-emerald-600">Mandiri & Percaya Diri</span
+              ><br class="hidden sm:inline" />
+              di Masa Depan.
+            </h1>
+
+            <div class="mt-5 max-w-lg space-y-3">
+              <p
+                class="text-[15px] sm:text-base text-slate-600 leading-relaxed"
+              >
+                Intervensi tumbuh kembang anak berbasis
+                <span class="text-slate-900 font-semibold"
+                  >Play-Based Therapy</span
+                >
+                yang personal, aman, dan terukur secara klinis.
               </p>
+
+              <!-- Architectural Micro-Specs (Pengganti kalimat panjang) -->
+              <div
+                class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold text-slate-500 pt-1"
+              >
+                <span class="text-emerald-700">01. Terapi Wicara</span>
+                <span class="text-slate-300">/</span>
+                <span class="text-emerald-700">02. Sensori Integrasi</span>
+                <span class="text-slate-300">/</span>
+                <span class="text-emerald-700">03. Fisioterapi</span>
+                <span class="text-slate-300">/</span>
+                <span class="text-emerald-700">04. Okupasi</span>
+              </div>
+            </div>
+
+            <!-- 3. Area Aksi Utama (Dual CTA: Primary Solid & Secondary Outline) -->
+            <div
+              class="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3.5"
+            >
+              <!-- Primary CTA (Hijau Solid): Jadwalkan Observasi -->
+              <a
+                href="#final-cta"
+                @click.prevent="$store.landing.navigateToSection('#final-cta')"
+                class="btn btn-primary rounded-full px-6 sm:px-7 py-3 h-auto min-h-0 text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:brightness-105 transition-all flex items-center gap-2 group w-full sm:w-auto justify-center"
+              >
+                <i data-lucide="calendar-check" class="w-4 h-4"></i>
+                <span>Jadwalkan Observasi</span>
+                <i
+                  data-lucide="arrow-right"
+                  class="w-4 h-4 transition-transform group-hover:translate-x-0.5"
+                ></i>
+              </a>
+
+              <!-- Secondary CTA (Outline / Ghost Button): Cek Gejala Anak -->
+              <a
+                href="#preview-interaktif"
+                @click.prevent="$store.landing.navigateToSection('#preview-interaktif')"
+                class="btn btn-outline border-slate-300 hover:border-emerald-500 hover:bg-emerald-50/70 text-slate-700 hover:text-emerald-800 rounded-full px-5 sm:px-6 py-3 h-auto min-h-0 text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 w-full sm:w-auto justify-center"
+              >
+                <i
+                  data-lucide="clipboard-check"
+                  class="w-4 h-4 text-emerald-600"
+                ></i>
+                <span>Cek Gejala Anak</span>
+              </a>
+            </div>
+
+            <!-- 4. Program Trust Bar (Pengganti Elemen Avatar dengan 4 Ikon Layanan Inti) -->
+            <div
+              class="mt-8 flex flex-col sm:flex-row sm:items-center justify-center lg:justify-start gap-4"
+            >
+              <div
+                class="flex -space-x-2 items-center justify-center lg:justify-start"
+              >
+                <div
+                  class="w-10 h-10 rounded-full bg-sky-50 text-sky-600 ring-2 ring-white flex items-center justify-center shadow-xs transition-transform hover:scale-110 hover:z-20 cursor-pointer"
+                  title="Fisioterapi Anak (Physiotherapy)"
+                >
+                  <i data-lucide="activity" class="w-4.5 h-4.5"></i>
+                </div>
+                <div
+                  class="w-10 h-10 rounded-full bg-purple-50 text-purple-600 ring-2 ring-white flex items-center justify-center shadow-xs transition-transform hover:scale-110 hover:z-20 cursor-pointer"
+                  title="Sensori Integrasi (Sensory Integration)"
+                >
+                  <i data-lucide="brain" class="w-4.5 h-4.5"></i>
+                </div>
+                <div
+                  class="w-10 h-10 rounded-full bg-amber-50 text-amber-600 ring-2 ring-white flex items-center justify-center shadow-xs transition-transform hover:scale-110 hover:z-20 cursor-pointer"
+                  title="Terapi Wicara (Speech Therapy)"
+                >
+                  <i data-lucide="message-circle" class="w-4.5 h-4.5"></i>
+                </div>
+                <div
+                  class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 ring-2 ring-white flex items-center justify-center shadow-xs transition-transform hover:scale-110 hover:z-20 cursor-pointer"
+                  title="Terapi Okupasi (Occupational Therapy)"
+                >
+                  <i data-lucide="puzzle" class="w-4.5 h-4.5"></i>
+                </div>
+              </div>
+
+              <div class="space-y-0.5 text-center sm:text-left">
+                <div
+                  class="flex items-center justify-center sm:justify-start gap-0.5 text-warning text-xs"
+                >
+                  <i
+                    data-lucide="star"
+                    class="w-3.5 h-3.5 fill-amber-400 text-amber-400"
+                  ></i>
+                  <i
+                    data-lucide="star"
+                    class="w-3.5 h-3.5 fill-amber-400 text-amber-400"
+                  ></i>
+                  <i
+                    data-lucide="star"
+                    class="w-3.5 h-3.5 fill-amber-400 text-amber-400"
+                  ></i>
+                  <i
+                    data-lucide="star"
+                    class="w-3.5 h-3.5 fill-amber-400 text-amber-400"
+                  ></i>
+                  <i
+                    data-lucide="star"
+                    class="w-3.5 h-3.5 fill-amber-400 text-amber-400"
+                  ></i>
+                  <span class="text-xs font-bold text-slate-700 ml-1"
+                    >5.0 / 5.0</span
+                  >
+                </div>
+                <p class="text-xs font-medium text-base-content/70">
+                  4 Layanan Terapi Terpadu • 100% Terapis Tersertifikasi
+                </p>
+              </div>
             </div>
           </div>
 
-        </div>
-
-        <!-- Kolom Kanan: Concentric Orbit Rings & Floating Service Nodes -->
-        <div class="lg:col-span-6 relative flex items-center justify-center">
-          <div class="relative h-[440px] sm:h-[500px] w-full flex items-center justify-center">
-            
-            <!-- 3 Cincin Orbit Konsentris -->
-            <div class="w-[220px] h-[220px] rounded-full border border-slate-300/60 absolute pointer-events-none"></div>
-            <div class="w-[330px] h-[330px] rounded-full border border-slate-300/60 absolute pointer-events-none"></div>
-            <div class="w-[440px] h-[440px] rounded-full border border-slate-300/60 absolute pointer-events-none"></div>
-
-            <!-- Lingkaran Pusat (Center Core Hub) -->
-            <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-tr from-emerald-600 to-teal-500 text-white shadow-xl flex flex-col items-center justify-center z-20 ring-8 ring-primary/15 group cursor-pointer transition-transform hover:scale-105">
-              <i data-lucide="baby" class="w-8 h-8 sm:w-9 sm:h-9"></i>
-              <span class="text-[10px] sm:text-[11px] font-extrabold tracking-tight mt-0.5">ESSA Kids</span>
-              <span class="text-[8px] font-medium opacity-90">Pusat Terpadu</span>
-            </div>
-
-            <!-- Node 1: Top-Right (Orbit Luar) — Terapi Wicara -->
-            <div 
-              style="left: 72%; top: 12%; transform: translate(-50%, -50%);"
-              class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-base-100 shadow-md border border-base-200 flex flex-col items-center justify-center absolute z-20 group cursor-pointer hover:scale-110 hover:shadow-lg transition-all"
+          <!-- Kolom Kanan: Concentric Orbit Rings & Floating Service Nodes -->
+          <div class="lg:col-span-6 relative flex items-center justify-center">
+            <div
+              class="relative h-[440px] sm:h-[500px] w-full flex items-center justify-center"
             >
-              <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center transition-transform group-hover:scale-105">
-                <i data-lucide="message-circle" class="w-5 h-5"></i>
-              </div>
-              <span class="absolute -bottom-5 whitespace-nowrap bg-white/95 backdrop-blur-xs text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-200 shadow-xs pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity">
-                Terapi Wicara
-              </span>
-            </div>
+              <!-- 3 Cincin Orbit Konsentris -->
+              <div
+                class="w-[220px] h-[220px] rounded-full border border-slate-300/60 absolute pointer-events-none"
+              ></div>
+              <div
+                class="w-[330px] h-[330px] rounded-full border border-slate-300/60 absolute pointer-events-none"
+              ></div>
+              <div
+                class="w-[440px] h-[440px] rounded-full border border-slate-300/60 absolute pointer-events-none"
+              ></div>
 
-            <!-- Node 2: Kiri-Tengah (Orbit Tengah) — Fisioterapi -->
-            <div 
-              style="left: 17%; top: 50%; transform: translate(-50%, -50%);"
-              class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-base-100 shadow-md border border-base-200 flex flex-col items-center justify-center absolute z-20 group cursor-pointer hover:scale-110 hover:shadow-lg transition-all"
-            >
-              <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center transition-transform group-hover:scale-105">
-                <i data-lucide="activity" class="w-5 h-5"></i>
+              <!-- Lingkaran Pusat (Center Core Hub) -->
+              <div
+                class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-tr from-emerald-600 to-teal-500 text-white shadow-xl flex flex-col items-center justify-center z-20 ring-8 ring-primary/15 group cursor-pointer transition-transform hover:scale-105"
+              >
+                <i data-lucide="baby" class="w-8 h-8 sm:w-9 sm:h-9"></i>
+                <span
+                  class="text-[10px] sm:text-[11px] font-extrabold tracking-tight mt-0.5"
+                  >ESSA Kids</span
+                >
+                <span class="text-[8px] font-medium opacity-90"
+                  >Pusat Terpadu</span
+                >
               </div>
-              <span class="absolute -bottom-5 whitespace-nowrap bg-white/95 backdrop-blur-xs text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-200 shadow-xs pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity">
-                Fisioterapi
-              </span>
-            </div>
 
-            <!-- Node 3: Kanan-Tengah (Orbit Tengah) — Sensori Integrasi -->
-            <div 
-              style="left: 83%; top: 50%; transform: translate(-50%, -50%);"
-              class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-base-100 shadow-md border border-base-200 flex flex-col items-center justify-center absolute z-20 group cursor-pointer hover:scale-110 hover:shadow-lg transition-all"
-            >
-              <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center transition-transform group-hover:scale-105">
-                <i data-lucide="brain" class="w-5 h-5"></i>
+              <!-- Node 1: Top-Right (Orbit Luar) — Terapi Wicara -->
+              <div
+                style="left: 72%; top: 12%; transform: translate(-50%, -50%)"
+                class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-base-100 shadow-md border border-base-200 flex flex-col items-center justify-center absolute z-20 group cursor-pointer hover:scale-110 hover:shadow-lg transition-all"
+              >
+                <div
+                  class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center transition-transform group-hover:scale-105"
+                >
+                  <i data-lucide="message-circle" class="w-5 h-5"></i>
+                </div>
+                <span
+                  class="absolute -bottom-5 whitespace-nowrap bg-white/95 backdrop-blur-xs text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-200 shadow-xs pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity"
+                >
+                  Terapi Wicara
+                </span>
               </div>
-              <span class="absolute -bottom-5 whitespace-nowrap bg-white/95 backdrop-blur-xs text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-200 shadow-xs pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity">
-                Sensori Integrasi
-              </span>
-            </div>
 
-            <!-- Node 4: Kiri-Bawah (Orbit Luar) — Terapi Okupasi -->
-            <div 
-              style="left: 28%; top: 88%; transform: translate(-50%, -50%);"
-              class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-base-100 shadow-md border border-base-200 flex flex-col items-center justify-center absolute z-20 group cursor-pointer hover:scale-110 hover:shadow-lg transition-all"
-            >
-              <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center transition-transform group-hover:scale-105">
-                <i data-lucide="puzzle" class="w-5 h-5"></i>
+              <!-- Node 2: Kiri-Tengah (Orbit Tengah) — Fisioterapi -->
+              <div
+                style="left: 17%; top: 50%; transform: translate(-50%, -50%)"
+                class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-base-100 shadow-md border border-base-200 flex flex-col items-center justify-center absolute z-20 group cursor-pointer hover:scale-110 hover:shadow-lg transition-all"
+              >
+                <div
+                  class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center transition-transform group-hover:scale-105"
+                >
+                  <i data-lucide="activity" class="w-5 h-5"></i>
+                </div>
+                <span
+                  class="absolute -bottom-5 whitespace-nowrap bg-white/95 backdrop-blur-xs text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-200 shadow-xs pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity"
+                >
+                  Fisioterapi
+                </span>
               </div>
-              <span class="absolute -bottom-5 whitespace-nowrap bg-white/95 backdrop-blur-xs text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-200 shadow-xs pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity">
-                Terapi Okupasi
-              </span>
-            </div>
 
-            <!-- Node 5: Kanan-Bawah (Orbit Luar) — Kurikulum IEP -->
-            <div 
-              style="left: 72%; top: 88%; transform: translate(-50%, -50%);"
-              class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-base-100 shadow-md border border-base-200 flex flex-col items-center justify-center absolute z-20 group cursor-pointer hover:scale-110 hover:shadow-lg transition-all"
-            >
-              <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center transition-transform group-hover:scale-105">
-                <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+              <!-- Node 3: Kanan-Tengah (Orbit Tengah) — Sensori Integrasi -->
+              <div
+                style="left: 83%; top: 50%; transform: translate(-50%, -50%)"
+                class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-base-100 shadow-md border border-base-200 flex flex-col items-center justify-center absolute z-20 group cursor-pointer hover:scale-110 hover:shadow-lg transition-all"
+              >
+                <div
+                  class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center transition-transform group-hover:scale-105"
+                >
+                  <i data-lucide="brain" class="w-5 h-5"></i>
+                </div>
+                <span
+                  class="absolute -bottom-5 whitespace-nowrap bg-white/95 backdrop-blur-xs text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-200 shadow-xs pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity"
+                >
+                  Sensori Integrasi
+                </span>
               </div>
-              <span class="absolute -bottom-5 whitespace-nowrap bg-white/95 backdrop-blur-xs text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-200 shadow-xs pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity">
-                Kurikulum IEP
-              </span>
-            </div>
 
+              <!-- Node 4: Kiri-Bawah (Orbit Luar) — Terapi Okupasi -->
+              <div
+                style="left: 28%; top: 88%; transform: translate(-50%, -50%)"
+                class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-base-100 shadow-md border border-base-200 flex flex-col items-center justify-center absolute z-20 group cursor-pointer hover:scale-110 hover:shadow-lg transition-all"
+              >
+                <div
+                  class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center transition-transform group-hover:scale-105"
+                >
+                  <i data-lucide="puzzle" class="w-5 h-5"></i>
+                </div>
+                <span
+                  class="absolute -bottom-5 whitespace-nowrap bg-white/95 backdrop-blur-xs text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-200 shadow-xs pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity"
+                >
+                  Terapi Okupasi
+                </span>
+              </div>
+
+              <!-- Node 5: Kanan-Bawah (Orbit Luar) — Kurikulum IEP -->
+              <div
+                style="left: 72%; top: 88%; transform: translate(-50%, -50%)"
+                class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-base-100 shadow-md border border-base-200 flex flex-col items-center justify-center absolute z-20 group cursor-pointer hover:scale-110 hover:shadow-lg transition-all"
+              >
+                <div
+                  class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center transition-transform group-hover:scale-105"
+                >
+                  <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+                </div>
+                <span
+                  class="absolute -bottom-5 whitespace-nowrap bg-white/95 backdrop-blur-xs text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-200 shadow-xs pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity"
+                >
+                  Kurikulum IEP
+                </span>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- =======================================================================
+    <!-- =======================================================================
        SECTION 3: VALUE PROPOSITION — KEUNGGULAN & KEAMANAN (#keunggulan)
        ======================================================================= -->
-  <section id="keunggulan" class="py-16 lg:py-24 bg-slate-50 relative border-b border-slate-200/60">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200">
-          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
-          <span>Standar Klinis & Fasilitas</span>
-        </div>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Mengapa Keluarga Mempercayakan Kami?
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
-          Kombinasi kurikulum individual, fasilitas terstandarisasi pediatrik, dan pelibatan aktif orang tua di setiap sesi terapi.
-        </p>
-      </div>
-
-      <!-- Bento Grid / 4 Pilar Keunggulan -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <template x-for="item in ($store.landing?.content?.whyChooseUs || [])" :key="item.id">
-          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-soft card-hover flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                <i :data-lucide="item.icon" class="w-6 h-6"></i>
-              </div>
-              <div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-600 block mb-1" x-text="item.tagline"></span>
-                <h3 class="text-base sm:text-lg font-bold text-slate-900" x-text="item.title"></h3>
-                <p class="text-xs sm:text-sm text-slate-500 mt-2 leading-relaxed" x-text="item.description"></p>
-              </div>
-            </div>
-
-            <!-- Bullet Points -->
-            <ul class="space-y-2 pt-4 mt-4 border-t border-slate-100">
-              <template x-for="point in (item.keyPoints || [])" :key="point">
-                <li class="flex items-start gap-2 text-xs text-slate-600">
-                  <i data-lucide="check" class="w-3.5 h-3.5 text-primary mt-0.5 flex-shrink-0"></i>
-                  <span x-text="point"></span>
-                </li>
-              </template>
-            </ul>
+    <section
+      id="keunggulan"
+      class="py-16 lg:py-24 bg-slate-50 relative border-b border-slate-200/60"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+          <div
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200"
+          >
+            <i
+              data-lucide="shield-check"
+              class="w-3.5 h-3.5 text-emerald-600"
+            ></i>
+            <span>Standar Klinis & Fasilitas</span>
           </div>
-        </template>
+          <h2
+            class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight"
+          >
+            Mengapa Keluarga Mempercayakan Kami?
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Kombinasi kurikulum individual, fasilitas terstandarisasi pediatrik,
+            dan pelibatan aktif orang tua di setiap sesi terapi.
+          </p>
+        </div>
+
+        <!-- Bento Grid / 4 Pilar Keunggulan -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <template
+            x-for="item in ($store.landing?.content?.whyChooseUs || [])"
+            :key="item.id"
+          >
+            <div
+              class="bg-white rounded-3xl p-6 border border-slate-200 shadow-soft card-hover flex flex-col justify-between"
+            >
+              <div class="space-y-4">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center"
+                >
+                  <i :data-lucide="item.icon" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <span
+                    class="text-[11px] font-bold uppercase tracking-wider text-emerald-600 block mb-1"
+                    x-text="item.tagline"
+                  ></span>
+                  <h3
+                    class="text-base sm:text-lg font-bold text-slate-900"
+                    x-text="item.title"
+                  ></h3>
+                  <p
+                    class="text-xs sm:text-sm text-slate-500 mt-2 leading-relaxed"
+                    x-text="item.description"
+                  ></p>
+                </div>
+              </div>
+
+              <!-- Bullet Points -->
+              <ul class="space-y-2 pt-4 mt-4 border-t border-slate-100">
+                <template x-for="point in (item.keyPoints || [])" :key="point">
+                  <li class="flex items-start gap-2 text-xs text-slate-600">
+                    <i
+                      data-lucide="check"
+                      class="w-3.5 h-3.5 text-primary mt-0.5 flex-shrink-0"
+                    ></i>
+                    <span x-text="point"></span>
+                  </li>
+                </template>
+              </ul>
+            </div>
+          </template>
+        </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- =======================================================================
+    <!-- =======================================================================
        SECTION 4: KATEGORI PROGRAM & KELOMPOK USIA (#program-usia)
        ======================================================================= -->
-  <section id="program-usia" class="py-16 lg:py-24 bg-white relative border-b border-slate-200/60">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-sky-100 text-sky-800 border border-sky-200">
-          <i data-lucide="compass" class="w-3.5 h-3.5 text-sky-600"></i>
-          <span>Pendekatan Berbasis Tahapan Usia</span>
+    <section
+      id="program-usia"
+      class="py-16 lg:py-24 bg-white relative border-b border-slate-200/60"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+          <div
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-sky-100 text-sky-800 border border-sky-200"
+          >
+            <i data-lucide="compass" class="w-3.5 h-3.5 text-sky-600"></i>
+            <span>Pendekatan Berbasis Tahapan Usia</span>
+          </div>
+          <h2
+            class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight"
+          >
+            Kategori Program & Kelompok Usia Si Kecil
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Kebutuhan stimulasi berubah seiring pertambahan usia. Pilih kelompok
+            usia buah hati untuk melihat bagaimana 4 layanan inti kami bekerja
+            sinergis mencapai target perkembangannya:
+          </p>
         </div>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Kategori Program & Kelompok Usia Si Kecil
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
-          Kebutuhan stimulasi berubah seiring pertambahan usia. Pilih kelompok usia buah hati untuk melihat bagaimana 4 layanan inti kami bekerja sinergis mencapai target perkembangannya:
-        </p>
-      </div>
 
-      <!-- 3 Tab Kelompok Usia Interaktif -->
-      <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8">
-        <template x-for="group in ($store.landing?.content?.ageGroups || [])" :key="group.id">
-          <button 
-            type="button" 
-            @click="$store.landing.selectAgeGroup(group.id)"
-            class="px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2.5 border"
-            :class="$store.landing.activeAgeGroupId === group.id 
+        <!-- 3 Tab Kelompok Usia Interaktif -->
+        <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8">
+          <template
+            x-for="group in ($store.landing?.content?.ageGroups || [])"
+            :key="group.id"
+          >
+            <button
+              type="button"
+              @click="$store.landing.selectAgeGroup(group.id)"
+              class="px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2.5 border"
+              :class="$store.landing.activeAgeGroupId === group.id 
               ? 'bg-primary text-white border-primary shadow-soft scale-105' 
               : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50 hover:border-slate-300'"
-          >
-            <i data-lucide="baby" class="w-4 h-4"></i>
-            <div class="text-left">
-              <span class="block leading-tight" x-text="group.name"></span>
-              <span 
-                class="text-[10px] font-medium block" 
-                :class="$store.landing.activeAgeGroupId === group.id ? 'text-white/80' : 'text-slate-400'"
-                x-text="group.subtitle"
-              ></span>
-            </div>
-          </button>
-        </template>
-      </div>
-
-      <!-- Ringkasan Fokus Kelompok Usia Terpilih -->
-      <div class="bg-gradient-to-r from-emerald-50 via-teal-50 to-sky-50 rounded-3xl p-6 sm:p-8 border border-emerald-200/80 mb-10 shadow-xs">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div class="space-y-1">
-            <div class="flex items-center gap-2">
-              <span class="badge badge-primary font-bold text-xs" x-text="$store.landing.activeAgeGroup?.badge || 'Tahapan Kunci'"></span>
-              <h3 class="text-lg sm:text-xl font-extrabold text-slate-900" x-text="$store.landing.activeAgeGroup?.name + ' — ' + $store.landing.activeAgeGroup?.subtitle"></h3>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed" x-text="$store.landing.activeAgeGroup?.summary"></p>
-          </div>
-          <div class="flex-shrink-0">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-white border border-emerald-300 text-emerald-800 shadow-xs">
-              <i data-lucide="clock" class="w-3.5 h-3.5 text-emerald-600"></i>
-              <span>60 Menit / Sesi • 1 Terapis : 1 Anak</span>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Grid 4 Layanan Terapi Khusus untuk Kelompok Usia Terpilih -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <template x-for="sh in ($store.landing.activeAgeGroup?.serviceHighlights || [])" :key="sh.serviceId">
-          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-soft card-hover flex flex-col justify-between">
-            <div class="space-y-3.5">
-              <div class="flex items-center justify-between">
-                <span class="badge badge-outline text-[11px] font-bold text-slate-700" x-text="sh.serviceId"></span>
-                <span class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-md">60 Menit</span>
-              </div>
-              <div>
-                <h4 class="text-base font-bold text-slate-900 leading-snug" x-text="sh.serviceName"></h4>
-                <p class="text-xs font-bold text-primary mt-1" x-text="sh.focusTitle"></p>
-                <p class="text-xs text-slate-500 mt-2 leading-relaxed" x-text="sh.focusDesc"></p>
-              </div>
-            </div>
-
-            <div class="pt-4 mt-4 border-t border-slate-100">
-              <button 
-                type="button" 
-                @click="$store.landing.applyRecommendationToForm(sh.serviceId)"
-                class="btn btn-outline btn-xs rounded-xl w-full gap-1.5 border-slate-300 hover:btn-primary text-slate-700 font-semibold"
-              >
-                <span>Konsultasikan Usia Ini</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
-          </div>
-        </template>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =======================================================================
-       SECTION 5: PREVIEW INTERAKTIF — CEK GEJALA & SIMULASI LAPORAN EVALUASI (#preview-interaktif)
-       ======================================================================= -->
-  <section id="preview-interaktif" class="py-16 lg:py-24 bg-slate-50 relative border-b border-slate-200/60">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 border border-amber-200">
-          <i data-lucide="clipboard-check" class="w-3.5 h-3.5 text-amber-600"></i>
-          <span>Interactive Preview & Screening</span>
-        </div>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Cek Gejala & Simulasi Laporan Evaluasi Terapis
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
-          Pilih kategori keluhan si kecil di panel kiri, dan saksikan bagaimana program terapi, kartu evaluasi, serta latihan mandiri di rumah dirancang secara nyata di panel kanan.
-        </p>
-      </div>
-
-      <!-- Tab Kategori Gejala Interaktif -->
-      <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
-        <template x-for="rf in ($store.landing?.content?.redFlags || [])" :key="rf.id">
-          <button 
-            type="button" 
-            @click="$store.landing.selectRedFlagCategory(rf.id)"
-            class="px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 border"
-            :class="$store.landing.activeRedFlagId === rf.id ? 'bg-primary text-white border-primary shadow-soft scale-105' : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100 hover:border-slate-300'"
-          >
-            <i :data-lucide="rf.icon" class="w-4 h-4"></i>
-            <span x-text="rf.categoryName"></span>
-            <span 
-              class="hidden sm:inline-block text-[11px] px-2 py-0.5 rounded-full"
-              :class="$store.landing.activeRedFlagId === rf.id ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'"
-              x-text="rf.ageRange"
-            ></span>
-          </button>
-        </template>
-      </div>
-
-      <!-- 2-Panel Grid: Kiri = Screening Checklist, Kanan = Live Preview 3 Kartu -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
-        <!-- Panel Kiri: Checklist Tanda Awal (lg:col-span-5) -->
-        <div class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-soft space-y-6">
-          <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-            <div>
-              <div class="flex items-center gap-2">
-                <h3 class="text-lg font-bold text-slate-900" x-text="$store.landing.activeRedFlag?.categoryName"></h3>
-                <span class="badge badge-sm font-semibold" :class="$store.landing.activeRedFlag?.badgeClass" x-text="$store.landing.activeRedFlag?.ageRange"></span>
-              </div>
-              <p class="text-xs text-slate-500 mt-1" x-text="$store.landing.activeRedFlag?.shortIntro"></p>
-            </div>
-
-            <!-- Reset Button jika ada centang -->
-            <template x-if="$store.landing.selectedChecklist.length > 0">
-              <button 
-                type="button" 
-                @click="$store.landing.clearChecklist()"
-                class="text-[11px] text-slate-400 hover:text-rose-500 flex items-center gap-1 transition-colors flex-shrink-0"
-              >
-                <i data-lucide="rotate-ccw" class="w-3 h-3"></i>
-                <span>Reset</span>
-              </button>
-            </template>
-          </div>
-
-          <!-- Petunjuk Checklist -->
-          <p class="text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-200/80">
-            Centang perilaku yang sering Ayah/Bunda amati pada si kecil dalam 1–3 bulan terakhir:
-          </p>
-
-          <!-- Checklist List -->
-          <div class="space-y-2.5">
-            <template x-for="sign in ($store.landing.activeRedFlag?.signs || [])" :key="sign">
-              <div 
-                @click="$store.landing.toggleSignCheck(sign)"
-                class="p-3.5 rounded-2xl border transition-all cursor-pointer flex items-start gap-3 select-none"
-                :class="$store.landing.isSignChecked(sign) ? 'bg-emerald-50/90 border-emerald-300 shadow-xs' : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50/50'"
-              >
-                <div 
-                  class="w-5 h-5 rounded-lg flex items-center justify-center mt-0.5 flex-shrink-0 transition-colors"
-                  :class="$store.landing.isSignChecked(sign) ? 'bg-primary text-white' : 'border border-slate-300 bg-white'"
-                >
-                  <template x-if="$store.landing.isSignChecked(sign)">
-                    <i data-lucide="check" class="w-3.5 h-3.5"></i>
-                  </template>
-                </div>
-                <span class="text-xs sm:text-sm text-slate-700 leading-snug" x-text="sign"></span>
-              </div>
-            </template>
-          </div>
-
-          <!-- Counter & Rekomendasi Terapi -->
-          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-semibold text-slate-500">Hasil Cek Gejala:</span>
-              <span class="badge badge-primary font-bold text-xs" x-text="$store.landing.selectedChecklist.length + ' Gejala Tercentang'"></span>
-            </div>
-            <p class="text-xs text-slate-700">
-              Layanan Terkait: <strong class="text-primary font-bold" x-text="$store.landing.activeRedFlag?.recommendedService"></strong>
-            </p>
-          </div>
-        </div>
-
-        <!-- Panel Kanan: Live Preview 3 Kartu Autentik (lg:col-span-7) -->
-        <div class="lg:col-span-7 space-y-5">
-          
-          <!-- Banner Header Preview Dinamis -->
-          <div class="flex items-center justify-between bg-white px-5 py-3 rounded-2xl border border-slate-200 shadow-xs">
-            <div class="flex items-center gap-2">
-              <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
-              <span class="text-xs font-bold text-slate-800 uppercase tracking-wide">Live Preview Kurikulum & Evaluasi</span>
-            </div>
-            <span class="text-xs text-slate-500" x-text="'Kategori: ' + $store.landing.activeRedFlag?.categoryName"></span>
-          </div>
-
-          <!-- Kartu 1: Contoh Aktivitas Terapi di Klinik -->
-          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-soft card-hover space-y-3">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2.5">
-                <div class="w-9 h-9 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center">
-                  <i :data-lucide="$store.landing.activeRedFlag?.interactivePreview?.clinicActivity?.icon || 'activity'" class="w-4 h-4"></i>
-                </div>
-                <h4 class="text-sm sm:text-base font-bold text-slate-900">1. Contoh Aktivitas di Ruang Terapi</h4>
-              </div>
-              <span class="badge badge-sm badge-info font-semibold">Play-Based</span>
-            </div>
-            <h5 class="text-xs sm:text-sm font-semibold text-primary" x-text="$store.landing.activeRedFlag?.interactivePreview?.clinicActivity?.title"></h5>
-            <p class="text-xs text-slate-600 leading-relaxed" x-text="$store.landing.activeRedFlag?.interactivePreview?.clinicActivity?.description"></p>
-            <div class="pt-2 text-xs text-slate-500 flex items-start gap-1.5">
-              <i data-lucide="package" class="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0"></i>
-              <span><strong>Media/Alat:</strong> <span x-text="$store.landing.activeRedFlag?.interactivePreview?.clinicActivity?.tools"></span></span>
-            </div>
-          </div>
-
-          <!-- Kartu 2: Contoh Kartu Laporan Evaluasi Sesi Terapis -->
-          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-soft card-hover space-y-3.5">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2.5">
-                <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                  <i data-lucide="file-text" class="w-4 h-4"></i>
-                </div>
-                <h4 class="text-sm sm:text-base font-bold text-slate-900">2. Contoh Kartu Laporan Evaluasi Sesi</h4>
-              </div>
-              <span class="badge badge-sm badge-success text-white font-semibold" x-text="$store.landing.activeRedFlag?.interactivePreview?.evalCard?.sessionNumber"></span>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80">
-              <div>
-                <span class="text-slate-400 block text-[11px]">Mood & Partisipasi Anak:</span>
-                <span class="font-bold text-slate-800" x-text="$store.landing.activeRedFlag?.interactivePreview?.evalCard?.childMood"></span>
-              </div>
-              <div>
-                <span class="text-slate-400 block text-[11px]">Target Capaian Sesi:</span>
-                <span class="font-bold text-emerald-700" x-text="$store.landing.activeRedFlag?.interactivePreview?.evalCard?.targetMilestone"></span>
-              </div>
-            </div>
-
-            <div class="text-xs space-y-1.5">
-              <span class="text-slate-400 block font-semibold text-[11px]">Catatan Pengamatan Klinis:</span>
-              <p class="text-slate-700 italic bg-amber-50/60 p-2.5 rounded-xl border border-amber-200/60" x-text="'&ldquo;' + $store.landing.activeRedFlag?.interactivePreview?.evalCard?.observationNotes + '&rdquo;'"></p>
-            </div>
-
-            <div class="pt-2 flex items-center justify-between text-xs text-slate-500 border-t border-slate-100">
-              <span x-text="'Terapis: ' + $store.landing.activeRedFlag?.interactivePreview?.evalCard?.therapistName"></span>
-              <span class="badge badge-ghost text-[10px]" x-text="$store.landing.activeRedFlag?.interactivePreview?.evalCard?.therapistRole"></span>
-            </div>
-          </div>
-
-          <!-- Kartu 3: Contoh Home Program (PR Ringan di Rumah) -->
-          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-soft card-hover space-y-3">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2.5">
-                <div class="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
-                  <i data-lucide="home" class="w-4 h-4"></i>
-                </div>
-                <h4 class="text-sm sm:text-base font-bold text-slate-900">3. Contoh Home Program (10 Menit/Hari)</h4>
-              </div>
-              <span class="badge badge-sm badge-secondary font-semibold" x-text="$store.landing.activeRedFlag?.interactivePreview?.homeProgram?.duration"></span>
-            </div>
-            <h5 class="text-xs sm:text-sm font-semibold text-purple-900" x-text="$store.landing.activeRedFlag?.interactivePreview?.homeProgram?.title"></h5>
-            <p class="text-xs text-slate-600 leading-relaxed" x-text="$store.landing.activeRedFlag?.interactivePreview?.homeProgram?.instructions"></p>
-            <div class="p-3 bg-purple-50/70 rounded-xl border border-purple-200/60 text-xs text-purple-950 flex items-start gap-2">
-              <i data-lucide="heart" class="w-3.5 h-3.5 text-purple-600 mt-0.5 flex-shrink-0"></i>
-              <span><strong>Tips Ayah/Bunda:</strong> <span x-text="$store.landing.activeRedFlag?.interactivePreview?.homeProgram?.parentingTip"></span></span>
-            </div>
-          </div>
-
-          <!-- Tombol CTA Panel Kanan: Terapkan Hasil ke Form Booking -->
-          <div class="pt-2">
-            <button 
-              type="button" 
-              @click="$store.landing.applyRecommendationToForm($store.landing.activeRedFlag?.recommendedService)"
-              class="btn btn-primary w-full rounded-2xl py-3.5 font-bold gap-2.5 text-sm sm:text-base shadow-soft hover:shadow-soft-hover"
             >
-              <i data-lucide="calendar-check" class="w-5 h-5"></i>
-              <span>Gunakan Hasil Screening Ini untuk Daftar Observasi</span>
+              <i data-lucide="baby" class="w-4 h-4"></i>
+              <div class="text-left">
+                <span class="block leading-tight" x-text="group.name"></span>
+                <span
+                  class="text-[10px] font-medium block"
+                  :class="$store.landing.activeAgeGroupId === group.id ? 'text-white/80' : 'text-slate-400'"
+                  x-text="group.subtitle"
+                ></span>
+              </div>
             </button>
-            <p class="text-[11px] text-slate-400 text-center mt-2">
-              Layanan rekomendasi dan catatan keluhan akan otomatis terisi pada formulir booking di bawah.
-            </p>
-          </div>
-
+          </template>
         </div>
 
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =======================================================================
-       SECTION 6: TRUST, CREDIBILITY & MINI-ABOUT (#tim-ahli)
-       ======================================================================= -->
-  <section id="tim-ahli" class="py-16 lg:py-24 bg-white relative border-b border-slate-200/60">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-purple-100 text-purple-800 border border-purple-200">
-          <i data-lucide="users" class="w-3.5 h-3.5 text-purple-600"></i>
-          <span>Kredibilitas & Pengalaman Nyata</span>
-        </div>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Didampingi Tim Ahli Tersertifikasi & Terpercaya
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
-          Para profesional berizin resmi (STR & SIP) yang berdedikasi membimbing si kecil dengan pendekatan ilmiah, penuh kehangatan, dan kesabaran tulus.
-        </p>
-      </div>
-
-      <!-- Bagian 1: 4 Profil Terapis Berlisensi -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-        <template x-for="therapist in ($store.landing?.content?.therapists || [])" :key="therapist.id">
-          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-soft card-hover flex flex-col justify-between">
-            
-            <div class="space-y-4">
-              <!-- Avatar / Inisial Card -->
-              <div class="flex items-center gap-3">
-                <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-100 to-sky-100 text-emerald-800 font-extrabold text-base flex items-center justify-center border-2 border-white shadow-soft flex-shrink-0">
-                  <span x-text="therapist.name.replace('Kak ', '').split(' ').map(n => n[0]).slice(0, 2).join('')"></span>
-                </div>
-                <div>
-                  <h3 class="text-base font-bold text-slate-900 leading-snug" x-text="therapist.name"></h3>
-                  <span class="text-xs font-semibold text-primary block" x-text="therapist.role"></span>
-                  <span class="text-[11px] text-slate-400 block" x-text="therapist.strNumber"></span>
-                </div>
+        <!-- Ringkasan Fokus Kelompok Usia Terpilih -->
+        <div
+          class="bg-gradient-to-r from-emerald-50 via-teal-50 to-sky-50 rounded-3xl p-6 sm:p-8 border border-emerald-200/80 mb-10 shadow-xs"
+        >
+          <div
+            class="flex flex-col md:flex-row md:items-center justify-between gap-4"
+          >
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span
+                  class="badge badge-primary font-bold text-xs"
+                  x-text="$store.landing.activeAgeGroup?.badge || 'Tahapan Kunci'"
+                ></span>
+                <h3
+                  class="text-lg sm:text-xl font-extrabold text-slate-900"
+                  x-text="$store.landing.activeAgeGroup?.name + ' — ' + $store.landing.activeAgeGroup?.subtitle"
+                ></h3>
               </div>
-
-              <!-- Pengalaman & Bio -->
-              <div class="space-y-2">
-                <span class="badge badge-outline badge-sm text-[11px] font-semibold text-emerald-700 border-emerald-300" x-text="therapist.experienceYears"></span>
-                <p class="text-xs text-slate-600 leading-relaxed" x-text="therapist.bio"></p>
-              </div>
-
-              <!-- Keahlian Khusus -->
-              <div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-1.5">Keahlian Khusus:</span>
-                <div class="flex flex-wrap gap-1.5">
-                  <template x-for="skill in (therapist.focusSkills || [])" :key="skill">
-                    <span class="text-[10px] font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md" x-text="skill"></span>
-                  </template>
-                </div>
-              </div>
+              <p
+                class="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed"
+                x-text="$store.landing.activeAgeGroup?.summary"
+              ></p>
             </div>
-
-            <!-- Kutipan Empatik -->
-            <div class="pt-4 mt-4 border-t border-slate-100">
-              <p class="text-xs text-slate-500 italic" x-text="therapist.quote"></p>
+            <div class="flex-shrink-0">
+              <span
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-white border border-emerald-300 text-emerald-800 shadow-xs"
+              >
+                <i data-lucide="clock" class="w-3.5 h-3.5 text-emerald-600"></i>
+                <span>60 Menit / Sesi • 1 Terapis : 1 Anak</span>
+              </span>
             </div>
-
           </div>
-        </template>
-      </div>
-
-      <!-- Bagian 2: Testimoni Autentik Orang Tua Pasien -->
-      <div class="pt-4 border-t border-slate-100">
-        <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
-          <span class="text-xs font-bold uppercase tracking-wider text-primary">Bukti Nyata Kemajuan Buah Hati</span>
-          <h3 class="text-xl sm:text-2xl font-bold text-slate-900">Cerita Hangat dari Ayah & Bunda</h3>
-          <p class="text-xs sm:text-sm text-slate-500">Melihat si kecil tersenyum mandiri adalah kebahagiaan terbesar kami.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <template x-for="testi in ($store.landing?.content?.testimonials || [])" :key="testi.id">
-            <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200/80 shadow-xs flex flex-col justify-between">
+        <!-- Grid 4 Layanan Terapi Khusus untuk Kelompok Usia Terpilih -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <template
+            x-for="sh in ($store.landing.activeAgeGroup?.serviceHighlights || [])"
+            :key="sh.serviceId"
+          >
+            <div
+              class="bg-white rounded-3xl p-6 border border-slate-200 shadow-soft card-hover flex flex-col justify-between"
+            >
               <div class="space-y-3.5">
-                <!-- Stars & Badge -->
                 <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-1 text-warning">
-                    <template x-for="i in testi.stars" :key="i">
-                      <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
-                    </template>
-                  </div>
-                  <span class="badge badge-xs font-semibold badge-primary text-[10px]" x-text="testi.badge"></span>
+                  <span
+                    class="badge badge-outline text-[11px] font-bold text-slate-700"
+                    x-text="sh.serviceId"
+                  ></span>
+                  <span
+                    class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-md"
+                    >60 Menit</span
+                  >
                 </div>
-
-                <!-- Quote Text -->
-                <p class="text-xs sm:text-sm text-slate-700 leading-relaxed italic" x-text="'&ldquo;' + testi.quote + '&rdquo;'"></p>
+                <div>
+                  <h4
+                    class="text-base font-bold text-slate-900 leading-snug"
+                    x-text="sh.serviceName"
+                  ></h4>
+                  <p
+                    class="text-xs font-bold text-primary mt-1"
+                    x-text="sh.focusTitle"
+                  ></p>
+                  <p
+                    class="text-xs text-slate-500 mt-2 leading-relaxed"
+                    x-text="sh.focusDesc"
+                  ></p>
+                </div>
               </div>
 
-              <!-- Parent Info & Avatar -->
-              <div class="pt-4 mt-4 border-t border-slate-200/60 flex items-center gap-3">
-                <img 
-                  :src="testi.avatar" 
-                  :alt="testi.parent" 
-                  class="w-10 h-10 rounded-xl object-cover ring-1 ring-slate-200"
-                  loading="lazy"
-                  onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Bunda&background=ecfdf5&color=059669'"
-                />
-                <div>
-                  <h4 class="text-xs sm:text-sm font-bold text-slate-900" x-text="testi.parent"></h4>
-                  <span class="text-[11px] text-slate-500 block" x-text="testi.childInfo"></span>
-                  <span class="text-[10px] font-semibold text-emerald-700" x-text="'Layanan: ' + testi.serviceTag"></span>
-                </div>
+              <div class="pt-4 mt-4 border-t border-slate-100">
+                <button
+                  type="button"
+                  @click="$store.landing.applyRecommendationToForm(sh.serviceId)"
+                  class="btn btn-outline btn-xs rounded-xl w-full gap-1.5 border-slate-300 hover:btn-primary text-slate-700 font-semibold"
+                >
+                  <span>Konsultasikan Usia Ini</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </button>
               </div>
             </div>
           </template>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- =======================================================================
-       SECTION 7: PILIHAN PAKET & BIAYA / PRICING (#paket-harga)
+    <!-- =======================================================================
+       SECTION 5: PREVIEW INTERAKTIF — CEK GEJALA & SIMULASI LAPORAN EVALUASI (#preview-interaktif)
        ======================================================================= -->
-  <section id="paket-harga" class="py-16 lg:py-24 bg-slate-50 relative border-b border-slate-200/60">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200">
-          <i data-lucide="tag" class="w-3.5 h-3.5 text-emerald-600"></i>
-          <span>Investasi Tumbuh Kembang Buah Hati</span>
+    <section
+      id="preview-interaktif"
+      class="py-16 lg:py-24 bg-slate-50 relative border-b border-slate-200/60"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+          <div
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 border border-amber-200"
+          >
+            <i
+              data-lucide="clipboard-check"
+              class="w-3.5 h-3.5 text-amber-600"
+            ></i>
+            <span>Interactive Preview & Screening</span>
+          </div>
+          <h2
+            class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight"
+          >
+            Cek Gejala & Simulasi Laporan Evaluasi Terapis
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Pilih kategori keluhan si kecil di panel kiri, dan saksikan
+            bagaimana program terapi, kartu evaluasi, serta latihan mandiri di
+            rumah dirancang secara nyata di panel kanan.
+          </p>
         </div>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Pilihan Paket Terapi Transparan Tanpa Biaya Tersembunyi
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
-          Mulai dari sesi observasi awal berbiaya terjangkau hingga paket komitmen intensif dengan pengawasan menyeluruh.
-        </p>
-      </div>
 
-      <!-- Highlight Banner: Observasi Perdana (Low-Barrier Entry) -->
-      <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 rounded-3xl p-6 sm:p-8 text-white shadow-xl mb-12 relative overflow-hidden">
-        <div class="absolute -right-10 -bottom-10 w-60 h-60 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>
+        <!-- Tab Kategori Gejala Interaktif -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
+          <template
+            x-for="rf in ($store.landing?.content?.redFlags || [])"
+            :key="rf.id"
+          >
+            <button
+              type="button"
+              @click="$store.landing.selectRedFlagCategory(rf.id)"
+              class="px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 border"
+              :class="$store.landing.activeRedFlagId === rf.id ? 'bg-primary text-white border-primary shadow-soft scale-105' : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100 hover:border-slate-300'"
+            >
+              <i :data-lucide="rf.icon" class="w-4 h-4"></i>
+              <span x-text="rf.categoryName"></span>
+              <span
+                class="hidden sm:inline-block text-[11px] px-2 py-0.5 rounded-full"
+                :class="$store.landing.activeRedFlagId === rf.id ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'"
+                x-text="rf.ageRange"
+              ></span>
+            </button>
+          </template>
+        </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative z-10">
-          <div class="lg:col-span-8 space-y-3 text-center lg:text-left">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-white/20 text-white border border-white/30">
-              <i data-lucide="clipboard-check" class="w-3.5 h-3.5"></i>
-              <span x-text="$store.landing?.content?.initialAssessment?.badge"></span>
+        <!-- 2-Panel Grid: Kiri = Screening Checklist, Kanan = Live Preview 3 Kartu -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- Panel Kiri: Checklist Tanda Awal (lg:col-span-5) -->
+          <div
+            class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-soft space-y-6"
+          >
+            <div
+              class="flex items-center justify-between pb-4 border-b border-slate-100"
+            >
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3
+                    class="text-lg font-bold text-slate-900"
+                    x-text="$store.landing.activeRedFlag?.categoryName"
+                  ></h3>
+                  <span
+                    class="badge badge-sm font-semibold"
+                    :class="$store.landing.activeRedFlag?.badgeClass"
+                    x-text="$store.landing.activeRedFlag?.ageRange"
+                  ></span>
+                </div>
+                <p
+                  class="text-xs text-slate-500 mt-1"
+                  x-text="$store.landing.activeRedFlag?.shortIntro"
+                ></p>
+              </div>
+
+              <!-- Reset Button jika ada centang -->
+              <template x-if="$store.landing.selectedChecklist.length > 0">
+                <button
+                  type="button"
+                  @click="$store.landing.clearChecklist()"
+                  class="text-[11px] text-slate-400 hover:text-rose-500 flex items-center gap-1 transition-colors flex-shrink-0"
+                >
+                  <i data-lucide="rotate-ccw" class="w-3 h-3"></i>
+                  <span>Reset</span>
+                </button>
+              </template>
             </div>
-            <h3 class="text-2xl sm:text-3xl font-extrabold leading-tight" x-text="$store.landing?.content?.initialAssessment?.name"></h3>
-            <p class="text-xs sm:text-sm text-emerald-100 max-w-2xl leading-relaxed" x-text="$store.landing?.content?.initialAssessment?.description"></p>
-            
-            <!-- Benefit Bullets -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 text-xs">
-              <template x-for="b in ($store.landing?.content?.initialAssessment?.benefits || [])" :key="b">
-                <div class="flex items-start gap-2">
-                  <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-200 mt-0.5 flex-shrink-0"></i>
-                  <span x-text="b"></span>
+
+            <!-- Petunjuk Checklist -->
+            <p
+              class="text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-200/80"
+            >
+              Centang perilaku yang sering Ayah/Bunda amati pada si kecil dalam
+              1–3 bulan terakhir:
+            </p>
+
+            <!-- Checklist List -->
+            <div class="space-y-2.5">
+              <template
+                x-for="sign in ($store.landing.activeRedFlag?.signs || [])"
+                :key="sign"
+              >
+                <div
+                  @click="$store.landing.toggleSignCheck(sign)"
+                  class="p-3.5 rounded-2xl border transition-all cursor-pointer flex items-start gap-3 select-none"
+                  :class="$store.landing.isSignChecked(sign) ? 'bg-emerald-50/90 border-emerald-300 shadow-xs' : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50/50'"
+                >
+                  <div
+                    class="w-5 h-5 rounded-lg flex items-center justify-center mt-0.5 flex-shrink-0 transition-colors"
+                    :class="$store.landing.isSignChecked(sign) ? 'bg-primary text-white' : 'border border-slate-300 bg-white'"
+                  >
+                    <template x-if="$store.landing.isSignChecked(sign)">
+                      <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                    </template>
+                  </div>
+                  <span
+                    class="text-xs sm:text-sm text-slate-700 leading-snug"
+                    x-text="sign"
+                  ></span>
                 </div>
               </template>
             </div>
+
+            <!-- Counter & Rekomendasi Terapi -->
+            <div
+              class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2"
+            >
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-semibold text-slate-500"
+                  >Hasil Cek Gejala:</span
+                >
+                <span
+                  class="badge badge-primary font-bold text-xs"
+                  x-text="$store.landing.selectedChecklist.length + ' Gejala Tercentang'"
+                ></span>
+              </div>
+              <p class="text-xs text-slate-700">
+                Layanan Terkait:
+                <strong
+                  class="text-primary font-bold"
+                  x-text="$store.landing.activeRedFlag?.recommendedService"
+                ></strong>
+              </p>
+            </div>
           </div>
 
-          <div class="lg:col-span-4 bg-white text-slate-900 rounded-2xl p-6 text-center space-y-3 shadow-lg">
-            <span class="text-xs text-slate-500 font-semibold block uppercase tracking-wider">Biaya Observasi Lengkap</span>
-            <div class="text-3xl sm:text-4xl font-extrabold text-primary" x-text="$store.landing?.content?.initialAssessment?.priceFormatted"></div>
-            <span class="badge badge-ghost text-xs font-semibold" x-text="$store.landing?.content?.initialAssessment?.duration"></span>
-            <button 
-              type="button" 
-              @click="$store.landing.selectInitialAssessment()"
-              class="btn btn-primary w-full rounded-xl font-bold gap-2 text-sm shadow-soft hover:shadow-soft-hover"
+          <!-- Panel Kanan: Live Preview 3 Kartu Autentik (lg:col-span-7) -->
+          <div class="lg:col-span-7 space-y-5">
+            <!-- Banner Header Preview Dinamis -->
+            <div
+              class="flex items-center justify-between bg-white px-5 py-3 rounded-2xl border border-slate-200 shadow-xs"
             >
-              <span>Booking Sesi Observasi</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </button>
-            <span class="text-[10px] text-slate-400 block">Termasuk resume laporan tertulis & konsultasi langsung</span>
+              <div class="flex items-center gap-2">
+                <div
+                  class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"
+                ></div>
+                <span
+                  class="text-xs font-bold text-slate-800 uppercase tracking-wide"
+                  >Live Preview Kurikulum & Evaluasi</span
+                >
+              </div>
+              <span
+                class="text-xs text-slate-500"
+                x-text="'Kategori: ' + $store.landing.activeRedFlag?.categoryName"
+              ></span>
+            </div>
+
+            <!-- Kartu 1: Contoh Aktivitas Terapi di Klinik -->
+            <div
+              class="bg-white rounded-3xl p-6 border border-slate-200 shadow-soft card-hover space-y-3"
+            >
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <div
+                    class="w-9 h-9 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center"
+                  >
+                    <i
+                      :data-lucide="$store.landing.activeRedFlag?.interactivePreview?.clinicActivity?.icon || 'activity'"
+                      class="w-4 h-4"
+                    ></i>
+                  </div>
+                  <h4 class="text-sm sm:text-base font-bold text-slate-900">
+                    1. Contoh Aktivitas di Ruang Terapi
+                  </h4>
+                </div>
+                <span class="badge badge-sm badge-info font-semibold"
+                  >Play-Based</span
+                >
+              </div>
+              <h5
+                class="text-xs sm:text-sm font-semibold text-primary"
+                x-text="$store.landing.activeRedFlag?.interactivePreview?.clinicActivity?.title"
+              ></h5>
+              <p
+                class="text-xs text-slate-600 leading-relaxed"
+                x-text="$store.landing.activeRedFlag?.interactivePreview?.clinicActivity?.description"
+              ></p>
+              <div class="pt-2 text-xs text-slate-500 flex items-start gap-1.5">
+                <i
+                  data-lucide="package"
+                  class="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0"
+                ></i>
+                <span
+                  ><strong>Media/Alat:</strong>
+                  <span
+                    x-text="$store.landing.activeRedFlag?.interactivePreview?.clinicActivity?.tools"
+                  ></span
+                ></span>
+              </div>
+            </div>
+
+            <!-- Kartu 2: Contoh Kartu Laporan Evaluasi Sesi Terapis -->
+            <div
+              class="bg-white rounded-3xl p-6 border border-slate-200 shadow-soft card-hover space-y-3.5"
+            >
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <div
+                    class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center"
+                  >
+                    <i data-lucide="file-text" class="w-4 h-4"></i>
+                  </div>
+                  <h4 class="text-sm sm:text-base font-bold text-slate-900">
+                    2. Contoh Kartu Laporan Evaluasi Sesi
+                  </h4>
+                </div>
+                <span
+                  class="badge badge-sm badge-success text-white font-semibold"
+                  x-text="$store.landing.activeRedFlag?.interactivePreview?.evalCard?.sessionNumber"
+                ></span>
+              </div>
+
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80"
+              >
+                <div>
+                  <span class="text-slate-400 block text-[11px]"
+                    >Mood & Partisipasi Anak:</span
+                  >
+                  <span
+                    class="font-bold text-slate-800"
+                    x-text="$store.landing.activeRedFlag?.interactivePreview?.evalCard?.childMood"
+                  ></span>
+                </div>
+                <div>
+                  <span class="text-slate-400 block text-[11px]"
+                    >Target Capaian Sesi:</span
+                  >
+                  <span
+                    class="font-bold text-emerald-700"
+                    x-text="$store.landing.activeRedFlag?.interactivePreview?.evalCard?.targetMilestone"
+                  ></span>
+                </div>
+              </div>
+
+              <div class="text-xs space-y-1.5">
+                <span class="text-slate-400 block font-semibold text-[11px]"
+                  >Catatan Pengamatan Klinis:</span
+                >
+                <p
+                  class="text-slate-700 italic bg-amber-50/60 p-2.5 rounded-xl border border-amber-200/60"
+                  x-text="'&ldquo;' + $store.landing.activeRedFlag?.interactivePreview?.evalCard?.observationNotes + '&rdquo;'"
+                ></p>
+              </div>
+
+              <div
+                class="pt-2 flex items-center justify-between text-xs text-slate-500 border-t border-slate-100"
+              >
+                <span
+                  x-text="'Terapis: ' + $store.landing.activeRedFlag?.interactivePreview?.evalCard?.therapistName"
+                ></span>
+                <span
+                  class="badge badge-ghost text-[10px]"
+                  x-text="$store.landing.activeRedFlag?.interactivePreview?.evalCard?.therapistRole"
+                ></span>
+              </div>
+            </div>
+
+            <!-- Kartu 3: Contoh Home Program (PR Ringan di Rumah) -->
+            <div
+              class="bg-white rounded-3xl p-6 border border-slate-200 shadow-soft card-hover space-y-3"
+            >
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <div
+                    class="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center"
+                  >
+                    <i data-lucide="home" class="w-4 h-4"></i>
+                  </div>
+                  <h4 class="text-sm sm:text-base font-bold text-slate-900">
+                    3. Contoh Home Program (10 Menit/Hari)
+                  </h4>
+                </div>
+                <span
+                  class="badge badge-sm badge-secondary font-semibold"
+                  x-text="$store.landing.activeRedFlag?.interactivePreview?.homeProgram?.duration"
+                ></span>
+              </div>
+              <h5
+                class="text-xs sm:text-sm font-semibold text-purple-900"
+                x-text="$store.landing.activeRedFlag?.interactivePreview?.homeProgram?.title"
+              ></h5>
+              <p
+                class="text-xs text-slate-600 leading-relaxed"
+                x-text="$store.landing.activeRedFlag?.interactivePreview?.homeProgram?.instructions"
+              ></p>
+              <div
+                class="p-3 bg-purple-50/70 rounded-xl border border-purple-200/60 text-xs text-purple-950 flex items-start gap-2"
+              >
+                <i
+                  data-lucide="heart"
+                  class="w-3.5 h-3.5 text-purple-600 mt-0.5 flex-shrink-0"
+                ></i>
+                <span
+                  ><strong>Tips Ayah/Bunda:</strong>
+                  <span
+                    x-text="$store.landing.activeRedFlag?.interactivePreview?.homeProgram?.parentingTip"
+                  ></span
+                ></span>
+              </div>
+            </div>
+
+            <!-- Tombol CTA Panel Kanan: Terapkan Hasil ke Form Booking -->
+            <div class="pt-2">
+              <button
+                type="button"
+                @click="$store.landing.applyRecommendationToForm($store.landing.activeRedFlag?.recommendedService)"
+                class="btn btn-primary w-full rounded-2xl py-3.5 font-bold gap-2.5 text-sm sm:text-base shadow-soft hover:shadow-soft-hover"
+              >
+                <i data-lucide="calendar-check" class="w-5 h-5"></i>
+                <span>Gunakan Hasil Screening Ini untuk Daftar Observasi</span>
+              </button>
+              <p class="text-[11px] text-slate-400 text-center mt-2">
+                Layanan rekomendasi dan catatan keluhan akan otomatis terisi
+                pada formulir booking di bawah.
+              </p>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- 3 Kartu Paket Komitmen Terapi -->
-      <div class="text-center max-w-xl mx-auto mb-8">
-        <h3 class="text-xl sm:text-2xl font-bold text-slate-900">Paket Terapi Berkelanjutan</h3>
-        <p class="text-xs sm:text-sm text-slate-500 mt-1">Dapat digunakan secara fleksibel untuk seluruh layanan terapi</p>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-        <template x-for="pkg in ($store.landing?.content?.packages || [])" :key="pkg.id">
-          <div 
-            class="rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all relative"
-            :class="pkg.isPopular ? 'bg-white border-2 border-primary shadow-xl scale-100 lg:-translate-y-2 card-hover-warm' : 'bg-white border border-slate-200 shadow-soft card-hover'"
+    <!-- =======================================================================
+       SECTION 6: TRUST, CREDIBILITY & MINI-ABOUT (#tim-ahli)
+       ======================================================================= -->
+    <section
+      id="tim-ahli"
+      class="py-16 lg:py-24 bg-white relative border-b border-slate-200/60"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+          <div
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-purple-100 text-purple-800 border border-purple-200"
           >
-            <!-- Badge Paling Populer -->
-            <template x-if="pkg.isPopular">
-              <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-amber-400 text-slate-900 text-xs font-extrabold px-4 py-1 rounded-full shadow-md">
-                <span x-text="pkg.badgeText || 'Paling Direkomendasikan'"></span>
+            <i data-lucide="users" class="w-3.5 h-3.5 text-purple-600"></i>
+            <span>Kredibilitas & Pengalaman Nyata</span>
+          </div>
+          <h2
+            class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight"
+          >
+            Didampingi Tim Ahli Tersertifikasi & Terpercaya
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Para profesional berizin resmi (STR & SIP) yang berdedikasi
+            membimbing si kecil dengan pendekatan ilmiah, penuh kehangatan, dan
+            kesabaran tulus.
+          </p>
+        </div>
+
+        <!-- Bagian 1: 4 Profil Terapis Berlisensi -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+          <template
+            x-for="therapist in ($store.landing?.content?.therapists || [])"
+            :key="therapist.id"
+          >
+            <div
+              class="bg-white rounded-3xl p-6 border border-slate-200 shadow-soft card-hover flex flex-col justify-between"
+            >
+              <div class="space-y-4">
+                <!-- Avatar / Inisial Card -->
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-100 to-sky-100 text-emerald-800 font-extrabold text-base flex items-center justify-center border-2 border-white shadow-soft flex-shrink-0"
+                  >
+                    <span
+                      x-text="therapist.name.replace('Kak ', '').split(' ').map(n => n[0]).slice(0, 2).join('')"
+                    ></span>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-base font-bold text-slate-900 leading-snug"
+                      x-text="therapist.name"
+                    ></h3>
+                    <span
+                      class="text-xs font-semibold text-primary block"
+                      x-text="therapist.role"
+                    ></span>
+                    <span
+                      class="text-[11px] text-slate-400 block"
+                      x-text="therapist.strNumber"
+                    ></span>
+                  </div>
+                </div>
+
+                <!-- Pengalaman & Bio -->
+                <div class="space-y-2">
+                  <span
+                    class="badge badge-outline badge-sm text-[11px] font-semibold text-emerald-700 border-emerald-300"
+                    x-text="therapist.experienceYears"
+                  ></span>
+                  <p
+                    class="text-xs text-slate-600 leading-relaxed"
+                    x-text="therapist.bio"
+                  ></p>
+                </div>
+
+                <!-- Keahlian Khusus -->
+                <div>
+                  <span
+                    class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-1.5"
+                    >Keahlian Khusus:</span
+                  >
+                  <div class="flex flex-wrap gap-1.5">
+                    <template
+                      x-for="skill in (therapist.focusSkills || [])"
+                      :key="skill"
+                    >
+                      <span
+                        class="text-[10px] font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md"
+                        x-text="skill"
+                      ></span>
+                    </template>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Kutipan Empatik -->
+              <div class="pt-4 mt-4 border-t border-slate-100">
+                <p
+                  class="text-xs text-slate-500 italic"
+                  x-text="therapist.quote"
+                ></p>
+              </div>
+            </div>
+          </template>
+        </div>
+
+        <!-- Bagian 2: Testimoni Autentik Orang Tua Pasien -->
+        <div class="pt-4 border-t border-slate-100">
+          <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+            <span
+              class="text-xs font-bold uppercase tracking-wider text-primary"
+              >Bukti Nyata Kemajuan Buah Hati</span
+            >
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900">
+              Cerita Hangat dari Ayah & Bunda
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-500">
+              Melihat si kecil tersenyum mandiri adalah kebahagiaan terbesar
+              kami.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <template
+              x-for="testi in ($store.landing?.content?.testimonials || [])"
+              :key="testi.id"
+            >
+              <div
+                class="bg-slate-50 rounded-3xl p-6 border border-slate-200/80 shadow-xs flex flex-col justify-between"
+              >
+                <div class="space-y-3.5">
+                  <!-- Stars & Badge -->
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-1 text-warning">
+                      <template x-for="i in testi.stars" :key="i">
+                        <i
+                          data-lucide="star"
+                          class="w-3.5 h-3.5 fill-amber-400 text-amber-400"
+                        ></i>
+                      </template>
+                    </div>
+                    <span
+                      class="badge badge-xs font-semibold badge-primary text-[10px]"
+                      x-text="testi.badge"
+                    ></span>
+                  </div>
+
+                  <!-- Quote Text -->
+                  <p
+                    class="text-xs sm:text-sm text-slate-700 leading-relaxed italic"
+                    x-text="'&ldquo;' + testi.quote + '&rdquo;'"
+                  ></p>
+                </div>
+
+                <!-- Parent Info & Avatar -->
+                <div
+                  class="pt-4 mt-4 border-t border-slate-200/60 flex items-center gap-3"
+                >
+                  <img
+                    :src="testi.avatar"
+                    :alt="testi.parent"
+                    class="w-10 h-10 rounded-xl object-cover ring-1 ring-slate-200"
+                    loading="lazy"
+                    onerror="
+                      this.onerror = null;
+                      this.src =
+                        'https://ui-avatars.com/api/?name=Bunda&background=ecfdf5&color=059669';
+                    "
+                  />
+                  <div>
+                    <h4
+                      class="text-xs sm:text-sm font-bold text-slate-900"
+                      x-text="testi.parent"
+                    ></h4>
+                    <span
+                      class="text-[11px] text-slate-500 block"
+                      x-text="testi.childInfo"
+                    ></span>
+                    <span
+                      class="text-[10px] font-semibold text-emerald-700"
+                      x-text="'Layanan: ' + testi.serviceTag"
+                    ></span>
+                  </div>
+                </div>
               </div>
             </template>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <div class="space-y-5">
-              <div>
-                <div class="flex items-center justify-between">
-                  <h4 class="text-xl font-bold text-slate-900" x-text="pkg.name"></h4>
-                  <span class="badge badge-sm font-semibold" :class="pkg.isPopular ? 'badge-primary' : 'badge-ghost'" x-text="pkg.validityText"></span>
-                </div>
-                <p class="text-xs text-slate-500 mt-1" x-text="pkg.subtitle"></p>
+    <!-- =======================================================================
+       SECTION 7: PILIHAN PAKET & BIAYA / PRICING (#paket-harga)
+       ======================================================================= -->
+    <section
+      id="paket-harga"
+      class="py-16 lg:py-24 bg-slate-50 relative border-b border-slate-200/60"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+          <div
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200"
+          >
+            <i data-lucide="tag" class="w-3.5 h-3.5 text-emerald-600"></i>
+            <span>Investasi Tumbuh Kembang Buah Hati</span>
+          </div>
+          <h2
+            class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight"
+          >
+            Pilihan Paket Terapi Transparan Tanpa Biaya Tersembunyi
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Mulai dari sesi observasi awal berbiaya terjangkau hingga paket
+            komitmen intensif dengan pengawasan menyeluruh.
+          </p>
+        </div>
+
+        <!-- Highlight Banner: Observasi Perdana (Low-Barrier Entry) -->
+        <div
+          class="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 rounded-3xl p-6 sm:p-8 text-white shadow-xl mb-12 relative overflow-hidden"
+        >
+          <div
+            class="absolute -right-10 -bottom-10 w-60 h-60 rounded-full bg-white/10 blur-2xl pointer-events-none"
+          ></div>
+
+          <div
+            class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative z-10"
+          >
+            <div class="lg:col-span-8 space-y-3 text-center lg:text-left">
+              <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-white/20 text-white border border-white/30"
+              >
+                <i data-lucide="clipboard-check" class="w-3.5 h-3.5"></i>
+                <span
+                  x-text="$store.landing?.content?.initialAssessment?.badge"
+                ></span>
               </div>
+              <h3
+                class="text-2xl sm:text-3xl font-extrabold leading-tight"
+                x-text="$store.landing?.content?.initialAssessment?.name"
+              ></h3>
+              <p
+                class="text-xs sm:text-sm text-emerald-100 max-w-2xl leading-relaxed"
+                x-text="$store.landing?.content?.initialAssessment?.description"
+              ></p>
 
-              <!-- Price -->
-              <div class="pt-2">
-                <div class="flex items-baseline gap-1">
-                  <span class="text-3xl sm:text-4xl font-extrabold text-slate-900" x-text="pkg.priceFormatted"></span>
-                </div>
-                <span class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded-md inline-block mt-1" x-text="pkg.pricePerSession"></span>
-                <p class="text-xs text-slate-500 mt-2" x-text="pkg.description"></p>
-              </div>
-
-              <!-- Benefits List -->
-              <div class="pt-4 border-t border-slate-100">
-                <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-2.5">Fasilitas Termasuk:</span>
-                <ul class="space-y-2.5">
-                  <template x-for="benefit in (pkg.benefits || [])" :key="benefit">
-                    <li class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600">
-                      <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0"></i>
-                      <span x-text="benefit"></span>
-                    </li>
-                  </template>
-                </ul>
+              <!-- Benefit Bullets -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 text-xs">
+                <template
+                  x-for="b in ($store.landing?.content?.initialAssessment?.benefits || [])"
+                  :key="b"
+                >
+                  <div class="flex items-start gap-2">
+                    <i
+                      data-lucide="check-circle-2"
+                      class="w-4 h-4 text-emerald-200 mt-0.5 flex-shrink-0"
+                    ></i>
+                    <span x-text="b"></span>
+                  </div>
+                </template>
               </div>
             </div>
 
-            <!-- CTA Button -->
-            <div class="pt-6 mt-6 border-t border-slate-100">
-              <button 
-                type="button" 
-                @click="$store.landing.selectPackageForBooking(pkg.id)"
-                class="btn rounded-xl w-full font-bold gap-2 text-sm shadow-soft transition-all"
-                :class="pkg.isPopular ? 'btn-primary text-white' : 'btn-outline border-slate-300 hover:btn-primary text-slate-700'"
+            <div
+              class="lg:col-span-4 bg-white text-slate-900 rounded-2xl p-6 text-center space-y-3 shadow-lg"
+            >
+              <span
+                class="text-xs text-slate-500 font-semibold block uppercase tracking-wider"
+                >Biaya Observasi Lengkap</span
               >
-                <span x-text="pkg.ctaText"></span>
+              <div
+                class="text-3xl sm:text-4xl font-extrabold text-primary"
+                x-text="$store.landing?.content?.initialAssessment?.priceFormatted"
+              ></div>
+              <span
+                class="badge badge-ghost text-xs font-semibold"
+                x-text="$store.landing?.content?.initialAssessment?.duration"
+              ></span>
+              <button
+                type="button"
+                @click="$store.landing.selectInitialAssessment()"
+                class="btn btn-primary w-full rounded-xl font-bold gap-2 text-sm shadow-soft hover:shadow-soft-hover"
+              >
+                <span>Booking Sesi Observasi</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </button>
-              <span class="text-[11px] text-slate-400 text-center block mt-2" x-text="pkg.suitableNote"></span>
+              <span class="text-[10px] text-slate-400 block"
+                >Termasuk resume laporan tertulis & konsultasi langsung</span
+              >
             </div>
-
           </div>
-        </template>
+        </div>
+
+        <!-- 3 Kartu Paket Komitmen Terapi -->
+        <div class="text-center max-w-xl mx-auto mb-8">
+          <h3 class="text-xl sm:text-2xl font-bold text-slate-900">
+            Paket Terapi Berkelanjutan
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+            Dapat digunakan secara fleksibel untuk seluruh layanan terapi
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+          <template
+            x-for="pkg in ($store.landing?.content?.packages || [])"
+            :key="pkg.id"
+          >
+            <div
+              class="rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all relative"
+              :class="pkg.isPopular ? 'bg-white border-2 border-primary shadow-xl scale-100 lg:-translate-y-2 card-hover-warm' : 'bg-white border border-slate-200 shadow-soft card-hover'"
+            >
+              <!-- Badge Paling Populer -->
+              <template x-if="pkg.isPopular">
+                <div
+                  class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-amber-400 text-slate-900 text-xs font-extrabold px-4 py-1 rounded-full shadow-md"
+                >
+                  <span
+                    x-text="pkg.badgeText || 'Paling Direkomendasikan'"
+                  ></span>
+                </div>
+              </template>
+
+              <div class="space-y-5">
+                <div>
+                  <div class="flex items-center justify-between">
+                    <h4
+                      class="text-xl font-bold text-slate-900"
+                      x-text="pkg.name"
+                    ></h4>
+                    <span
+                      class="badge badge-sm font-semibold"
+                      :class="pkg.isPopular ? 'badge-primary' : 'badge-ghost'"
+                      x-text="pkg.validityText"
+                    ></span>
+                  </div>
+                  <p
+                    class="text-xs text-slate-500 mt-1"
+                    x-text="pkg.subtitle"
+                  ></p>
+                </div>
+
+                <!-- Price -->
+                <div class="pt-2">
+                  <div class="flex items-baseline gap-1">
+                    <span
+                      class="text-3xl sm:text-4xl font-extrabold text-slate-900"
+                      x-text="pkg.priceFormatted"
+                    ></span>
+                  </div>
+                  <span
+                    class="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded-md inline-block mt-1"
+                    x-text="pkg.pricePerSession"
+                  ></span>
+                  <p
+                    class="text-xs text-slate-500 mt-2"
+                    x-text="pkg.description"
+                  ></p>
+                </div>
+
+                <!-- Benefits List -->
+                <div class="pt-4 border-t border-slate-100">
+                  <span
+                    class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-2.5"
+                    >Fasilitas Termasuk:</span
+                  >
+                  <ul class="space-y-2.5">
+                    <template
+                      x-for="benefit in (pkg.benefits || [])"
+                      :key="benefit"
+                    >
+                      <li
+                        class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600"
+                      >
+                        <i
+                          data-lucide="check-circle-2"
+                          class="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0"
+                        ></i>
+                        <span x-text="benefit"></span>
+                      </li>
+                    </template>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- CTA Button -->
+              <div class="pt-6 mt-6 border-t border-slate-100">
+                <button
+                  type="button"
+                  @click="$store.landing.selectPackageForBooking(pkg.id)"
+                  class="btn rounded-xl w-full font-bold gap-2 text-sm shadow-soft transition-all"
+                  :class="pkg.isPopular ? 'btn-primary text-white' : 'btn-outline border-slate-300 hover:btn-primary text-slate-700'"
+                >
+                  <span x-text="pkg.ctaText"></span>
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+                <span
+                  class="text-[11px] text-slate-400 text-center block mt-2"
+                  x-text="pkg.suitableNote"
+                ></span>
+              </div>
+            </div>
+          </template>
+        </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- =======================================================================
+    <!-- =======================================================================
        SECTION 8: FAQ — PERTANYAAN UMUM ORANG TUA (#faq)
        ======================================================================= -->
-  <section id="faq" class="py-16 lg:py-24 bg-white relative border-b border-slate-200/60">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Section Header -->
-      <div class="text-center mb-12 space-y-3">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200">
-          <i data-lucide="help-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
-          <span>Pertanyaan Umum</span>
-        </div>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Tanya Jawab Seputar Terapi di ESSA Kids
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
-          Informasi transparan untuk menjawab pertanyaan dan keraguan yang sering dialami Ayah & Bunda seputar proses terapi.
-        </p>
-      </div>
-
-      <!-- Accordion List (DaisyUI Collapse) -->
-      <div class="space-y-3">
-        <template x-for="(faq, index) in ($store.landing?.content?.faqs || [])" :key="faq.id">
-          <div class="collapse collapse-plus bg-white border border-slate-200 rounded-2xl shadow-sm">
-            <input type="radio" name="faq-accordion" :checked="index === 0" /> 
-            <div class="collapse-title text-sm sm:text-base font-bold text-slate-800 py-4 flex items-center gap-3">
-              <span class="badge badge-sm badge-ghost text-xs text-primary font-semibold" x-text="faq.category"></span>
-              <span x-text="faq.question"></span>
-            </div>
-            <div class="collapse-content text-xs sm:text-sm text-slate-600 leading-relaxed pb-4 pt-1 border-t border-slate-100">
-              <p x-text="faq.answer"></p>
-            </div>
-          </div>
-        </template>
-      </div>
-
-      <!-- Quick WA Help Box -->
-      <div class="mt-10 p-6 rounded-3xl bg-slate-50 border border-slate-200 text-center space-y-3 shadow-soft">
-        <p class="text-sm font-semibold text-slate-800">Punya pertanyaan lain yang belum terjawab?</p>
-        <p class="text-xs text-slate-500">Tim resepsionis kami siap menjawab dengan ramah dan sabar setiap hari kerja.</p>
-        <div>
-          <button 
-            type="button" 
-            @click="$store.landing.openWhatsAppGeneral()"
-            class="btn btn-outline btn-sm rounded-xl gap-2 text-emerald-700 border-emerald-300 hover:bg-emerald-50 font-semibold"
+    <section
+      id="faq"
+      class="py-16 lg:py-24 bg-white relative border-b border-slate-200/60"
+    >
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-12 space-y-3">
+          <div
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200"
           >
-            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
-            <span>Chat WhatsApp Resepsionis</span>
-          </button>
+            <i
+              data-lucide="help-circle"
+              class="w-3.5 h-3.5 text-emerald-600"
+            ></i>
+            <span>Pertanyaan Umum</span>
+          </div>
+          <h2
+            class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight"
+          >
+            Tanya Jawab Seputar Terapi di ESSA Kids
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Informasi transparan untuk menjawab pertanyaan dan keraguan yang
+            sering dialami Ayah & Bunda seputar proses terapi.
+          </p>
+        </div>
+
+        <!-- Accordion List (DaisyUI Collapse) -->
+        <div class="space-y-3">
+          <template
+            x-for="(faq, index) in ($store.landing?.content?.faqs || [])"
+            :key="faq.id"
+          >
+            <div
+              class="collapse collapse-plus bg-white border border-slate-200 rounded-2xl shadow-sm"
+            >
+              <input type="radio" name="faq-accordion" :checked="index === 0" />
+              <div
+                class="collapse-title text-sm sm:text-base font-bold text-slate-800 py-4 flex items-center gap-3"
+              >
+                <span
+                  class="badge badge-sm badge-ghost text-xs text-primary font-semibold"
+                  x-text="faq.category"
+                ></span>
+                <span x-text="faq.question"></span>
+              </div>
+              <div
+                class="collapse-content text-xs sm:text-sm text-slate-600 leading-relaxed pb-4 pt-1 border-t border-slate-100"
+              >
+                <p x-text="faq.answer"></p>
+              </div>
+            </div>
+          </template>
+        </div>
+
+        <!-- Quick WA Help Box -->
+        <div
+          class="mt-10 p-6 rounded-3xl bg-slate-50 border border-slate-200 text-center space-y-3 shadow-soft"
+        >
+          <p class="text-sm font-semibold text-slate-800">
+            Punya pertanyaan lain yang belum terjawab?
+          </p>
+          <p class="text-xs text-slate-500">
+            Tim resepsionis kami siap menjawab dengan ramah dan sabar setiap
+            hari kerja.
+          </p>
+          <div>
+            <button
+              type="button"
+              @click="$store.landing.openWhatsAppGeneral()"
+              class="btn btn-outline btn-sm rounded-xl gap-2 text-emerald-700 border-emerald-300 hover:bg-emerald-50 font-semibold"
+            >
+              <i
+                data-lucide="message-circle"
+                class="w-4 h-4 text-emerald-600"
+              ></i>
+              <span>Chat WhatsApp Resepsionis</span>
+            </button>
+          </div>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- =======================================================================
+    <!-- =======================================================================
        SECTION 9: FINAL CTA & FOOTER (#final-cta & #app-footer)
        ======================================================================= -->
-  <section id="final-cta" class="py-16 lg:py-24 bg-slate-50 relative scroll-mt-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200">
-          <i data-lucide="calendar" class="w-3.5 h-3.5 text-emerald-600"></i>
-          <span>Pendaftaran Observasi Awal</span>
-        </div>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Mulai Langkah Pertama untuk Si Kecil Hari Ini
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
-          Daftarkan jadwal observasi awal tanpa antre. Tim klinis kami akan segera menghubungi Ayah & Bunda untuk mengonfirmasi slot waktu terbaik.
-        </p>
-      </div>
-
-      <!-- 2-Kolom Final Conversion Card -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
-        <!-- Kolom Kiri: Direct Quick Action & Clinic Info (lg:col-span-5) -->
-        <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
-          
-          <div class="flex items-center gap-3">
-            <div class="w-11 h-11 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
-              <i data-lucide="baby" class="w-6 h-6"></i>
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-white">ESSA Kids Therapy</h3>
-              <span class="text-xs text-slate-400 font-medium">Klinik Tumbuh Kembang Anak</span>
-            </div>
-          </div>
-
-          <div class="space-y-4 text-sm text-slate-300">
-            <h4 class="text-sm font-semibold uppercase tracking-wider text-emerald-400">Apa yang Didapat Saat Observasi Perdana?</h4>
-            <ul class="space-y-3">
-              <li class="flex items-start gap-3">
-                <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"></i>
-                <span><strong>60 Menit Sesi Observasi</strong> one-on-one berbasis bermain langsung dengan terapis berlisensi.</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"></i>
-                <span><strong>Pemetaan Milestone</strong> motorik, sensori, wicara, dan kesiapan kemandirian anak.</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"></i>
-                <span><strong>Rancangan Target IEP</strong> (Individualized Education Program) yang disesuaikan usia si kecil.</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"></i>
-                <span><strong>Konsultasi Langsung 15 Menit</strong> bersama orang tua untuk tanya-jawab santai dan rekomendasi lanjutan.</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Quick WhatsApp Consult Action Button -->
-          <div class="pt-2">
-            <button 
-              type="button" 
-              @click="$store.landing.openWhatsAppGeneral()"
-              class="btn btn-outline btn-sm w-full rounded-2xl py-3.5 h-auto text-emerald-400 border-emerald-500/60 hover:bg-emerald-500/20 hover:border-emerald-400 gap-2.5 font-bold"
-            >
-              <i data-lucide="message-circle" class="w-5 h-5 text-emerald-400"></i>
-              <span>Konsultasi Cepat via WhatsApp</span>
-            </button>
-            <span class="text-[11px] text-slate-400 text-center block mt-2">Respon cepat dalam jam operasional klinik</span>
-          </div>
-
-          <!-- Kontak & Jam Operasional -->
-          <div class="pt-4 border-t border-slate-700/80 space-y-2.5 text-xs text-slate-400">
-            <div class="flex items-center gap-2">
-              <i data-lucide="clock" class="w-4 h-4 text-amber-400"></i>
-              <span x-text="$store.landing?.content?.clinicInfo?.operatingHours + ' (' + $store.landing?.content?.clinicInfo?.operatingDaysNotice + ')'"></span>
-            </div>
-            <div class="flex items-center gap-2">
-              <i data-lucide="map-pin" class="w-4 h-4 text-emerald-400"></i>
-              <span x-text="$store.landing?.content?.clinicInfo?.address?.full"></span>
-            </div>
-            <div class="flex items-center gap-2">
-              <i data-lucide="shield-check" class="w-4 h-4 text-sky-400"></i>
-              <span>Privasi data medis dan tumbuh kembang anak 100% terlindungi.</span>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Kolom Kanan: Formulir Ringkas Booking & Konfirmasi Sukses (lg:col-span-7) -->
-        <div class="lg:col-span-7">
-          
-          <!-- State 1: Formulir Input (x-show="!$store.landing.bookingSubmitted") -->
-          <div 
-            x-show="!$store.landing.bookingSubmitted"
-            class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-soft"
+    <section
+      id="final-cta"
+      class="py-16 lg:py-24 bg-slate-50 relative scroll-mt-20"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+          <div
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200"
           >
-            <form @submit.prevent="$store.landing.submitBookingForm()" class="space-y-4">
-              
-              <!-- Data Anak: Nama Lengkap & Panggilan -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="form-control">
-                  <label class="label py-1">
-                    <span class="label-text font-semibold text-slate-700 text-xs sm:text-sm">Nama Lengkap Anak <span class="text-rose-500">*</span></span>
-                  </label>
-                  <input 
-                    type="text" 
-                    id="input-child-name"
-                    x-model="$store.landing.bookingForm.childName"
-                    placeholder="Contoh: Muhammad Rayyan" 
-                    class="input input-bordered input-sm sm:input-md rounded-xl w-full text-sm"
-                    required
-                  />
-                </div>
-                <div class="form-control">
-                  <label class="label py-1">
-                    <span class="label-text font-semibold text-slate-700 text-xs sm:text-sm">Nama Panggilan</span>
-                  </label>
-                  <input 
-                    type="text" 
-                    x-model="$store.landing.bookingForm.childNickname"
-                    placeholder="Contoh: Rayyan" 
-                    class="input input-bordered input-sm sm:input-md rounded-xl w-full text-sm"
-                  />
-                </div>
-              </div>
+            <i data-lucide="calendar" class="w-3.5 h-3.5 text-emerald-600"></i>
+            <span>Pendaftaran Observasi Awal</span>
+          </div>
+          <h2
+            class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight"
+          >
+            Mulai Langkah Pertama untuk Si Kecil Hari Ini
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Daftarkan jadwal observasi awal tanpa antre. Tim klinis kami akan
+            segera menghubungi Ayah & Bunda untuk mengonfirmasi slot waktu
+            terbaik.
+          </p>
+        </div>
 
-              <!-- Usia & Jenis Kelamin -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="form-control">
-                  <label class="label py-1">
-                    <span class="label-text font-semibold text-slate-700 text-xs sm:text-sm">Usia Anak</span>
-                  </label>
-                  <input 
-                    type="text" 
-                    x-model="$store.landing.bookingForm.childAge"
-                    placeholder="Contoh: 3 tahun 4 bulan" 
-                    class="input input-bordered input-sm sm:input-md rounded-xl w-full text-sm"
-                  />
-                </div>
-                <div class="form-control">
-                  <label class="label py-1">
-                    <span class="label-text font-semibold text-slate-700 text-xs sm:text-sm">Jenis Kelamin</span>
-                  </label>
-                  <select 
-                    x-model="$store.landing.bookingForm.gender"
-                    class="select select-bordered select-sm sm:select-md rounded-xl w-full text-sm"
-                  >
-                    <option value="L">Laki-laki</option>
-                    <option value="P">Perempuan</option>
-                  </select>
-                </div>
+        <!-- 2-Kolom Final Conversion Card -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- Kolom Kiri: Direct Quick Action & Clinic Info (lg:col-span-5) -->
+          <div
+            class="lg:col-span-5 bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-6 sm:p-8 shadow-xl space-y-6"
+          >
+            <div class="flex items-center gap-3">
+              <div
+                class="w-11 h-11 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center"
+              >
+                <i data-lucide="baby" class="w-6 h-6"></i>
               </div>
-
-              <!-- Data Orang Tua: Nama & WhatsApp -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="form-control">
-                  <label class="label py-1">
-                    <span class="label-text font-semibold text-slate-700 text-xs sm:text-sm">Nama Orang Tua / Wali <span class="text-rose-500">*</span></span>
-                  </label>
-                  <input 
-                    type="text" 
-                    id="input-parent-name"
-                    x-model="$store.landing.bookingForm.parentName"
-                    placeholder="Contoh: Bunda Sarah" 
-                    class="input input-bordered input-sm sm:input-md rounded-xl w-full text-sm"
-                    required
-                  />
-                </div>
-                <div class="form-control">
-                  <label class="label py-1">
-                    <span class="label-text font-semibold text-slate-700 text-xs sm:text-sm">Nomor WhatsApp Aktif <span class="text-rose-500">*</span></span>
-                  </label>
-                  <input 
-                    type="tel" 
-                    id="input-parent-phone"
-                    x-model="$store.landing.bookingForm.parentPhone"
-                    placeholder="Contoh: 081234567890" 
-                    class="input input-bordered input-sm sm:input-md rounded-xl w-full text-sm"
-                    required
-                  />
-                </div>
-              </div>
-
-              <!-- Pilihan Layanan & Pilihan Paket -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="form-control">
-                  <label class="label py-1">
-                    <span class="label-text font-semibold text-slate-700 text-xs sm:text-sm">Pilihan Layanan Terapi</span>
-                  </label>
-                  <select 
-                    x-model="$store.landing.bookingForm.selectedServiceId"
-                    class="select select-bordered select-sm sm:select-md rounded-xl w-full text-sm"
-                  >
-                    <template x-for="srv in ($store.landing?.content?.services || [])" :key="srv.id">
-                      <option :value="srv.id" x-text="srv.title"></option>
-                    </template>
-                  </select>
-                </div>
-                <div class="form-control">
-                  <label class="label py-1">
-                    <span class="label-text font-semibold text-slate-700 text-xs sm:text-sm">Rencana Paket Sesi</span>
-                  </label>
-                  <select 
-                    x-model="$store.landing.bookingForm.selectedPackageId"
-                    class="select select-bordered select-sm sm:select-md rounded-xl w-full text-sm"
-                  >
-                    <template x-for="pkg in ($store.landing?.content?.packages || [])" :key="pkg.id">
-                      <option :value="pkg.id" x-text="pkg.name + ' (' + pkg.sessionCountText + ' - ' + pkg.priceFormatted + ')'"></option>
-                    </template>
-                  </select>
-                </div>
-              </div>
-
-              <!-- Preferensi Waktu Kunjungan -->
-              <div class="form-control">
-                <label class="label py-1">
-                  <span class="label-text font-semibold text-slate-700 text-xs sm:text-sm">Preferensi Waktu Terapi</span>
-                </label>
-                <select 
-                  x-model="$store.landing.bookingForm.preferredSchedule"
-                  class="select select-bordered select-sm sm:select-md rounded-xl w-full text-sm"
+              <div>
+                <h3 class="text-lg font-bold text-white">ESSA Kids Therapy</h3>
+                <span class="text-xs text-slate-400 font-medium"
+                  >Klinik Tumbuh Kembang Anak</span
                 >
-                  <option>Pagi (08:00 - 11:30 WIB)</option>
-                  <option>Siang (13:00 - 15:30 WIB)</option>
-                  <option>Fleksibel / Sesuai Rekomendasi Terapis</option>
-                </select>
               </div>
+            </div>
 
-              <!-- Catatan Keluhan / Hasil Cek Gejala -->
-              <div class="form-control">
-                <label class="label py-1">
-                  <span class="label-text font-semibold text-slate-700 text-xs sm:text-sm">Catatan Keluhan / Gejala yang Diamati</span>
-                </label>
-                <textarea 
-                  x-model="$store.landing.bookingForm.concernNotes"
-                  placeholder="Ceritakan kekhawatiran atau perkembangan si kecil yang ingin dikonsultasikan..."
-                  class="textarea textarea-bordered rounded-xl w-full h-24 text-sm"
-                ></textarea>
+            <div class="space-y-4 text-sm text-slate-300">
+              <h4
+                class="text-sm font-semibold uppercase tracking-wider text-emerald-400"
+              >
+                Apa yang Didapat Saat Observasi Perdana?
+              </h4>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <i
+                    data-lucide="check-circle"
+                    class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"
+                  ></i>
+                  <span
+                    ><strong>60 Menit Sesi Observasi</strong> one-on-one
+                    berbasis bermain langsung dengan terapis berlisensi.</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <i
+                    data-lucide="check-circle"
+                    class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"
+                  ></i>
+                  <span
+                    ><strong>Pemetaan Milestone</strong> motorik, sensori,
+                    wicara, dan kesiapan kemandirian anak.</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <i
+                    data-lucide="check-circle"
+                    class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"
+                  ></i>
+                  <span
+                    ><strong>Rancangan Target IEP</strong> (Individualized
+                    Education Program) yang disesuaikan usia si kecil.</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <i
+                    data-lucide="check-circle"
+                    class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"
+                  ></i>
+                  <span
+                    ><strong>Konsultasi Langsung 15 Menit</strong> bersama orang
+                    tua untuk tanya-jawab santai dan rekomendasi lanjutan.</span
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Quick WhatsApp Consult Action Button -->
+            <div class="pt-2">
+              <button
+                type="button"
+                @click="$store.landing.openWhatsAppGeneral()"
+                class="btn btn-outline btn-sm w-full rounded-2xl py-3.5 h-auto text-emerald-400 border-emerald-500/60 hover:bg-emerald-500/20 hover:border-emerald-400 gap-2.5 font-bold"
+              >
+                <i
+                  data-lucide="message-circle"
+                  class="w-5 h-5 text-emerald-400"
+                ></i>
+                <span>Konsultasi Cepat via WhatsApp</span>
+              </button>
+              <span class="text-[11px] text-slate-400 text-center block mt-2"
+                >Respon cepat dalam jam operasional klinik</span
+              >
+            </div>
+
+            <!-- Kontak & Jam Operasional -->
+            <div
+              class="pt-4 border-t border-slate-700/80 space-y-2.5 text-xs text-slate-400"
+            >
+              <div class="flex items-center gap-2">
+                <i data-lucide="clock" class="w-4 h-4 text-amber-400"></i>
+                <span
+                  x-text="$store.landing?.content?.clinicInfo?.operatingHours + ' (' + $store.landing?.content?.clinicInfo?.operatingDaysNotice + ')'"
+                ></span>
               </div>
-
-              <!-- Submit Button -->
-              <div class="pt-2">
-                <button 
-                  type="submit" 
-                  class="btn btn-primary w-full rounded-xl font-bold gap-2 text-base shadow-soft hover:shadow-soft-hover"
+              <div class="flex items-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4 text-emerald-400"></i>
+                <span
+                  x-text="$store.landing?.content?.clinicInfo?.address?.full"
+                ></span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="shield-check" class="w-4 h-4 text-sky-400"></i>
+                <span
+                  >Privasi data medis dan tumbuh kembang anak 100%
+                  terlindungi.</span
                 >
-                  <i data-lucide="calendar" class="w-5 h-5"></i>
-                  <span>Kirim Pendaftaran Observasi</span>
-                </button>
-                <p class="text-[11px] text-slate-400 text-center mt-2">
-                  Setelah dikirim, tim admin klinik akan segera menghubungi via WhatsApp untuk konfirmasi jam pasti.
+              </div>
+            </div>
+          </div>
+
+          <!-- Kolom Kanan: Formulir Ringkas Booking & Konfirmasi Sukses (lg:col-span-7) -->
+          <div class="lg:col-span-7">
+            <!-- State 1: Formulir Input (x-show="!$store.landing.bookingSubmitted") -->
+            <div
+              x-show="!$store.landing.bookingSubmitted"
+              class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-soft"
+            >
+              <form
+                @submit.prevent="$store.landing.submitBookingForm()"
+                class="space-y-4"
+              >
+                <!-- Data Anak: Nama Lengkap & Panggilan -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="form-control">
+                    <label class="label py-1">
+                      <span
+                        class="label-text font-semibold text-slate-700 text-xs sm:text-sm"
+                        >Nama Lengkap Anak
+                        <span class="text-rose-500">*</span></span
+                      >
+                    </label>
+                    <input
+                      type="text"
+                      id="input-child-name"
+                      x-model="$store.landing.bookingForm.childName"
+                      placeholder="Contoh: Muhammad Rayyan"
+                      class="input input-bordered input-sm sm:input-md rounded-xl w-full text-sm"
+                      required
+                    />
+                  </div>
+                  <div class="form-control">
+                    <label class="label py-1">
+                      <span
+                        class="label-text font-semibold text-slate-700 text-xs sm:text-sm"
+                        >Nama Panggilan</span
+                      >
+                    </label>
+                    <input
+                      type="text"
+                      x-model="$store.landing.bookingForm.childNickname"
+                      placeholder="Contoh: Rayyan"
+                      class="input input-bordered input-sm sm:input-md rounded-xl w-full text-sm"
+                    />
+                  </div>
+                </div>
+
+                <!-- Usia & Jenis Kelamin -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="form-control">
+                    <label class="label py-1">
+                      <span
+                        class="label-text font-semibold text-slate-700 text-xs sm:text-sm"
+                        >Usia Anak</span
+                      >
+                    </label>
+                    <input
+                      type="text"
+                      x-model="$store.landing.bookingForm.childAge"
+                      placeholder="Contoh: 3 tahun 4 bulan"
+                      class="input input-bordered input-sm sm:input-md rounded-xl w-full text-sm"
+                    />
+                  </div>
+                  <div class="form-control">
+                    <label class="label py-1">
+                      <span
+                        class="label-text font-semibold text-slate-700 text-xs sm:text-sm"
+                        >Jenis Kelamin</span
+                      >
+                    </label>
+                    <select
+                      x-model="$store.landing.bookingForm.gender"
+                      class="select select-bordered select-sm sm:select-md rounded-xl w-full text-sm"
+                    >
+                      <option value="L">Laki-laki</option>
+                      <option value="P">Perempuan</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Data Orang Tua: Nama & WhatsApp -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="form-control">
+                    <label class="label py-1">
+                      <span
+                        class="label-text font-semibold text-slate-700 text-xs sm:text-sm"
+                        >Nama Orang Tua / Wali
+                        <span class="text-rose-500">*</span></span
+                      >
+                    </label>
+                    <input
+                      type="text"
+                      id="input-parent-name"
+                      x-model="$store.landing.bookingForm.parentName"
+                      placeholder="Contoh: Bunda Sarah"
+                      class="input input-bordered input-sm sm:input-md rounded-xl w-full text-sm"
+                      required
+                    />
+                  </div>
+                  <div class="form-control">
+                    <label class="label py-1">
+                      <span
+                        class="label-text font-semibold text-slate-700 text-xs sm:text-sm"
+                        >Nomor WhatsApp Aktif
+                        <span class="text-rose-500">*</span></span
+                      >
+                    </label>
+                    <input
+                      type="tel"
+                      id="input-parent-phone"
+                      x-model="$store.landing.bookingForm.parentPhone"
+                      placeholder="Contoh: 081234567890"
+                      class="input input-bordered input-sm sm:input-md rounded-xl w-full text-sm"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- Pilihan Layanan & Pilihan Paket -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="form-control">
+                    <label class="label py-1">
+                      <span
+                        class="label-text font-semibold text-slate-700 text-xs sm:text-sm"
+                        >Pilihan Layanan Terapi</span
+                      >
+                    </label>
+                    <select
+                      x-model="$store.landing.bookingForm.selectedServiceId"
+                      class="select select-bordered select-sm sm:select-md rounded-xl w-full text-sm"
+                    >
+                      <template
+                        x-for="srv in ($store.landing?.content?.services || [])"
+                        :key="srv.id"
+                      >
+                        <option :value="srv.id" x-text="srv.title"></option>
+                      </template>
+                    </select>
+                  </div>
+                  <div class="form-control">
+                    <label class="label py-1">
+                      <span
+                        class="label-text font-semibold text-slate-700 text-xs sm:text-sm"
+                        >Rencana Paket Sesi</span
+                      >
+                    </label>
+                    <select
+                      x-model="$store.landing.bookingForm.selectedPackageId"
+                      class="select select-bordered select-sm sm:select-md rounded-xl w-full text-sm"
+                    >
+                      <template
+                        x-for="pkg in ($store.landing?.content?.packages || [])"
+                        :key="pkg.id"
+                      >
+                        <option
+                          :value="pkg.id"
+                          x-text="pkg.name + ' (' + pkg.sessionCountText + ' - ' + pkg.priceFormatted + ')'"
+                        ></option>
+                      </template>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Preferensi Waktu Kunjungan -->
+                <div class="form-control">
+                  <label class="label py-1">
+                    <span
+                      class="label-text font-semibold text-slate-700 text-xs sm:text-sm"
+                      >Preferensi Waktu Terapi</span
+                    >
+                  </label>
+                  <select
+                    x-model="$store.landing.bookingForm.preferredSchedule"
+                    class="select select-bordered select-sm sm:select-md rounded-xl w-full text-sm"
+                  >
+                    <option>Pagi (08:00 - 11:30 WIB)</option>
+                    <option>Siang (13:00 - 15:30 WIB)</option>
+                    <option>Fleksibel / Sesuai Rekomendasi Terapis</option>
+                  </select>
+                </div>
+
+                <!-- Catatan Keluhan / Hasil Cek Gejala -->
+                <div class="form-control">
+                  <label class="label py-1">
+                    <span
+                      class="label-text font-semibold text-slate-700 text-xs sm:text-sm"
+                      >Catatan Keluhan / Gejala yang Diamati</span
+                    >
+                  </label>
+                  <textarea
+                    x-model="$store.landing.bookingForm.concernNotes"
+                    placeholder="Ceritakan kekhawatiran atau perkembangan si kecil yang ingin dikonsultasikan..."
+                    class="textarea textarea-bordered rounded-xl w-full h-24 text-sm"
+                  ></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-2">
+                  <button
+                    type="submit"
+                    class="btn btn-primary w-full rounded-xl font-bold gap-2 text-base shadow-soft hover:shadow-soft-hover"
+                  >
+                    <i data-lucide="calendar" class="w-5 h-5"></i>
+                    <span>Kirim Pendaftaran Observasi</span>
+                  </button>
+                  <p class="text-[11px] text-slate-400 text-center mt-2">
+                    Setelah dikirim, tim admin klinik akan segera menghubungi
+                    via WhatsApp untuk konfirmasi jam pasti.
+                  </p>
+                </div>
+              </form>
+            </div>
+
+            <!-- State 2: Konfirmasi Sukses (x-show="$store.landing.bookingSubmitted") -->
+            <div
+              x-show="$store.landing.bookingSubmitted"
+              x-cloak
+              class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-emerald-300 shadow-soft space-y-6 animate-fade-in"
+            >
+              <div class="text-center space-y-2">
+                <div
+                  class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-inner"
+                >
+                  <i data-lucide="check-circle-2" class="w-9 h-9"></i>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-900">
+                  Pendaftaran Observasi Berhasil!
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-500 max-w-md mx-auto">
+                  Terima kasih, Ayah/Bunda. Data si kecil telah tercatat dengan
+                  aman di sistem kami.
                 </p>
               </div>
 
-            </form>
-          </div>
-
-          <!-- State 2: Konfirmasi Sukses (x-show="$store.landing.bookingSubmitted") -->
-          <div 
-            x-show="$store.landing.bookingSubmitted"
-            x-cloak
-            class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-emerald-300 shadow-soft space-y-6 animate-fade-in"
-          >
-            <div class="text-center space-y-2">
-              <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-inner">
-                <i data-lucide="check-circle-2" class="w-9 h-9"></i>
-              </div>
-              <h3 class="text-xl sm:text-2xl font-bold text-slate-900">Pendaftaran Observasi Berhasil!</h3>
-              <p class="text-xs sm:text-sm text-slate-500 max-w-md mx-auto">
-                Terima kasih, Ayah/Bunda. Data si kecil telah tercatat dengan aman di sistem kami.
-              </p>
-            </div>
-
-            <!-- Ringkasan Data Pendaftaran -->
-            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 text-xs sm:text-sm space-y-2.5">
-              <div class="flex justify-between items-center pb-2 border-b border-slate-200">
-                <span class="text-slate-500">Kode Pendaftaran:</span>
-                <span class="font-bold text-primary" x-text="$store.landing.lastSubmittedSummary?.bookingCode"></span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-slate-500">Nama Anak:</span>
-                <span class="font-semibold text-slate-800" x-text="$store.landing.lastSubmittedSummary?.childName + ' (' + $store.landing.lastSubmittedSummary?.childAge + ')'"></span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-slate-500">Orang Tua / No. WA:</span>
-                <span class="font-semibold text-slate-800" x-text="$store.landing.lastSubmittedSummary?.parentName + ' (' + $store.landing.lastSubmittedSummary?.parentPhone + ')'"></span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-slate-500">Layanan:</span>
-                <span class="font-semibold text-slate-800" x-text="$store.landing.lastSubmittedSummary?.serviceTitle"></span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-slate-500">Paket Rencana:</span>
-                <span class="font-semibold text-slate-800" x-text="$store.landing.lastSubmittedSummary?.packageName"></span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-slate-500">Waktu Preferensi:</span>
-                <span class="font-semibold text-slate-800" x-text="$store.landing.lastSubmittedSummary?.preferredSchedule"></span>
-              </div>
-              <template x-if="$store.landing.lastSubmittedSummary?.concernNotes">
-                <div class="pt-2 border-t border-slate-200 text-xs">
-                  <span class="text-slate-500 block mb-1">Catatan Keluhan:</span>
-                  <p class="text-slate-700 whitespace-pre-line bg-white p-2.5 rounded-xl border border-slate-200" x-text="$store.landing.lastSubmittedSummary?.concernNotes"></p>
+              <!-- Ringkasan Data Pendaftaran -->
+              <div
+                class="bg-slate-50 rounded-2xl p-5 border border-slate-200 text-xs sm:text-sm space-y-2.5"
+              >
+                <div
+                  class="flex justify-between items-center pb-2 border-b border-slate-200"
+                >
+                  <span class="text-slate-500">Kode Pendaftaran:</span>
+                  <span
+                    class="font-bold text-primary"
+                    x-text="$store.landing.lastSubmittedSummary?.bookingCode"
+                  ></span>
                 </div>
-              </template>
-            </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-slate-500">Nama Anak:</span>
+                  <span
+                    class="font-semibold text-slate-800"
+                    x-text="$store.landing.lastSubmittedSummary?.childName + ' (' + $store.landing.lastSubmittedSummary?.childAge + ')'"
+                  ></span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-slate-500">Orang Tua / No. WA:</span>
+                  <span
+                    class="font-semibold text-slate-800"
+                    x-text="$store.landing.lastSubmittedSummary?.parentName + ' (' + $store.landing.lastSubmittedSummary?.parentPhone + ')'"
+                  ></span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-slate-500">Layanan:</span>
+                  <span
+                    class="font-semibold text-slate-800"
+                    x-text="$store.landing.lastSubmittedSummary?.serviceTitle"
+                  ></span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-slate-500">Paket Rencana:</span>
+                  <span
+                    class="font-semibold text-slate-800"
+                    x-text="$store.landing.lastSubmittedSummary?.packageName"
+                  ></span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-slate-500">Waktu Preferensi:</span>
+                  <span
+                    class="font-semibold text-slate-800"
+                    x-text="$store.landing.lastSubmittedSummary?.preferredSchedule"
+                  ></span>
+                </div>
+                <template
+                  x-if="$store.landing.lastSubmittedSummary?.concernNotes"
+                >
+                  <div class="pt-2 border-t border-slate-200 text-xs">
+                    <span class="text-slate-500 block mb-1"
+                      >Catatan Keluhan:</span
+                    >
+                    <p
+                      class="text-slate-700 whitespace-pre-line bg-white p-2.5 rounded-xl border border-slate-200"
+                      x-text="$store.landing.lastSubmittedSummary?.concernNotes"
+                    ></p>
+                  </div>
+                </template>
+              </div>
 
-            <!-- Tombol Tindakan Lanjutan -->
-            <div class="space-y-3">
-              <button 
-                type="button" 
-                @click="$store.landing.sendBookingViaWhatsApp()"
-                class="btn btn-success text-white w-full rounded-xl gap-2 font-bold shadow-soft hover:shadow-soft-hover"
-              >
-                <i data-lucide="message-circle" class="w-5 h-5"></i>
-                <span>Kirim Konfirmasi via WhatsApp Sekarang</span>
-              </button>
-              <button 
-                type="button" 
-                @click="$store.landing.resetBookingForm()"
-                class="btn btn-ghost btn-sm w-full text-slate-600 rounded-xl"
-              >
-                <span>Daftarkan Anak Lain / Isi Form Baru</span>
-              </button>
+              <!-- Tombol Tindakan Lanjutan -->
+              <div class="space-y-3">
+                <button
+                  type="button"
+                  @click="$store.landing.sendBookingViaWhatsApp()"
+                  class="btn btn-success text-white w-full rounded-xl gap-2 font-bold shadow-soft hover:shadow-soft-hover"
+                >
+                  <i data-lucide="message-circle" class="w-5 h-5"></i>
+                  <span>Kirim Konfirmasi via WhatsApp Sekarang</span>
+                </button>
+                <button
+                  type="button"
+                  @click="$store.landing.resetBookingForm()"
+                  class="btn btn-ghost btn-sm w-full text-slate-600 rounded-xl"
+                >
+                  <span>Daftarkan Anak Lain / Isi Form Baru</span>
+                </button>
+              </div>
             </div>
-
           </div>
-
         </div>
-
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- =======================================================================
+    <!-- =======================================================================
        STICKY PUBLIC FOOTER MOUNT POINT
        ======================================================================= -->
-  <div id="app-footer"></div>
-
-</body>
+    <div id="app-footer"></div>
+  </body>
 </html>
