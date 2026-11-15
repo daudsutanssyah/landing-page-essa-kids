@@ -118,44 +118,34 @@ export const renderPublicNavbar = () => {
           </nav>
 
           <!-- ==============================================================
-               3. BAGIAN KANAN: Pill CTA Button & Circular WhatsApp Button (Sleek)
+               3. BAGIAN KANAN: 1 Tombol Chat/Konsultasi WhatsApp (Soft Outline)
                ============================================================== -->
-          <div class="hidden lg:flex items-center gap-2">
-            <!-- Secondary Button: Circular Icon-Only Chat WhatsApp -->
+          <div class="hidden lg:flex items-center">
             <button 
               type="button" 
               @click="$store.landing.openWhatsAppGeneral()"
-              class="w-8.5 h-8.5 rounded-full bg-base-200/80 hover:bg-emerald-50 text-emerald-700 border border-base-300/80 hover:border-emerald-300 flex items-center justify-center transition-all shadow-xs group"
-              title="Chat WhatsApp Konsultasi"
-              aria-label="Chat WhatsApp Konsultasi"
+              class="btn btn-outline border-emerald-300 hover:border-emerald-500 bg-emerald-50/60 hover:bg-emerald-100/80 text-emerald-800 rounded-full px-3.5 xl:px-4 py-1.5 h-auto min-h-0 text-xs font-semibold flex items-center gap-2 transition-all shadow-xs group"
+              title="Konsultasi Cepat via WhatsApp"
+              aria-label="Konsultasi Cepat via WhatsApp"
             >
-              <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-600 transition-transform group-hover:scale-110"></i>
+              <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600 transition-transform group-hover:scale-110"></i>
+              <span>Konsultasi WhatsApp</span>
             </button>
-
-            <!-- Primary Button: Pill CTA with Arrow Circle -->
-            <a 
-              href="#final-cta" 
-              class="group pl-3.5 pr-1 py-1 rounded-full bg-gradient-to-r from-primary to-emerald-600 text-primary-content font-semibold text-xs flex items-center gap-2 shadow-soft hover:shadow-soft-hover transition-all hover:brightness-105"
-            >
-              <span>Daftar Observasi</span>
-              <div class="w-6.5 h-6.5 rounded-full bg-base-100 text-primary flex items-center justify-center shadow-xs transition-transform group-hover:translate-x-0.5">
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </div>
-            </a>
           </div>
 
           <!-- ==============================================================
                4. MOBILE ACTION BUTTONS & TOGGLE (lg:hidden)
                ============================================================== -->
-          <div class="flex items-center gap-1.5 lg:hidden">
+          <div class="flex items-center gap-2 lg:hidden">
             <button 
               type="button" 
               @click="$store.landing.openWhatsAppGeneral()"
-              class="w-8 h-8 rounded-full bg-base-200/80 text-emerald-700 border border-base-300 flex items-center justify-center hover:bg-emerald-50"
+              class="px-2.5 py-1.5 rounded-full bg-emerald-50/70 text-emerald-800 border border-emerald-300 flex items-center gap-1.5 text-xs font-semibold hover:bg-emerald-100/70 shadow-xs"
               title="Chat WhatsApp"
               aria-label="Chat WhatsApp"
             >
               <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span class="text-[11px]">WhatsApp</span>
             </button>
 
             <button 
@@ -257,25 +247,15 @@ export const renderPublicNavbar = () => {
           </a>
         </div>
 
-        <!-- Tombol Aksi Mobile -->
-        <div class="pt-1 flex flex-col gap-2">
-          <a 
-            href="#final-cta" 
-            @click="mobileMenuOpen = false"
-            class="group pl-4 pr-1 py-1 rounded-full bg-gradient-to-r from-primary to-emerald-600 text-primary-content font-semibold text-xs flex items-center justify-between shadow-soft hover:shadow-soft-hover"
-          >
-            <span>Daftar Observasi & Konsultasi</span>
-            <div class="w-6.5 h-6.5 rounded-full bg-base-100 text-primary flex items-center justify-center shadow-xs">
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-            </div>
-          </a>
+        <!-- Tombol Aksi Bantuan Cepat Mobile -->
+        <div class="pt-1">
           <button 
             type="button" 
             @click="mobileMenuOpen = false; $store.landing.openWhatsAppGeneral()"
-            class="btn btn-outline btn-xs w-full rounded-full py-1.5 h-auto gap-2 text-emerald-700 border-emerald-300 hover:bg-emerald-50 text-xs"
+            class="btn btn-outline btn-sm w-full rounded-full py-2 h-auto gap-2 text-emerald-800 bg-emerald-50/70 border-emerald-300 hover:bg-emerald-100 text-xs font-semibold shadow-xs"
           >
-            <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span>Tanya Admin via WhatsApp</span>
+            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
+            <span>Konsultasi Cepat via WhatsApp</span>
           </button>
         </div>
       </div>

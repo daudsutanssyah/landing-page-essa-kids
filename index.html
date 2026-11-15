@@ -110,47 +110,51 @@
         <!-- Kolom Kiri: Announcement Pill, Tipografi Tegas, Pill Action Bar, & Program Trust Bar -->
         <div class="lg:col-span-6 space-y-6 text-center lg:text-left z-10">
           
-          <!-- 1. Top Announcement Pill Badge -->
-          <a 
-            href="#preview-interaktif" 
-            class="inline-flex items-center gap-2 p-1 pr-3.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-medium mb-6 hover:bg-primary/15 transition-all group"
-          >
-            <span class="px-2.5 py-0.5 rounded-full bg-primary text-primary-content font-bold uppercase tracking-wider text-[10px]">
-              OBSERVASI
+          <!-- 1. Badge Identitas Statis Keahlian Klinik (Tanpa Panah Klik) -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50/90 border border-emerald-200/90 text-xs font-medium mb-6 shadow-xs select-none">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-emerald-800 font-bold uppercase tracking-wider text-[10px] bg-emerald-100/90 px-2 py-0.5 rounded-md">
+              KLINIK RESMI STR
             </span>
             <span class="text-slate-700 font-semibold text-xs sm:text-[13px]">
-              Jadwal Observasi & Asesmen Awal Kini Dibuka
+              Pusat Terapi Pediatrik & Tumbuh Kembang Terpadu
             </span>
-            <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-primary transition-transform group-hover:translate-x-0.5"></i>
-          </a>
+          </div>
 
           <!-- 2. Tipografi Headline & Deskripsi -->
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.12]">
             Mendampingi Langkah Kecil Menuju Tumbuh Kembang 
-            <span class="text-primary underline decoration-primary/30 decoration-wavy decoration-2">Mandiri & Percaya Diri</span>
+            <span class="relative inline-block text-primary">
+              Mandiri & Percaya Diri
+              <svg class="absolute -bottom-1.5 sm:-bottom-2 left-0 w-full h-2.5 sm:h-3 text-emerald-400/80 pointer-events-none" viewBox="0 0 250 12" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path d="M3 4C65 10 185 10 247 4.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </span>
           </h1>
 
           <p class="text-base sm:text-lg text-base-content/70 max-w-xl mt-5 leading-relaxed mx-auto lg:mx-0">
             Pusat stimulasi pediatrik terpadu untuk Terapi Wicara, Sensori Integrasi, Fisioterapi, dan Okupasi dengan pendekatan bermain terarah (<em>Play-Based Therapy</em>) yang aman, hangat, dan terukur bersama terapis berlisensi STR resmi.
           </p>
 
-          <!-- 3. Pill Action Container (Wadah Kapsul Utama CTA) -->
-          <div class="mt-8 p-1.5 pl-5 rounded-full bg-base-100 border border-base-300 shadow-sm max-w-lg mx-auto lg:mx-0 flex items-center justify-between gap-3 group/pill hover:border-primary/40 hover:shadow-md transition-all">
-            <a 
-              href="#preview-interaktif" 
-              class="flex items-center gap-2 text-xs sm:text-sm text-slate-500 hover:text-primary transition-colors min-w-0 flex-1 truncate"
-              title="Cek tanda awal tumbuh kembang anak"
-            >
-              <i data-lucide="clipboard-check" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
-              <span class="truncate">Cek gejala awal anak...</span>
-            </a>
-
+          <!-- 3. Area Aksi Utama (Dual CTA: Primary Solid & Secondary Outline) -->
+          <div class="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3.5">
+            <!-- Primary CTA (Hijau Solid): Jadwalkan Observasi -->
             <a 
               href="#final-cta" 
-              class="btn btn-primary rounded-full px-5 sm:px-6 py-2.5 h-auto min-h-0 text-xs sm:text-sm font-bold flex-shrink-0 shadow-sm hover:brightness-105 transition-all flex items-center gap-2"
+              class="btn btn-primary rounded-full px-6 sm:px-7 py-3 h-auto min-h-0 text-xs sm:text-sm font-bold shadow-md hover:shadow-lg hover:brightness-105 transition-all flex items-center gap-2 group w-full sm:w-auto justify-center"
             >
+              <i data-lucide="calendar-check" class="w-4 h-4"></i>
               <span>Jadwalkan Observasi</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-0.5"></i>
+            </a>
+
+            <!-- Secondary CTA (Outline / Ghost Button): Cek Gejala Anak -->
+            <a 
+              href="#preview-interaktif" 
+              class="btn btn-outline border-slate-300 hover:border-emerald-500 hover:bg-emerald-50/70 text-slate-700 hover:text-emerald-800 rounded-full px-5 sm:px-6 py-3 h-auto min-h-0 text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 w-full sm:w-auto justify-center"
+            >
+              <i data-lucide="clipboard-check" class="w-4 h-4 text-emerald-600"></i>
+              <span>Cek Gejala Anak</span>
             </a>
           </div>
 
