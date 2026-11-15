@@ -290,119 +290,172 @@
             </div>
           </div>
 
-          <!-- Kolom Kanan: Concentric Orbit Rings & Floating Service Nodes -->
+          <!-- Kolom Kanan: Minimalist Geometric Orbit Nodes (Scaled-Up & Clear) -->
           <div class="lg:col-span-6 relative flex items-center justify-center">
             <div
-              class="relative h-[440px] sm:h-[500px] w-full flex items-center justify-center"
+              class="relative h-[460px] sm:h-[520px] w-full flex items-center justify-center select-none"
             >
-              <!-- 3 Cincin Orbit Konsentris -->
+              <!-- 3 Cincin Orbit (Presisi & Kontras) -->
               <div
-                class="w-[220px] h-[220px] rounded-full border border-slate-300/60 absolute pointer-events-none"
+                class="w-[220px] h-[220px] rounded-full border border-emerald-500/25 bg-emerald-500/[0.015] absolute pointer-events-none"
               ></div>
               <div
-                class="w-[330px] h-[330px] rounded-full border border-slate-300/60 absolute pointer-events-none"
+                class="w-[340px] h-[340px] rounded-full border border-dashed border-slate-300/90 absolute pointer-events-none"
               ></div>
               <div
-                class="w-[440px] h-[440px] rounded-full border border-slate-300/60 absolute pointer-events-none"
+                class="w-[460px] h-[460px] rounded-full border border-slate-200/90 absolute pointer-events-none"
               ></div>
 
-              <!-- Lingkaran Pusat (Center Core Hub) -->
+              <!-- Lingkaran Pusat (Architectural Ring Hub - Diperbesar) -->
               <div
-                class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-tr from-emerald-600 to-teal-500 text-white shadow-xl flex flex-col items-center justify-center z-20 ring-8 ring-primary/15 group cursor-pointer transition-transform hover:scale-105"
-              >
-                <i data-lucide="baby" class="w-8 h-8 sm:w-9 sm:h-9"></i>
-                <span
-                  class="text-[10px] sm:text-[11px] font-extrabold tracking-tight mt-0.5"
-                  >ESSA Kids</span
-                >
-                <span class="text-[8px] font-medium opacity-90"
-                  >Pusat Terpadu</span
-                >
-              </div>
-
-              <!-- Node 1: Top-Right (Orbit Luar) — Terapi Wicara -->
-              <div
-                style="left: 72%; top: 12%; transform: translate(-50%, -50%)"
-                class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-base-100 shadow-md border border-base-200 flex flex-col items-center justify-center absolute z-20 group cursor-pointer hover:scale-110 hover:shadow-lg transition-all"
+                class="p-2 sm:p-2.5 rounded-full bg-white border border-slate-200/90 shadow-xl z-20 group transition-transform duration-300 hover:scale-105"
               >
                 <div
-                  class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center transition-transform group-hover:scale-105"
+                  class="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-white flex items-center justify-center overflow-hidden ring-4 ring-emerald-50 shadow-inner"
                 >
-                  <i data-lucide="message-circle" class="w-5 h-5"></i>
+                  <img
+                    src="./assets/images/logo-essa.webp"
+                    alt="Logo ESSA Kids Therapy"
+                    class="w-full h-full object-contain p-2 sm:p-2.5 rounded-full transition-transform duration-300 group-hover:scale-105"
+                    loading="eager"
+                  />
                 </div>
-                <span
-                  class="absolute -bottom-5 whitespace-nowrap bg-white/95 backdrop-blur-xs text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-200 shadow-xs pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity"
-                >
-                  Terapi Wicara
-                </span>
               </div>
 
-              <!-- Node 2: Kiri-Tengah (Orbit Tengah) — Fisioterapi -->
+              <!-- Node 1: Top-Right — Terapi Wicara (Ukuran Diperbesar & Lebih Menonjol) -->
               <div
-                style="left: 17%; top: 50%; transform: translate(-50%, -50%)"
-                class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-base-100 shadow-md border border-base-200 flex flex-col items-center justify-center absolute z-20 group cursor-pointer hover:scale-110 hover:shadow-lg transition-all"
+                style="left: 73%; top: 12%; transform: translate(-50%, -50%)"
+                @click="$store.landing?.navigateToSection('#')"
+                class="absolute z-20 flex flex-col items-center group cursor-pointer"
               >
                 <div
-                  class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center transition-transform group-hover:scale-105"
+                  class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-slate-200/90 shadow-md flex items-center justify-center text-amber-600 group-hover:border-amber-400 group-hover:shadow-lg group-hover:-translate-y-1 transition-all"
                 >
-                  <i data-lucide="activity" class="w-5 h-5"></i>
+                  <div
+                    class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-50/80 flex items-center justify-center"
+                  >
+                    <i
+                      data-lucide="message-circle"
+                      class="w-6 h-6 stroke-[2.2]"
+                    ></i>
+                  </div>
                 </div>
-                <span
-                  class="absolute -bottom-5 whitespace-nowrap bg-white/95 backdrop-blur-xs text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-200 shadow-xs pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity"
+                <div
+                  class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/95 border border-slate-200/90 shadow-xs group-hover:border-amber-300 transition-colors"
                 >
-                  Fisioterapi
-                </span>
+                  <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                  <span
+                    class="text-[11px] sm:text-xs font-bold text-slate-800 tracking-tight whitespace-nowrap"
+                    >Terapi Wicara</span
+                  >
+                </div>
               </div>
 
-              <!-- Node 3: Kanan-Tengah (Orbit Tengah) — Sensori Integrasi -->
+              <!-- Node 2: Kiri-Tengah — Fisioterapi -->
               <div
-                style="left: 83%; top: 50%; transform: translate(-50%, -50%)"
-                class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-base-100 shadow-md border border-base-200 flex flex-col items-center justify-center absolute z-20 group cursor-pointer hover:scale-110 hover:shadow-lg transition-all"
+                style="left: 15%; top: 49%; transform: translate(-50%, -50%)"
+                @click="$store.landing?.navigateToSection('#')"
+                class="absolute z-20 flex flex-col items-center group cursor-pointer"
               >
                 <div
-                  class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center transition-transform group-hover:scale-105"
+                  class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-slate-200/90 shadow-md flex items-center justify-center text-sky-600 group-hover:border-sky-400 group-hover:shadow-lg group-hover:-translate-y-1 transition-all"
                 >
-                  <i data-lucide="brain" class="w-5 h-5"></i>
+                  <div
+                    class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-sky-50/80 flex items-center justify-center"
+                  >
+                    <i data-lucide="activity" class="w-6 h-6 stroke-[2.2]"></i>
+                  </div>
                 </div>
-                <span
-                  class="absolute -bottom-5 whitespace-nowrap bg-white/95 backdrop-blur-xs text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-200 shadow-xs pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity"
+                <div
+                  class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/95 border border-slate-200/90 shadow-xs group-hover:border-sky-300 transition-colors"
                 >
-                  Sensori Integrasi
-                </span>
+                  <span class="w-2 h-2 rounded-full bg-sky-500"></span>
+                  <span
+                    class="text-[11px] sm:text-xs font-bold text-slate-800 tracking-tight whitespace-nowrap"
+                    >Fisioterapi</span
+                  >
+                </div>
               </div>
 
-              <!-- Node 4: Kiri-Bawah (Orbit Luar) — Terapi Okupasi -->
+              <!-- Node 3: Kanan-Tengah — Sensori Integrasi -->
               <div
-                style="left: 28%; top: 88%; transform: translate(-50%, -50%)"
-                class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-base-100 shadow-md border border-base-200 flex flex-col items-center justify-center absolute z-20 group cursor-pointer hover:scale-110 hover:shadow-lg transition-all"
+                style="left: 85%; top: 49%; transform: translate(-50%, -50%)"
+                @click="$store.landing?.navigateToSection('#')"
+                class="absolute z-20 flex flex-col items-center group cursor-pointer"
               >
                 <div
-                  class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center transition-transform group-hover:scale-105"
+                  class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-slate-200/90 shadow-md flex items-center justify-center text-purple-600 group-hover:border-purple-400 group-hover:shadow-lg group-hover:-translate-y-1 transition-all"
                 >
-                  <i data-lucide="puzzle" class="w-5 h-5"></i>
+                  <div
+                    class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-purple-50/80 flex items-center justify-center"
+                  >
+                    <i data-lucide="brain" class="w-6 h-6 stroke-[2.2]"></i>
+                  </div>
                 </div>
-                <span
-                  class="absolute -bottom-5 whitespace-nowrap bg-white/95 backdrop-blur-xs text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-200 shadow-xs pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity"
+                <div
+                  class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/95 border border-slate-200/90 shadow-xs group-hover:border-purple-300 transition-colors"
                 >
-                  Terapi Okupasi
-                </span>
+                  <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+                  <span
+                    class="text-[11px] sm:text-xs font-bold text-slate-800 tracking-tight whitespace-nowrap"
+                    >Sensori Integrasi</span
+                  >
+                </div>
               </div>
 
-              <!-- Node 5: Kanan-Bawah (Orbit Luar) — Kurikulum IEP -->
+              <!-- Node 4: Kiri-Bawah — Terapi Okupasi -->
               <div
-                style="left: 72%; top: 88%; transform: translate(-50%, -50%)"
-                class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-base-100 shadow-md border border-base-200 flex flex-col items-center justify-center absolute z-20 group cursor-pointer hover:scale-110 hover:shadow-lg transition-all"
+                style="left: 27%; top: 86%; transform: translate(-50%, -50%)"
+                @click="$store.landing?.navigateToSection('#')"
+                class="absolute z-20 flex flex-col items-center group cursor-pointer"
               >
                 <div
-                  class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center transition-transform group-hover:scale-105"
+                  class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-slate-200/90 shadow-md flex items-center justify-center text-emerald-600 group-hover:border-emerald-400 group-hover:shadow-lg group-hover:-translate-y-1 transition-all"
                 >
-                  <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+                  <div
+                    class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-emerald-50/80 flex items-center justify-center"
+                  >
+                    <i data-lucide="puzzle" class="w-6 h-6 stroke-[2.2]"></i>
+                  </div>
                 </div>
-                <span
-                  class="absolute -bottom-5 whitespace-nowrap bg-white/95 backdrop-blur-xs text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-200 shadow-xs pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity"
+                <div
+                  class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/95 border border-slate-200/90 shadow-xs group-hover:border-emerald-300 transition-colors"
                 >
-                  Kurikulum IEP
-                </span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span
+                    class="text-[11px] sm:text-xs font-bold text-slate-800 tracking-tight whitespace-nowrap"
+                    >Terapi Okupasi</span
+                  >
+                </div>
+              </div>
+
+              <!-- Node 5: Kanan-Bawah — Kurikulum IEP -->
+              <div
+                style="left: 73%; top: 86%; transform: translate(-50%, -50%)"
+                @click="$store.landing?.navigateToSection('#')"
+                class="absolute z-20 flex flex-col items-center group cursor-pointer"
+              >
+                <div
+                  class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-slate-900 border border-slate-800 shadow-md flex items-center justify-center text-emerald-400 group-hover:shadow-lg group-hover:-translate-y-1 transition-all"
+                >
+                  <div
+                    class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-emerald-500/15 flex items-center justify-center"
+                  >
+                    <i
+                      data-lucide="clipboard-check"
+                      class="w-6 h-6 stroke-[2.2]"
+                    ></i>
+                  </div>
+                </div>
+                <div
+                  class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-900 text-white shadow-xs"
+                >
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  <span
+                    class="text-[11px] sm:text-xs font-bold tracking-tight whitespace-nowrap"
+                    >Kurikulum IEP</span
+                  >
+                </div>
               </div>
             </div>
           </div>
