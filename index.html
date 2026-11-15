@@ -321,7 +321,7 @@
               <div class="inline-flex items-center gap-3 mb-5 select-none">
                 <span
                   class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-600/10 border border-emerald-600/20 text-emerald-700 font-extrabold uppercase tracking-widest text-[10px]">
-                  01 / STANDAR KLINIS
+                  STANDAR KLINIS
                 </span>
                 <span class="h-3.5 w-[1.5px] bg-slate-300 rounded-full"></span>
                 <span class="text-slate-600 font-semibold text-xs tracking-tight">
@@ -438,14 +438,15 @@
        ======================================================================= -->
   <section id="program-usia" class="py-16 lg:py-24 bg-white relative border-b border-slate-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
+
       <!-- 1. Section Header: Clean Architectural Eyebrow -->
       <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12 space-y-3.5">
         <!-- Clean Architectural Eyebrow -->
         <div class="inline-flex items-center gap-3 mb-2 select-none">
-          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-600/10 border border-emerald-600/20 text-emerald-700 font-extrabold uppercase tracking-widest text-[10px]">
+          <span
+            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-600/10 border border-emerald-600/20 text-emerald-700 font-extrabold uppercase tracking-widest text-[10px]">
             <i data-lucide="layers" class="w-3.5 h-3.5 text-emerald-600"></i>
-            02 / TAHAPAN USIA
+            TAHAPAN USIA
           </span>
           <span class="h-3.5 w-[1.5px] bg-slate-300 rounded-full"></span>
           <span class="text-slate-600 font-semibold text-xs tracking-tight">
@@ -460,32 +461,28 @@
 
         <!-- Deskripsi Bersih -->
         <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
-          Kebutuhan stimulasi anak berkembang seiring pertambahan usia. Pilih kelompok usia si kecil untuk melihat bagaimana 4 layanan terapi terpadu kami bersinergi mencapai target milestone perkembangannya:
+          Kebutuhan stimulasi anak berkembang seiring pertambahan usia. Pilih kelompok usia si kecil untuk melihat
+          bagaimana 4 layanan terapi terpadu kami bersinergi mencapai target milestone perkembangannya:
         </p>
       </div>
 
       <!-- 2. Tab Kelompok Usia: Architectural Segmented Control Track -->
       <div class="flex justify-center mb-8 sm:mb-10">
-        <div class="inline-flex flex-wrap sm:flex-nowrap p-1.5 rounded-2xl bg-slate-100 border border-slate-200/90 shadow-2xs gap-1.5 max-w-full">
+        <div
+          class="inline-flex flex-wrap sm:flex-nowrap p-1.5 rounded-2xl bg-slate-100 border border-slate-200/90 shadow-2xs gap-1.5 max-w-full">
           <template x-for="(group, gIdx) in ($store.landing?.content?.ageGroups || [])" :key="group.id">
-            <button
-              type="button"
-              @click="$store.landing.selectAgeGroup(group.id)"
-              class="px-4 sm:px-6 py-2.5 sm:py-3 transition-all flex items-center gap-2.5 text-left group"
-              :class="$store.landing.activeAgeGroupId === group.id 
+            <button type="button" @click="$store.landing.selectAgeGroup(group.id)"
+              class="px-4 sm:px-6 py-2.5 sm:py-3 transition-all flex items-center gap-2.5 text-left group" :class="$store.landing.activeAgeGroupId === group.id 
                 ? 'bg-white text-slate-900 shadow-xs border border-slate-200/90 rounded-xl' 
-                : 'text-slate-600 hover:text-slate-900 border border-transparent rounded-xl hover:bg-slate-200/60'"
-            >
-              <span 
-                class="text-[11px] font-mono font-bold px-1.5 py-0.5 rounded-md transition-colors"
-                :class="$store.landing.activeAgeGroupId === group.id 
+                : 'text-slate-600 hover:text-slate-900 border border-transparent rounded-xl hover:bg-slate-200/60'">
+              <span class="text-[11px] font-mono font-bold px-1.5 py-0.5 rounded-md transition-colors" :class="$store.landing.activeAgeGroupId === group.id 
                   ? 'bg-emerald-50 text-emerald-700 border border-emerald-200/70' 
-                  : 'bg-slate-200/70 text-slate-500 group-hover:bg-slate-300/60'"
-                x-text="'0' + (gIdx + 1)"
-              ></span>
+                  : 'bg-slate-200/70 text-slate-500 group-hover:bg-slate-300/60'" x-text="'0' + (gIdx + 1)"></span>
               <div>
-                <span class="block text-xs sm:text-sm font-bold tracking-tight leading-tight" x-text="group.name"></span>
-                <span class="block text-[10px] sm:text-[11px] font-medium text-slate-500 leading-tight mt-0.5" x-text="group.subtitle"></span>
+                <span class="block text-xs sm:text-sm font-bold tracking-tight leading-tight"
+                  x-text="group.name"></span>
+                <span class="block text-[10px] sm:text-[11px] font-medium text-slate-500 leading-tight mt-0.5"
+                  x-text="group.subtitle"></span>
               </div>
             </button>
           </template>
@@ -494,28 +491,24 @@
 
       <!-- 3. Panel Fokus Usia & 4 Layanan: Unified Architectural Matrix Grid -->
       <div class="rounded-2xl border border-slate-200/90 bg-white shadow-2xs overflow-hidden">
-        
+
         <!-- Baris Atas (Stage Overview Bar) -->
-        <div class="bg-slate-50/90 border-b border-slate-200/90 px-6 py-5 sm:px-8 sm:py-6 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div
+          class="bg-slate-50/90 border-b border-slate-200/90 px-6 py-5 sm:px-8 sm:py-6 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <!-- Sisi Kiri: Label Tipis Uppercase, Judul Tahap, & Ringkasan -->
           <div class="space-y-1">
-            <span 
-              class="text-[11px] font-extrabold uppercase tracking-widest text-emerald-700 block"
-              x-text="($store.landing.activeAgeGroup?.badge || 'Tahapan Kunci').toUpperCase()"
-            ></span>
-            <h3 
-              class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight"
-              x-text="$store.landing.activeAgeGroup?.name + ' — ' + $store.landing.activeAgeGroup?.subtitle"
-            ></h3>
-            <p 
-              class="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed pt-0.5"
-              x-text="$store.landing.activeAgeGroup?.summary"
-            ></p>
+            <span class="text-[11px] font-extrabold uppercase tracking-widest text-emerald-700 block"
+              x-text="($store.landing.activeAgeGroup?.badge || 'Tahapan Kunci').toUpperCase()"></span>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight"
+              x-text="$store.landing.activeAgeGroup?.name + ' — ' + $store.landing.activeAgeGroup?.subtitle"></h3>
+            <p class="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed pt-0.5"
+              x-text="$store.landing.activeAgeGroup?.summary"></p>
           </div>
 
           <!-- Sisi Kanan: Spesifikasi Teknis Sesi Bersih (Architectural Spec) -->
           <div class="flex items-center gap-3 shrink-0 self-start lg:self-center">
-            <div class="px-3.5 py-2 rounded-xl bg-white border border-slate-200/90 shadow-2xs flex items-center gap-2.5">
+            <div
+              class="px-3.5 py-2 rounded-xl bg-white border border-slate-200/90 shadow-2xs flex items-center gap-2.5">
               <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
               <span class="text-xs font-bold text-slate-800 tracking-tight">60 Menit / Sesi</span>
               <span class="text-slate-300">|</span>
@@ -525,51 +518,41 @@
         </div>
 
         <!-- Baris Bawah (4-Column Connected Service Grid) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-slate-200/80">
-          <template x-for="(sh, index) in ($store.landing.activeAgeGroup?.serviceHighlights || [])" :key="sh.serviceId + '-' + $store.landing.activeAgeGroupId">
-            <div 
-              @click="$store.landing.applyRecommendationToForm(sh.serviceId)"
-              role="button"
-              tabindex="0"
-              class="p-6 sm:p-7 flex flex-col justify-between group cursor-pointer hover:bg-slate-50/70 transition-colors"
-            >
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-slate-200/80">
+          <template x-for="(sh, index) in ($store.landing.activeAgeGroup?.serviceHighlights || [])"
+            :key="sh.serviceId + '-' + $store.landing.activeAgeGroupId">
+            <div @click="$store.landing.applyRecommendationToForm(sh.serviceId)" role="button" tabindex="0"
+              class="p-6 sm:p-7 flex flex-col justify-between group cursor-pointer hover:bg-slate-50/70 transition-colors">
               <div class="space-y-3.5">
                 <!-- Header Layanan Minimalis: Titik Warna Identitas & Kode Indeks Kategori -->
                 <div class="flex items-center gap-2">
-                  <span 
-                    class="w-2 h-2 rounded-full shrink-0"
-                    :class="{
+                  <span class="w-2 h-2 rounded-full shrink-0" :class="{
                       'bg-sky-500': sh.serviceId === 'PHYSIO',
                       'bg-purple-500': sh.serviceId === 'SENSORY',
                       'bg-amber-500': sh.serviceId === 'SPEECH',
                       'bg-emerald-500': sh.serviceId === 'OCCUPATIONAL'
-                    }"
-                  ></span>
-                  <span 
-                    class="text-[10px] font-mono font-bold uppercase tracking-wider"
-                    :class="{
+                    }"></span>
+                  <span class="text-[10px] font-mono font-bold uppercase tracking-wider" :class="{
                       'text-sky-700': sh.serviceId === 'PHYSIO',
                       'text-purple-700': sh.serviceId === 'SENSORY',
                       'text-amber-700': sh.serviceId === 'SPEECH',
                       'text-emerald-700': sh.serviceId === 'OCCUPATIONAL'
-                    }"
-                    x-text="'0' + (index + 1) + ' / ' + sh.serviceId"
-                  ></span>
+                    }" x-text="'0' + (index + 1) + ' / ' + sh.serviceId"></span>
                 </div>
 
                 <!-- Nama Layanan -->
-                <h4 class="text-base font-bold text-slate-900 tracking-tight leading-snug group-hover:text-primary transition-colors" x-text="sh.serviceName"></h4>
+                <h4
+                  class="text-base font-bold text-slate-900 tracking-tight leading-snug group-hover:text-primary transition-colors"
+                  x-text="sh.serviceName"></h4>
 
                 <!-- Sub-Fokus Perkembangan dengan Aksen Garis Kiri Tipis -->
-                <div 
-                  class="pl-3 border-l-2 py-0.5"
-                  :class="{
+                <div class="pl-3 border-l-2 py-0.5" :class="{
                     'border-sky-500 text-sky-800': sh.serviceId === 'PHYSIO',
                     'border-purple-500 text-purple-800': sh.serviceId === 'SENSORY',
                     'border-amber-500 text-amber-800': sh.serviceId === 'SPEECH',
                     'border-emerald-500 text-emerald-800': sh.serviceId === 'OCCUPATIONAL'
-                  }"
-                >
+                  }">
                   <p class="text-xs font-bold leading-snug" x-text="sh.focusTitle"></p>
                 </div>
 
@@ -578,9 +561,11 @@
               </div>
 
               <!-- 4. Tombol Aksi Kartu: Architectural Footer Link -->
-              <div class="pt-4 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-700 group-hover:text-emerald-700 transition-colors">
+              <div
+                class="pt-4 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-700 group-hover:text-emerald-700 transition-colors">
                 <span>Konsultasikan Usia Ini</span>
-                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                <i data-lucide="arrow-up-right"
+                  class="w-4 h-4 text-slate-400 group-hover:text-emerald-600 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
               </div>
             </div>
           </template>
