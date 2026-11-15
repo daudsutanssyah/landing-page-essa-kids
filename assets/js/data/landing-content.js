@@ -287,13 +287,17 @@ export const LANDING_CONTENT = deepFreeze({
           childMood: 'Ceria & Kooperatif (Tertarik pada media visual)',
           targetMilestone: 'Inisiasi verbal 2 kata & peniruan bunyi vokal aktif',
           observationNotes: 'Anak mulai mau menirukan bunyi "ba-ba" dan merespons kontak mata saat diajak bernyanyi bersama terapis.',
-          therapistFeedback: 'Progres responsif sangat baik. Direkomendasikan stimulasi penguatan artikulasi 2x seminggu.'
+          therapistFeedback: 'Progres responsif sangat baik. Direkomendasikan stimulasi penguatan artikulasi 2x seminggu.',
+          therapistName: 'Kak Bima Pratama, A.Md.TW',
+          therapistRole: 'Terapis Wicara & Bahasa (STR Resmi)'
         },
         homeProgram: {
           title: 'Aktivitas 10 Menit di Rumah (Home Program)',
           taskName: 'Permainan "Tebak Benda" & Beri Jeda Bicara 3 Detik',
           instruction: 'Ajak anak menunjuk dan mencoba mengucap nama benda favorit sebelum diberikan. Berikan jeda 3 detik agar anak terbiasa berinisiatif mengeluarkan suara.',
-          frequency: '10 menit setiap pagi dan sore hari'
+          frequency: '10 menit setiap pagi dan sore hari',
+          duration: '10 Menit / Hari',
+          parentingTip: 'Hindari langsung memberikan barang saat anak merengek. Berikan jeda 3 detik dan tanyakan "Adik mau apa?" dengan senyuman hangat tanpa memaksa.'
         }
       }
     },
@@ -324,13 +328,17 @@ export const LANDING_CONTENT = deepFreeze({
           childMood: 'Awalnya cemas suara bising, tenang setelah 15 menit relaksasi',
           targetMilestone: 'Regulasi diri saat transisi & pematangan modulasi vestibular',
           observationNotes: 'Anak menunjukkan penurunan kecemasan setelah stimulasi deep-pressure di kolam busa. Rentang fokus meningkat menjadi 8 menit.',
-          therapistFeedback: 'Hipersensitivitas auditori dapat diredam bertahap melalui latihan sensori terstruktur.'
+          therapistFeedback: 'Hipersensitivitas auditori dapat diredam bertahap melalui latihan sensori terstruktur.',
+          therapistName: 'Kak Nadia Putri, S.Tr.Kes',
+          therapistRole: 'Spesialis Sensori Integrasi (STR Resmi)'
         },
         homeProgram: {
           title: 'Aktivitas 10 Menit di Rumah (Home Program)',
           taskName: 'Pijatan Sensori Taktil Lembut & Selimut Kepompong',
           instruction: 'Berikan usapan lembut bertekanan stabil (deep touch) di kedua lengan dan punggung anak sebelum tidur untuk menenangkan sistem saraf pusat.',
-          frequency: '1x sehari sebelum waktu istirahat malam'
+          frequency: '1x sehari sebelum waktu istirahat malam',
+          duration: '10 Menit / Hari',
+          parentingTip: 'Redupkan lampu kamar 15 menit sebelum tidur dan ciptakan rutinitas tenang tanpa layar gawai (screen-free) agar modulasi sensori anak lebih rileks.'
         }
       }
     },
@@ -361,13 +369,17 @@ export const LANDING_CONTENT = deepFreeze({
           childMood: 'Sangat antusias mengeksplorasi tantangan fisik',
           targetMilestone: 'Keseimbangan berdiri satu kaki & koreksi fase jalan tumit',
           observationNotes: 'Postur anak tampak lebih tegak saat menaiki tanjakan balok busa. Pola berjalan jinjit berkurang dengan stimulasi tumpuan tumit.',
-          therapistFeedback: 'Kekuatan otot inti (core muscles) merespons latihan fisik terarah dengan sangat baik.'
+          therapistFeedback: 'Kekuatan otot inti (core muscles) merespons latihan fisik terarah dengan sangat baik.',
+          therapistName: 'Kak Rini Kartika, S.Fis',
+          therapistRole: 'Fisioterapis Pediatrik (STR Resmi)'
         },
         homeProgram: {
           title: 'Aktivitas 10 Menit di Rumah (Home Program)',
           taskName: 'Latihan Berjalan di Atas Bantal & Meniru Gerakan Hewan',
           instruction: 'Susun 3 bantal lantai di ruang tamu dan pandu anak melangkah di atasnya tanpa berpegangan untuk melatih reseptor telapak kaki.',
-          frequency: '10 menit saat waktu bermain sore hari'
+          frequency: '10 menit saat waktu bermain sore hari',
+          duration: '10 Menit / Hari',
+          parentingTip: 'Biarkan anak bertelanjang kaki saat bermain di dalam rumah atau rumput yang aman untuk menstimulasi titik saraf sensorik telapak kaki secara alami.'
         }
       }
     },
@@ -398,13 +410,17 @@ export const LANDING_CONTENT = deepFreeze({
           childMood: 'Fokus dan tekun memainkan media plastisin',
           targetMilestone: 'Genggaman jemari tripod grasp & koordinasi bilateral tangan',
           observationNotes: 'Anak mampu menggunakan kedua tangan bersinergi saat menarik plastisin. Penggunaan sendok makan mulai mandiri dengan tumpahan minimal.',
-          therapistFeedback: 'Keterampilan motorik halus siap dilanjutkan ke latihan memegang krayon segitiga.'
+          therapistFeedback: 'Keterampilan motorik halus siap dilanjutkan ke latihan memegang krayon segitiga.',
+          therapistName: 'Kak Dinda Lestari, A.Md.OT',
+          therapistRole: 'Terapis Okupasi Pediatrik (STR Resmi)'
         },
         homeProgram: {
           title: 'Aktivitas 10 Menit di Rumah (Home Program)',
           taskName: 'Meremas Kertas Bekas & Memindahkan Tutup Botol',
           instruction: 'Ajak anak meremas dan merobek kertas menjadi bola-bola kecil, lalu pindahkan menggunakan dua jari (ibu jari dan telunjuk) ke dalam wadah.',
-          frequency: '10-15 menit di meja bermain anak'
+          frequency: '10-15 menit di meja bermain anak',
+          duration: '10 Menit / Hari',
+          parentingTip: 'Beri pujian spesifik saat anak berhasil menyelesaikan tahapan kecil sendiri, seperti "Hebat, jemari Kakak kuat sekali meremas kertas ini!"'
         }
       }
     }

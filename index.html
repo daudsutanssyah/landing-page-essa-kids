@@ -581,224 +581,300 @@
        ======================================================================= -->
   <section id="preview-interaktif" class="py-16 lg:py-24 bg-slate-50 relative border-b border-slate-200/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-        <div
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 border border-amber-200">
-          <i data-lucide="clipboard-check" class="w-3.5 h-3.5 text-amber-600"></i>
-          <span>Interactive Preview & Screening</span>
+
+      <!-- 1. SECTION HEADER: CLEAN ARCHITECTURAL SPLIT HEADER -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 lg:mb-10">
+        <div class="space-y-3 max-w-2xl">
+          <!-- Clean Architectural Eyebrow -->
+          <div
+            class="inline-flex items-center gap-2 px-2.5 py-1 rounded-lg bg-emerald-600/10 border border-emerald-600/20 text-emerald-700 font-extrabold uppercase tracking-widest text-[10px] w-fit">
+            <span>03 / SIMULASI &amp; SCREENING</span>
+            <span class="h-3.5 w-[1.5px] bg-slate-300"></span>
+            <span class="text-slate-600 font-semibold normal-case tracking-normal">Evaluasi &amp; Kurikulum Terukur</span>
+          </div>
+
+          <!-- Editorial Title -->
+          <h2 class="text-2xl sm:text-3xl lg:text-[36px] font-bold text-slate-900 tracking-[-0.03em] leading-[1.18]">
+            Cek Gejala Mandiri &amp; <span class="text-emerald-600">Simulasi Laporan Evaluasi</span>
+          </h2>
         </div>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Cek Gejala & Simulasi Laporan Evaluasi Terapis
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
-          Pilih kategori keluhan si kecil di panel kiri, dan saksikan
-          bagaimana program terapi, kartu evaluasi, serta latihan mandiri di
-          rumah dirancang secara nyata di panel kanan.
-        </p>
+
+        <!-- Description with Left Accent Line -->
+        <div class="border-l-2 border-emerald-500/40 pl-3.5 max-w-md">
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Pilih kategori tumbuh kembang si kecil di instrumen kiri untuk mensimulasikan kurikulum terapi individual (IEP) dan modul evaluasi berkala secara real-time.
+          </p>
+        </div>
       </div>
 
-      <!-- Tab Kategori Gejala Interaktif -->
-      <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
-        <template x-for="rf in ($store.landing?.content?.redFlags || [])" :key="rf.id">
+      <!-- 2. TAB KATEGORI: 4-COLUMN SEGMENTED TRACK (1 BARIS PRESISI, TANPA IKON & TANPA PILL USIA) -->
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1.5 p-1.5 rounded-2xl bg-slate-100 border border-slate-200/90 mb-8">
+        <template x-for="(rf, idx) in ($store.landing?.content?.redFlags || [])" :key="rf.id">
           <button type="button" @click="$store.landing.selectRedFlagCategory(rf.id)"
-            class="px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 border"
-            :class="$store.landing.activeRedFlagId === rf.id ? 'bg-primary text-white border-primary shadow-soft scale-105' : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100 hover:border-slate-300'">
-            <i :data-lucide="rf.icon" class="w-4 h-4"></i>
-            <span x-text="rf.categoryName"></span>
-            <span class="hidden sm:inline-block text-[11px] px-2 py-0.5 rounded-full"
-              :class="$store.landing.activeRedFlagId === rf.id ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'"
-              x-text="rf.ageRange"></span>
+            class="text-left px-4 py-3 rounded-xl transition-all duration-200 flex flex-col justify-between border cursor-pointer select-none"
+            :class="$store.landing.activeRedFlagId === rf.id 
+              ? 'bg-white text-slate-900 border-slate-200/90 shadow-xs' 
+              : 'bg-transparent text-slate-600 border-transparent hover:text-slate-900 hover:bg-white/60'">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <span class="text-[10px] font-mono font-bold tracking-wider"
+                :class="$store.landing.activeRedFlagId === rf.id ? 'text-emerald-700' : 'text-slate-400'"
+                x-text="'0' + (idx + 1) + ' / ' + rf.recommendedService"></span>
+              <span class="w-1.5 h-1.5 rounded-full"
+                :class="$store.landing.activeRedFlagId === rf.id ? 'bg-emerald-500' : 'bg-transparent'"></span>
+            </div>
+            <div class="font-bold text-xs sm:text-sm tracking-tight leading-snug"
+              :class="$store.landing.activeRedFlagId === rf.id ? 'text-slate-900' : 'text-slate-700'"
+              x-text="rf.categoryName"></div>
+            <div class="text-[11px] text-slate-400 mt-0.5" x-text="rf.ageRange"></div>
           </button>
         </template>
       </div>
 
-      <!-- 2-Panel Grid: Kiri = Screening Checklist, Kanan = Live Preview 3 Kartu -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        <!-- Panel Kiri: Checklist Tanda Awal (lg:col-span-5) -->
-        <div class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-soft space-y-6">
-          <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-            <div>
-              <div class="flex items-center gap-2">
-                <h3 class="text-lg font-bold text-slate-900" x-text="$store.landing.activeRedFlag?.categoryName"></h3>
-                <span class="badge badge-sm font-semibold" :class="$store.landing.activeRedFlag?.badgeClass"
-                  x-text="$store.landing.activeRedFlag?.ageRange"></span>
-              </div>
-              <p class="text-xs text-slate-500 mt-1" x-text="$store.landing.activeRedFlag?.shortIntro"></p>
-            </div>
+      <!-- 3. STRUKTUR UTAMA: UNIFIED ARCHITECTURAL WORKSPACE (SATU KONTAINER TERPADU) -->
+      <div
+        class="rounded-2xl border border-slate-200/90 bg-white shadow-2xs overflow-hidden grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-slate-200/80">
 
-            <!-- Reset Button jika ada centang -->
-            <template x-if="$store.landing.selectedChecklist.length > 0">
-              <button type="button" @click="$store.landing.clearChecklist()"
-                class="text-[11px] text-slate-400 hover:text-rose-500 flex items-center gap-1 transition-colors flex-shrink-0">
-                <i data-lucide="rotate-ccw" class="w-3 h-3"></i>
-                <span>Reset</span>
-              </button>
-            </template>
-          </div>
-
-          <!-- Petunjuk Checklist -->
-          <p class="text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-200/80">
-            Centang perilaku yang sering Ayah/Bunda amati pada si kecil dalam
-            1–3 bulan terakhir:
-          </p>
-
-          <!-- Checklist List -->
-          <div class="space-y-2.5">
-            <template x-for="sign in ($store.landing.activeRedFlag?.signs || [])" :key="sign">
-              <div @click="$store.landing.toggleSignCheck(sign)"
-                class="p-3.5 rounded-2xl border transition-all cursor-pointer flex items-start gap-3 select-none"
-                :class="$store.landing.isSignChecked(sign) ? 'bg-emerald-50/90 border-emerald-300 shadow-xs' : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50/50'">
-                <div class="w-5 h-5 rounded-lg flex items-center justify-center mt-0.5 flex-shrink-0 transition-colors"
-                  :class="$store.landing.isSignChecked(sign) ? 'bg-primary text-white' : 'border border-slate-300 bg-white'">
-                  <template x-if="$store.landing.isSignChecked(sign)">
-                    <i data-lucide="check" class="w-3.5 h-3.5"></i>
-                  </template>
+        <!-- PANEL KIRI: CLEAN CLINICAL CHECKLIST (lg:col-span-5) -->
+        <div class="lg:col-span-5 flex flex-col justify-between bg-white">
+          <div class="p-6 sm:p-7 space-y-6">
+            <!-- Header Instrumen Screening -->
+            <div class="flex items-start justify-between gap-4">
+              <div class="space-y-1">
+                <div
+                  class="flex items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span
+                    x-text="'SCREENING AWAL • ' + ($store.landing.activeRedFlag?.ageRange || 'USIA 1–7 TAHUN')"></span>
                 </div>
-                <span class="text-xs sm:text-sm text-slate-700 leading-snug" x-text="sign"></span>
+                <h3 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight"
+                  x-text="$store.landing.activeRedFlag?.categoryName"></h3>
+                <p class="text-xs text-slate-600 leading-relaxed pt-1"
+                  x-text="$store.landing.activeRedFlag?.shortIntro || 'Centang perilaku yang sering Ayah/Bunda amati pada si kecil dalam 1–3 bulan terakhir:'">
+                </p>
               </div>
-            </template>
+
+              <!-- Tombol Reset Ringkas -->
+              <template x-if="$store.landing.selectedChecklist.length > 0">
+                <button type="button" @click="$store.landing.clearChecklist()"
+                  class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-medium text-slate-500 hover:text-rose-600 bg-slate-100 hover:bg-rose-50 border border-slate-200 transition-colors shrink-0 cursor-pointer">
+                  <i data-lucide="rotate-ccw" class="w-3 h-3"></i>
+                  <span>Reset</span>
+                </button>
+              </template>
+            </div>
+
+            <!-- Daftar Baris Checklist (divide-y divide-slate-200/70 border-y border-slate-200/80) -->
+            <div class="border-y border-slate-200/80 divide-y divide-slate-200/70 -mx-6 sm:-mx-7 px-6 sm:px-7">
+              <template x-for="sign in ($store.landing.activeRedFlag?.signs || [])" :key="sign">
+                <div @click="$store.landing.toggleSignCheck(sign)" role="checkbox"
+                  :aria-checked="$store.landing.isSignChecked(sign)" tabindex="0"
+                  @keydown.space.prevent="$store.landing.toggleSignCheck(sign)"
+                  class="py-3.5 px-2.5 -mx-2.5 rounded-lg transition-colors cursor-pointer flex items-start gap-3 select-none"
+                  :class="$store.landing.isSignChecked(sign) ? 'bg-emerald-50/50 text-slate-900' : 'hover:bg-slate-50/70 text-slate-700'">
+                  <!-- Custom Square Checkbox (w-4 h-4 rounded-md) -->
+                  <div class="w-4 h-4 rounded-md border flex items-center justify-center shrink-0 mt-0.5 transition-colors"
+                    :class="$store.landing.isSignChecked(sign) 
+                      ? 'bg-emerald-600 border-emerald-600 text-white' 
+                      : 'border-slate-300 bg-white'">
+                    <template x-if="$store.landing.isSignChecked(sign)">
+                      <svg class="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        stroke-width="3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </template>
+                  </div>
+                  <span class="text-xs sm:text-sm leading-relaxed"
+                    :class="$store.landing.isSignChecked(sign) ? 'font-medium text-slate-900' : 'text-slate-600'"
+                    x-text="sign"></span>
+                </div>
+              </template>
+            </div>
           </div>
 
-          <!-- Counter & Rekomendasi Terapi -->
-          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-semibold text-slate-500">Hasil Cek Gejala:</span>
-              <span class="badge badge-primary font-bold text-xs"
-                x-text="$store.landing.selectedChecklist.length + ' Gejala Tercentang'"></span>
+          <!-- Screening Summary Footer (Panel Kiri Bawah) -->
+          <div class="px-6 py-4 bg-slate-50/80 border-t border-slate-200/80 flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2">
+              <span class="text-slate-500">Hasil Cek Gejala:</span>
+              <span class="font-bold text-slate-900 font-mono"
+                x-text="$store.landing.selectedChecklist.length + ' Gejala Terpilih'"></span>
             </div>
-            <p class="text-xs text-slate-700">
-              Layanan Terkait:
-              <strong class="text-primary font-bold" x-text="$store.landing.activeRedFlag?.recommendedService"></strong>
-            </p>
+            <div class="flex items-center gap-1.5">
+              <span class="text-slate-500">Layanan Terkait:</span>
+              <span class="font-mono font-bold text-emerald-700 bg-emerald-100/70 px-2 py-0.5 rounded text-[11px]"
+                x-text="$store.landing.activeRedFlag?.recommendedService"></span>
+            </div>
           </div>
         </div>
 
-        <!-- Panel Kanan: Live Preview 3 Kartu Autentik (lg:col-span-7) -->
-        <div class="lg:col-span-7 space-y-5">
-          <!-- Banner Header Preview Dinamis -->
+        <!-- PANEL KANAN: STRUCTURED CLINICAL DOSSIER (lg:col-span-7) -->
+        <div class="lg:col-span-7 flex flex-col justify-between bg-white">
+          <div>
+            <!-- Top Status Bar -->
+            <div class="bg-slate-50/90 border-b border-slate-200/80 px-6 py-3.5 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                <span class="text-[11px] font-bold tracking-wider text-slate-700 uppercase font-mono">
+                  LIVE PREVIEW KURIKULUM &amp; EVALUASI
+                </span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-500 uppercase tracking-wide"
+                x-text="'KATEGORI: ' + ($store.landing.activeRedFlag?.recommendedService || 'SPEECH')"></span>
+            </div>
+
+            <!-- 3 Connected Dossier Sections (divide-y divide-slate-200/80) -->
+            <div class="divide-y divide-slate-200/80">
+              <!-- 01 / AKTIVITAS KLINIK -->
+              <div class="p-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <div
+                    class="flex items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500">
+                    <span class="text-emerald-600 font-bold">01</span>
+                    <span>/</span>
+                    <span>AKTIVITAS RUANG TERAPI</span>
+                  </div>
+                  <span
+                    class="text-[10px] font-bold uppercase tracking-wider text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/60">
+                    Play-Based Clinical
+                  </span>
+                </div>
+                <h4 class="text-sm sm:text-base font-bold text-slate-900 tracking-tight"
+                  x-text="$store.landing.activeRedFlag?.interactivePreview?.clinicActivity?.title"></h4>
+                <p class="text-xs text-slate-600 leading-relaxed"
+                  x-text="$store.landing.activeRedFlag?.interactivePreview?.clinicActivity?.description"></p>
+
+                <!-- Media / Alat Terapeutik sebagai Micro-Tags Rapi -->
+                <div class="pt-1 flex flex-wrap items-center gap-1.5 text-xs">
+                  <span class="text-[11px] font-medium text-slate-400 mr-1">Media/Alat:</span>
+                  <template
+                    x-for="tool in (($store.landing.activeRedFlag?.interactivePreview?.clinicActivity?.tools || '').split(','))"
+                    :key="tool">
+                    <span
+                      class="inline-flex items-center px-2 py-0.5 rounded-md bg-slate-100 border border-slate-200/80 text-[11px] text-slate-700 font-medium"
+                      x-text="tool.trim()"></span>
+                  </template>
+                </div>
+              </div>
+
+              <!-- 02 / SIMULASI LAPORAN SESI -->
+              <div class="p-6 space-y-4">
+                <div class="flex items-center justify-between">
+                  <div
+                    class="flex items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500">
+                    <span class="text-emerald-600 font-bold">02</span>
+                    <span>/</span>
+                    <span>SIMULASI LAPORAN EVALUASI SESI</span>
+                  </div>
+                  <span
+                    class="text-[10px] font-mono font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/60"
+                    x-text="$store.landing.activeRedFlag?.interactivePreview?.evalCard?.sessionNumber || 'Sesi 01 — Observasi Klinis'"></span>
+                </div>
+
+                <!-- 2-Column Spec Grid -->
+                <div
+                  class="grid grid-cols-1 sm:grid-cols-2 rounded-xl border border-slate-200/80 divide-y sm:divide-y-0 sm:divide-x divide-slate-200/80 bg-slate-50/50 text-xs overflow-hidden">
+                  <div class="p-3.5 space-y-1">
+                    <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400 block font-semibold">Mood &amp;
+                      Partisipasi Anak</span>
+                    <p class="font-bold text-slate-800 leading-snug"
+                      x-text="$store.landing.activeRedFlag?.interactivePreview?.evalCard?.childMood || 'Kooperatif &amp; Eksploratif'">
+                    </p>
+                  </div>
+                  <div class="p-3.5 space-y-1">
+                    <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400 block font-semibold">Target
+                      Capaian Sesi</span>
+                    <p class="font-bold text-emerald-700 leading-snug"
+                      x-text="$store.landing.activeRedFlag?.interactivePreview?.evalCard?.targetMilestone || 'Pematangan respons sensori &amp; komunikasi awal'">
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Clinical Observation Notes -->
+                <div class="space-y-1.5">
+                  <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400 block font-semibold">Catatan
+                    Pengamatan Klinis:</span>
+                  <div class="border-l-2 border-amber-500 pl-3.5 py-1 bg-amber-50/30 rounded-r-lg">
+                    <p class="text-xs text-slate-700 italic leading-relaxed"
+                      x-text="'&ldquo;' + ($store.landing.activeRedFlag?.interactivePreview?.evalCard?.observationNotes || 'Anak menunjukkan respon positif terhadap stimulasi terarah.') + '&rdquo;'">
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Therapist Info Bar (Safe Fallback to Fix 'Terapis: undefined') -->
+                <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-xs border-t border-slate-100">
+                  <div class="flex items-center gap-1.5 text-slate-600">
+                    <i data-lucide="user-check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                    <span>Terapis:</span>
+                    <strong class="text-slate-800 font-semibold"
+                      x-text="$store.landing.activeRedFlag?.interactivePreview?.evalCard?.therapistName || $store.landing.activeRedFlag?.interactivePreview?.therapist || 'Tim Terapis Spesialis ESSA Kids (Resmi STR)'"></strong>
+                  </div>
+                  <span class="text-[10px] font-mono text-slate-500 bg-slate-100 px-2 py-0.5 rounded border border-slate-200"
+                    x-text="$store.landing.activeRedFlag?.interactivePreview?.evalCard?.therapistRole || 'Terapis Berlisensi STR'"></span>
+                </div>
+              </div>
+
+              <!-- 03 / HOME PROGRAM -->
+              <div class="p-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <div
+                    class="flex items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500">
+                    <span class="text-emerald-600 font-bold">03</span>
+                    <span>/</span>
+                    <span>HOME PROGRAM (10 MENIT/HARI)</span>
+                  </div>
+                  <span
+                    class="text-[10px] font-mono font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded border border-purple-200/60"
+                    x-text="$store.landing.activeRedFlag?.interactivePreview?.homeProgram?.frequency || '10 Menit / Hari'"></span>
+                </div>
+
+                <h5 class="text-xs sm:text-sm font-bold text-slate-800"
+                  x-text="$store.landing.activeRedFlag?.interactivePreview?.homeProgram?.taskName || $store.landing.activeRedFlag?.interactivePreview?.homeProgram?.title || 'Latihan Pendampingan Mandiri di Rumah'">
+                </h5>
+
+                <p class="text-xs text-slate-600 leading-relaxed"
+                  x-text="$store.landing.activeRedFlag?.interactivePreview?.homeProgram?.instruction || $store.landing.activeRedFlag?.interactivePreview?.homeProgram?.instructions || 'Ajak anak berinteraksi secara konsisten dan beri apresiasi atas setiap inisiatif gerak atau suara yang ditunjukkan.'">
+                </p>
+
+                <!-- Tips Ayah/Bunda (Safe Fallback to Fix Empty Tips Bug) -->
+                <div
+                  class="p-3 bg-slate-50 rounded-xl border border-slate-200/80 text-xs text-slate-700 flex items-start gap-2.5">
+                  <i data-lucide="lightbulb" class="w-3.5 h-3.5 text-amber-500 mt-0.5 shrink-0"></i>
+                  <div>
+                    <strong class="text-slate-800 block text-[11px] mb-0.5 font-bold uppercase tracking-wider">Tips
+                      Stimulasi Ayah/Bunda:</strong>
+                    <p class="text-xs text-slate-600 leading-relaxed"
+                      x-text="$store.landing.activeRedFlag?.interactivePreview?.homeProgram?.parentingTip || $store.landing.activeRedFlag?.interactivePreview?.homeProgram?.parentTip || $store.landing.activeRedFlag?.interactivePreview?.evalCard?.therapistFeedback || 'Lakukan stimulasi secara konsisten dalam suasana bermain yang menyenangkan tanpa paksaan.'">
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. ACTION BAR BAWAH: ARCHITECTURAL CONVERSION BAR -->
           <div
-            class="flex items-center justify-between bg-white px-5 py-3 rounded-2xl border border-slate-200 shadow-xs">
-            <div class="flex items-center gap-2">
-              <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
-              <span class="text-xs font-bold text-slate-800 uppercase tracking-wide">Live Preview Kurikulum &
-                Evaluasi</span>
-            </div>
-            <span class="text-xs text-slate-500"
-              x-text="'Kategori: ' + $store.landing.activeRedFlag?.categoryName"></span>
-          </div>
-
-          <!-- Kartu 1: Contoh Aktivitas Terapi di Klinik -->
-          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-soft card-hover space-y-3">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2.5">
-                <div class="w-9 h-9 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center">
-                  <i :data-lucide="$store.landing.activeRedFlag?.interactivePreview?.clinicActivity?.icon || 'activity'"
-                    class="w-4 h-4"></i>
-                </div>
-                <h4 class="text-sm sm:text-base font-bold text-slate-900">
-                  1. Contoh Aktivitas di Ruang Terapi
-                </h4>
+            class="bg-slate-900 text-white px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-slate-800">
+            <div class="space-y-0.5">
+              <div class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                <p class="text-xs font-bold text-slate-100">Integrasi Otomatis ke Form Booking</p>
               </div>
-              <span class="badge badge-sm badge-info font-semibold">Play-Based</span>
-            </div>
-            <h5 class="text-xs sm:text-sm font-semibold text-primary"
-              x-text="$store.landing.activeRedFlag?.interactivePreview?.clinicActivity?.title"></h5>
-            <p class="text-xs text-slate-600 leading-relaxed"
-              x-text="$store.landing.activeRedFlag?.interactivePreview?.clinicActivity?.description"></p>
-            <div class="pt-2 text-xs text-slate-500 flex items-start gap-1.5">
-              <i data-lucide="package" class="w-3.5 h-3.5 text-slate-400 mt-0.5 flex-shrink-0"></i>
-              <span><strong>Media/Alat:</strong>
-                <span x-text="$store.landing.activeRedFlag?.interactivePreview?.clinicActivity?.tools"></span></span>
-            </div>
-          </div>
-
-          <!-- Kartu 2: Contoh Kartu Laporan Evaluasi Sesi Terapis -->
-          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-soft card-hover space-y-3.5">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2.5">
-                <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                  <i data-lucide="file-text" class="w-4 h-4"></i>
-                </div>
-                <h4 class="text-sm sm:text-base font-bold text-slate-900">
-                  2. Contoh Kartu Laporan Evaluasi Sesi
-                </h4>
-              </div>
-              <span class="badge badge-sm badge-success text-white font-semibold"
-                x-text="$store.landing.activeRedFlag?.interactivePreview?.evalCard?.sessionNumber"></span>
-            </div>
-
-            <div
-              class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80">
-              <div>
-                <span class="text-slate-400 block text-[11px]">Mood & Partisipasi Anak:</span>
-                <span class="font-bold text-slate-800"
-                  x-text="$store.landing.activeRedFlag?.interactivePreview?.evalCard?.childMood"></span>
-              </div>
-              <div>
-                <span class="text-slate-400 block text-[11px]">Target Capaian Sesi:</span>
-                <span class="font-bold text-emerald-700"
-                  x-text="$store.landing.activeRedFlag?.interactivePreview?.evalCard?.targetMilestone"></span>
-              </div>
-            </div>
-
-            <div class="text-xs space-y-1.5">
-              <span class="text-slate-400 block font-semibold text-[11px]">Catatan Pengamatan Klinis:</span>
-              <p class="text-slate-700 italic bg-amber-50/60 p-2.5 rounded-xl border border-amber-200/60"
-                x-text="'&ldquo;' + $store.landing.activeRedFlag?.interactivePreview?.evalCard?.observationNotes + '&rdquo;'">
+              <p class="text-[11px] text-slate-400 leading-relaxed">
+                Kategori keluhan &amp; catatan gejala terpilih akan otomatis terisi saat pendaftaran observasi.
               </p>
             </div>
 
-            <div class="pt-2 flex items-center justify-between text-xs text-slate-500 border-t border-slate-100">
-              <span
-                x-text="'Terapis: ' + $store.landing.activeRedFlag?.interactivePreview?.evalCard?.therapistName"></span>
-              <span class="badge badge-ghost text-[10px]"
-                x-text="$store.landing.activeRedFlag?.interactivePreview?.evalCard?.therapistRole"></span>
-            </div>
-          </div>
-
-          <!-- Kartu 3: Contoh Home Program (PR Ringan di Rumah) -->
-          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-soft card-hover space-y-3">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2.5">
-                <div class="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
-                  <i data-lucide="home" class="w-4 h-4"></i>
-                </div>
-                <h4 class="text-sm sm:text-base font-bold text-slate-900">
-                  3. Contoh Home Program (10 Menit/Hari)
-                </h4>
-              </div>
-              <span class="badge badge-sm badge-secondary font-semibold"
-                x-text="$store.landing.activeRedFlag?.interactivePreview?.homeProgram?.duration"></span>
-            </div>
-            <h5 class="text-xs sm:text-sm font-semibold text-purple-900"
-              x-text="$store.landing.activeRedFlag?.interactivePreview?.homeProgram?.title"></h5>
-            <p class="text-xs text-slate-600 leading-relaxed"
-              x-text="$store.landing.activeRedFlag?.interactivePreview?.homeProgram?.instructions"></p>
-            <div
-              class="p-3 bg-purple-50/70 rounded-xl border border-purple-200/60 text-xs text-purple-950 flex items-start gap-2">
-              <i data-lucide="heart" class="w-3.5 h-3.5 text-purple-600 mt-0.5 flex-shrink-0"></i>
-              <span><strong>Tips Ayah/Bunda:</strong>
-                <span
-                  x-text="$store.landing.activeRedFlag?.interactivePreview?.homeProgram?.parentingTip"></span></span>
-            </div>
-          </div>
-
-          <!-- Tombol CTA Panel Kanan: Terapkan Hasil ke Form Booking -->
-          <div class="pt-2">
             <button type="button"
               @click="$store.landing.applyRecommendationToForm($store.landing.activeRedFlag?.recommendedService)"
-              class="btn btn-primary w-full rounded-2xl py-3.5 font-bold gap-2.5 text-sm sm:text-base shadow-soft hover:shadow-soft-hover">
-              <i data-lucide="calendar-check" class="w-5 h-5"></i>
-              <span>Gunakan Hasil Screening Ini untuk Daftar Observasi</span>
+              class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs sm:text-sm inline-flex items-center justify-center gap-2 transition-all shrink-0 cursor-pointer shadow-sm hover:shadow">
+              <span>Gunakan Hasil Screening</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </button>
-            <p class="text-[11px] text-slate-400 text-center mt-2">
-              Layanan rekomendasi dan catatan keluhan akan otomatis terisi
-              pada formulir booking di bawah.
-            </p>
           </div>
         </div>
+
       </div>
+
     </div>
   </section>
 

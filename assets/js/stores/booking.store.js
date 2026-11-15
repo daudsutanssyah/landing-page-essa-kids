@@ -144,6 +144,9 @@ export const createBookingStore = () => ({
     } else {
       this.selectedChecklist.push(signText);
     }
+    if (window.refreshIcons) {
+      window.refreshIcons();
+    }
   },
 
   /**
@@ -158,6 +161,9 @@ export const createBookingStore = () => ({
    */
   clearChecklist() {
     this.selectedChecklist = [];
+    if (window.refreshIcons) {
+      window.refreshIcons();
+    }
   },
 
   /**
