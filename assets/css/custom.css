@@ -141,3 +141,21 @@ body {
   background-color: #a7f3d0;
   color: #064e3b;
 }
+
+/* ==========================================================================
+   7. Sticky Stacking Cards (Section 3: Keunggulan)
+   ========================================================================== */
+.stacking-card {
+  position: -webkit-sticky;
+  position: sticky;
+  top: calc(5.25rem + var(--stack-index, 0) * 14px);
+  z-index: calc(10 + var(--stack-index, 0));
+  will-change: transform, top;
+}
+
+@media (min-width: 1024px) {
+  .stacking-card {
+    top: calc(6.75rem + var(--stack-index, 0) * 18px);
+  }
+}
+
